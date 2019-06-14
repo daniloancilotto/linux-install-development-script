@@ -1,2 +1,4 @@
-# development-environment
-Development Environment Scripts
+# Development Environment Scripts
+
+**Supported Systems**
+* ubuntu-amd64
