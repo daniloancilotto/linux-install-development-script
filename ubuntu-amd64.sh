@@ -17,6 +17,9 @@ fi
 sudo apt install docker-compose -y
 sudo usermod -aG docker $user
 
+# MySQL Workbench
+apt install mysql-workbench -y
+
 # Postman
 sudo snap install postman --candidate
 
@@ -28,7 +31,7 @@ then
   rm -f google-chrome-stable.deb
 fi
 
-# VSCode
+# VS Code
 sudo snap install code --classic
 code_extensions=( \
   "PKief.material-icon-theme" \
