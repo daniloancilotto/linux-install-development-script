@@ -1,8 +1,9 @@
 #!/bin/bash
 user="$(id -un 2>/dev/null || true)"
 
-# SDK
 sudo apt update
+
+# SDK
 sudo apt install git openjdk-8-jdk maven snapd curl wget -y
 sudo touch /etc/profile.d/openjdk-path.sh
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" | sudo tee /etc/profile.d/openjdk-path.sh
@@ -23,7 +24,7 @@ apt install mysql-workbench -y
 # Postman
 sudo snap install postman --candidate
 
-# Chrome
+# Google Chrome
 if [ -z "$(google-chrome --version)" ]
 then
   wget -O google-chrome-stable.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -31,7 +32,7 @@ then
   rm -f google-chrome-stable.deb
 fi
 
-# VS Code
+# Visual Studio Code
 sudo snap install code --classic
 code_extensions=( \
   "PKief.material-icon-theme" \
