@@ -2,7 +2,7 @@
 user="$(id -un 2>/dev/null || true)"
 
 # SDK
-sudo apt update -y
+sudo apt update
 sudo apt install git openjdk-8-jdk maven snapd curl wget -y
 sudo touch /etc/profile.d/openjdk-path.sh
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" | sudo tee /etc/profile.d/openjdk-path.sh
