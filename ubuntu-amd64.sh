@@ -45,9 +45,9 @@ code_extensions=( \
   "octref.vetur" \
   "vuetifyjs.vuetify-vscode" \
   "sysoev.language-stylus" \
+  "PeterJausovec.vscode-docker" \
   "msjsdiag.debugger-for-chrome" \
   "ritwickdey.LiveServer" \
-  "PeterJausovec.vscode-docker" \
 )
 i=0
 while [ $i != ${#code_extensions[@]} ]
