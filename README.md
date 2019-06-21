@@ -1,4 +1,4 @@
-# Development Environment Scripts
+# Development Environment Script
 
 **Supported Systems**
 * ubuntu-amd64
@@ -14,7 +14,7 @@
 * Docker Compose - Latest
 * MySQL Workbench - Latest
 * Postman - Latest (Snap)
-* Google Chrome - Latest (Deb)
+* Google Chrome - Latest (Dpkg)
 * Visual Studio Code - Latest (Snap)
 * Visual Studio Code Extensions - Latest:
   * Material Icon Theme
