@@ -1,13 +1,23 @@
 #!/bin/bash
 user="$(id -un 2>/dev/null || true)"
 
+# Base
 sudo apt update
+sudo apt install snapd curl wget -y
+sudo systemctl enable --now snapd.socket
 
-# SDK
-sudo apt install git openjdk-8-jdk maven snapd curl wget -y
+# Git
+sudo apt install git -y
+
+# OpenJDK
+sudo apt install openjdk-8-jdk -y
 sudo touch /etc/profile.d/openjdk-path.sh
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" | sudo tee /etc/profile.d/openjdk-path.sh
-sudo systemctl enable --now snapd.socket
+
+# Maven
+sudo apt install maven -y
+
+# Node
 sudo snap install node --channel=10/stable --classic
 
 # Docker
