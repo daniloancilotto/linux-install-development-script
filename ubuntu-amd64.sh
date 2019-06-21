@@ -11,7 +11,6 @@ sudo apt install git -y
 
 # OpenJDK
 sudo apt install openjdk-8-jdk -y
-sudo touch /etc/profile.d/openjdk-path.sh
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" | sudo tee /etc/profile.d/openjdk-path.sh
 
 # Maven
