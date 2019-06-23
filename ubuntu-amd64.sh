@@ -55,7 +55,7 @@ code_extensions=( \
   "octref.vetur" \
   "vuetifyjs.vuetify-vscode" \
   "sysoev.language-stylus" \
-  "PeterJausovec.vscode-docker" \
+  "ms-azuretools.vscode-docker" \
   "msjsdiag.debugger-for-chrome" \
   "ritwickdey.LiveServer" \
 )
