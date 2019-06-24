@@ -33,7 +33,7 @@ sudo apt install mysql-workbench -y
 
 # Postman
 sudo snap remove postman
-sudo flatpak install flathub com.getpostman.Postman
+sudo flatpak install flathub com.getpostman.Postman -y
 
 # Google Chrome
 if [ -z "$(google-chrome --version)" ]
