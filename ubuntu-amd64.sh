@@ -32,8 +32,7 @@ sudo usermod -aG docker $user
 sudo apt install mysql-workbench -y
 
 # Postman
-sudo snap remove postman
-sudo flatpak install flathub com.getpostman.Postman -y
+sudo snap install postman --candidate
 
 # Google Chrome
 if [ -z "$(google-chrome --version)" ]

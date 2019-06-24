@@ -13,7 +13,7 @@
 * Docker - Latest (Script)
 * Docker Compose - Latest
 * MySQL Workbench - Latest
-* Postman - Latest (Flatpak)
+* Postman - Latest (Snap)
 * Google Chrome - Latest (Dpkg)
 * Visual Studio Code - Latest (Snap)
 * Visual Studio Code Extensions - Latest:
