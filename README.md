@@ -10,10 +10,10 @@
 * OpenJDK - 8
 * Maven - Latest
 * Node - 10 (Snap)
-* Docker - Latest
+* Docker - Latest (Script)
 * Docker Compose - Latest
 * MySQL Workbench - Latest
-* Postman - Latest (Snap)
+* Postman - Latest (Flatpak)
 * Google Chrome - Latest (Dpkg)
 * Visual Studio Code - Latest (Snap)
 * Visual Studio Code Extensions - Latest:

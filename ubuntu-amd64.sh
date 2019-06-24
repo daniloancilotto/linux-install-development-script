@@ -3,8 +3,9 @@ user="$(id -un 2>/dev/null || true)"
 
 # Base
 sudo apt update
-sudo apt install snapd curl wget -y
+sudo apt install snapd flatpak curl wget -y
 sudo systemctl enable --now snapd.socket
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 # Git
 sudo apt install git -y
@@ -28,10 +29,11 @@ sudo apt install docker-compose -y
 sudo usermod -aG docker $user
 
 # MySQL Workbench
-apt install mysql-workbench -y
+sudo apt install mysql-workbench -y
 
 # Postman
-sudo snap install postman --candidate
+sudo snap remove postman
+sudo flatpak install flathub com.getpostman.Postman
 
 # Google Chrome
 if [ -z "$(google-chrome --version)" ]
