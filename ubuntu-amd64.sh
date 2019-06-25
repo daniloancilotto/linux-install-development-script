@@ -18,6 +18,7 @@ echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" | sudo tee /etc/profil
 sudo apt install maven -y
 
 # Node
+echo "Installing snap..."
 sudo snap install node --channel=10/stable --classic
 
 # Docker
@@ -32,6 +33,7 @@ sudo usermod -aG docker $user
 sudo apt install mysql-workbench -y
 
 # Postman
+echo "Installing snap..."
 sudo snap install postman --candidate
 
 # Google Chrome
@@ -44,6 +46,7 @@ then
 fi
 
 # Visual Studio Code
+echo "Installing snap..."
 sudo snap install code --classic
 code_extensions=( \
   "PKief.material-icon-theme" \
