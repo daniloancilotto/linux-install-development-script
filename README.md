@@ -41,5 +41,5 @@
 
 **Execution Example**
 ```shell
-sudo curl -sSL https://raw.githubusercontent.com/daniloancilotto/development-environment/master/ubuntu-amd64.sh | bash
+sudo curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloancilotto/development-environment/master/ubuntu-amd64.sh | bash
 ```

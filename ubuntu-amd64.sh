@@ -1,5 +1,5 @@
 #!/bin/bash
-user="$(id -un 2>/dev/null || true)"
+current_user="$(id -un 2>/dev/null || true)"
 
 # Base
 sudo apt update
@@ -27,7 +27,7 @@ then
   sudo curl -sSL https://get.docker.com | sh
 fi
 sudo apt install docker-compose -y
-sudo usermod -aG docker $user
+sudo usermod -aG docker $current_user
 
 # MySQL Workbench
 sudo apt install mysql-workbench -y
