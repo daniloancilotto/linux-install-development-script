@@ -1,5 +1,12 @@
 #!/bin/bash
-current_user="$(id -un 2>/dev/null || true)"
+arguments=("$@")
+
+echo "DEVELOPMENT ENVIRONMENT SCRIPT"
+echo "Author: Danilo Ancilotto"
+echo "User: $USER"
+echo "Home: $HOME"
+echo "Desktop: $DESKTOP_SESSION"
+echo "Arguments: [$arguments]"
 
 # Base
 sudo apt update
@@ -24,7 +31,7 @@ then
   sudo curl -sSL https://get.docker.com | sh
 fi
 sudo apt install docker-compose -y
-sudo usermod -aG docker $current_user
+sudo usermod -aG docker $USER
 
 # MySQL Workbench
 sudo apt install mysql-workbench -y
@@ -36,9 +43,9 @@ sudo snap install postman --candidate
 # Google Chrome
 if [ -z "$(google-chrome --version)" ]
 then
-  wget -O google-chrome-stable.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  sudo dpkg -i google-chrome-stable.deb
-  rm -f google-chrome-stable.deb
+  wget -O $HOME/google-chrome-stable.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  sudo dpkg -i $HOME/google-chrome-stable.deb
+  rm -f $HOME/google-chrome-stable.deb
   sudo apt install -fy
 fi
 
