@@ -3,12 +3,9 @@ current_user="$(id -un 2>/dev/null || true)"
 
 # Base
 sudo apt update
-sudo apt install snapd flatpak curl wget -y
+sudo apt install snapd flatpak curl wget git -y
 sudo systemctl enable --now snapd.socket
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-
-# Git
-sudo apt install git -y
 
 # OpenJDK
 sudo apt install openjdk-8-jdk -y
@@ -18,7 +15,7 @@ echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" | sudo tee /etc/profil
 sudo apt install maven -y
 
 # Node
-echo "Installing snap..."
+echo "Installing node snap..."
 sudo snap install node --channel=10/stable --classic
 
 # Docker
@@ -33,7 +30,7 @@ sudo usermod -aG docker $current_user
 sudo apt install mysql-workbench -y
 
 # Postman
-echo "Installing snap..."
+echo "Installing postman snap..."
 sudo snap install postman --candidate
 
 # Google Chrome
@@ -46,7 +43,7 @@ then
 fi
 
 # Visual Studio Code
-echo "Installing snap..."
+echo "Installing code snap..."
 sudo snap install code --classic
 code_extensions=( \
   "PKief.material-icon-theme" \
@@ -68,6 +65,7 @@ i=0
 while [ $i != ${#code_extensions[@]} ]
 do
   /snap/bin/code --install-extension ${code_extensions[$i]}
+  
   let "i++"
 done
 

@@ -1,12 +1,17 @@
 # Development Environment Script
 
-**Supported Systems**
-* ubuntu-amd64
+### Supported Systems
+* Ubuntu 18.04 - amd64
 
 <br/>
 
-**Install Applications**
-* Git - Latest
+### Install Applications
+* Base - Latest
+  * Snap
+  * Flatpak
+  * Curl
+  * Wget
+  * Git
 * OpenJDK - 8
 * Maven - Latest
 * Node - 10 (Snap)
@@ -34,12 +39,12 @@
 
 <br/>
 
-**Add Environment Variables**
+### Add Environment Variables
 * JAVA_HOME
 
 <br/>
 
-**Execution Example**
+# Execution Example
 ```shell
 sudo curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloancilotto/development-environment/master/ubuntu-amd64.sh | bash
 ```
