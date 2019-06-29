@@ -1,22 +1,31 @@
 #!/bin/bash
-arguments=("$@")
+args=("$@")
 
 echo "DEVELOPMENT ENVIRONMENT SCRIPT"
 echo "Author: Danilo Ancilotto"
 echo "User: $USER"
 echo "Home: $HOME"
 echo "Desktop: $DESKTOP_SESSION"
-echo "Arguments: [$arguments]"
+echo "Args: [$args]"
+
+# Functions
+dpkgInstall() {
+  file="$HOME/$1"
+  wget -O "$file" "$2"
+  sudo dpkg -i "$file"
+  rm -fv "$file"
+  sudo apt install -fy
+}
 
 # Base
 sudo apt update
 sudo apt install snapd flatpak curl wget git -y
 sudo systemctl enable --now snapd.socket
-sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+sudo flatpak remote-add --if-not-exists flathub "https://dl.flathub.org/repo/flathub.flatpakrepo"
 
 # OpenJDK
 sudo apt install openjdk-8-jdk -y
-echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" | sudo tee /etc/profile.d/openjdk-path.sh
+echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" | sudo tee "/etc/profile.d/openjdk-path.sh"
 
 # Maven
 sudo apt install maven -y
@@ -28,7 +37,7 @@ sudo snap install node --channel=10/stable --classic
 # Docker
 if [ -z "$(docker --version)" ]
 then
-  sudo curl -sSL https://get.docker.com | sh
+  sudo curl -sSL "https://get.docker.com" | sh
 fi
 sudo apt install docker-compose -y
 sudo usermod -aG docker $USER
@@ -43,10 +52,7 @@ sudo snap install postman --candidate
 # Google Chrome
 if [ -z "$(google-chrome --version)" ]
 then
-  wget -O $HOME/google-chrome-stable.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  sudo dpkg -i $HOME/google-chrome-stable.deb
-  rm -f $HOME/google-chrome-stable.deb
-  sudo apt install -fy
+  dpkgInstall "google-chrome.deb" "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 fi
 
 # Visual Studio Code
@@ -71,7 +77,7 @@ code_extensions=( \
 i=0
 while [ $i != ${#code_extensions[@]} ]
 do
-  /snap/bin/code --install-extension ${code_extensions[$i]}
+  /snap/bin/code --install-extension "${code_extensions[$i]}"
   
   let "i++"
 done
