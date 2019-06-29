@@ -1,12 +1,18 @@
 #!/bin/bash
 args=("$@")
+arch="amd64"
+if [ "$(uname -m)" != "x86_64" ]
+then
+  arch="i386"
+fi
 
 echo "DEVELOPMENT ENVIRONMENT SCRIPT"
-echo "Author: Danilo Ancilotto"
+echo "Args: [$args]"
+echo "Arch: $arch"
+echo "Desktop: $DESKTOP_SESSION"
 echo "User: $USER"
 echo "Home: $HOME"
-echo "Desktop: $DESKTOP_SESSION"
-echo "Args: [$args]"
+echo "Author: Danilo Ancilotto"
 
 # Functions
 dpkgInstall() {
@@ -19,13 +25,13 @@ dpkgInstall() {
 
 # Base
 sudo apt update
-sudo apt install snapd flatpak curl wget git -y
+sudo apt install snapd flatpak curl wget git unzip tar neofetch htop -y
 sudo systemctl enable --now snapd.socket
 sudo flatpak remote-add --if-not-exists flathub "https://dl.flathub.org/repo/flathub.flatpakrepo"
 
 # OpenJDK
 sudo apt install openjdk-8-jdk -y
-echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" | sudo tee "/etc/profile.d/openjdk-path.sh"
+echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-$arch" | sudo tee "/etc/profile.d/openjdk-path.sh"
 
 # Maven
 sudo apt install maven -y
@@ -52,7 +58,7 @@ sudo snap install postman --candidate
 # Google Chrome
 if [ -z "$(google-chrome --version)" ]
 then
-  dpkgInstall "google-chrome.deb" "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+  dpkgInstall "google-chrome.deb" "https://dl.google.com/linux/direct/google-chrome-stable_current_$arch.deb"
 fi
 
 # Visual Studio Code

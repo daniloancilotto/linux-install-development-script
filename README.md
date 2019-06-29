@@ -1,9 +1,8 @@
 # Development Environment Script
 
 ### Supported Systems
-* Ubuntu 18.04 - amd64
-
-<br/>
+* [Linux Mint - 19.1](https://linuxmint.com/)
+  * Cinnamon - 4.0.10
 
 ### Install Applications
 * Base - Latest
@@ -12,16 +11,20 @@
   * Curl
   * Wget
   * Git
+  * Unzip
+  * Tar
+  * Neofetch
+  * Htop
 * OpenJDK - 8
 * Maven - Latest
-* Node - 10 (Snap)
-* Docker - Latest (Script)
+* [Node - 10 (Snap)](https://snapcraft.io/node)
+* [Docker - Latest (Script)](https://www.docker.com/)
 * Docker Compose - Latest
 * MySQL Workbench - Latest
-* Postman - Latest (Snap)
-* Google Chrome - Latest (Dpkg)
-* Visual Studio Code - Latest (Snap)
-* Visual Studio Code Extensions - Latest:
+* [Postman - Latest (Snap)](https://snapcraft.io/postman)
+* [Google Chrome - Latest (Dpkg)](https://www.google.com/chrome/)
+* [Visual Studio Code - Latest (Snap)](https://snapcraft.io/code)
+* Visual Studio Code Extensions - Latest
   * Material Icon Theme
   * Bracket Pair Colorizer
   * Beautify
@@ -37,14 +40,12 @@
   * Debugger for Chrome
   * Live Server
 
-<br/>
-
 ### Add Environment Variables
-* JAVA_HOME
+* $JAVA_HOME
 
 <br/>
 
 # Execution Example
 ```shell
-sudo curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloancilotto/development-environment/master/ubuntu-amd64.sh | bash
+sudo curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloancilotto/development-environment/master/linuxmint.sh | bash
 ```
