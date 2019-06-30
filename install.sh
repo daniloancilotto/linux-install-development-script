@@ -7,9 +7,9 @@ then
 fi
 
 echo "DEVELOPMENT ENVIRONMENT SCRIPT"
-echo "Args: [$args]"
-echo "Arch: $arch"
-echo "Desktop: $DESKTOP_SESSION"
+echo "Arguments: [$args]"
+echo "Architecture: $arch"
+echo "Interface: $DESKTOP_SESSION"
 echo "User: $USER"
 echo "Home: $HOME"
 echo "Author: Danilo Ancilotto"

@@ -47,5 +47,5 @@
 
 # Execution Example
 ```shell
-sudo curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloancilotto/development-environment/master/linuxmint.sh | bash
+sudo curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloancilotto/development-environment-script/master/install.sh | bash
 ```
