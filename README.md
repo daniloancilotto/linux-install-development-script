@@ -4,8 +4,14 @@
 * [Linux Mint - 19.1](https://linuxmint.com/)
   * Cinnamon - 4.0.10
 
+### Supported Architectures
+* Fully Supported
+  * amd64 (64-bit)
+* Partially supported
+  * i386 (32-bit)
+
 ### Install Applications
-* Base - Latest
+* Base Applications - Latest
   * Snap
   * Flatpak
   * Curl
