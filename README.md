@@ -7,7 +7,7 @@
 ### Supported Architectures
 * Fully Supported
   * amd64 (64-bit)
-* Partially supported
+* Partially Supported
   * i386 (32-bit)
 
 ### Install Applications
@@ -52,6 +52,7 @@
 <br/>
 
 # Execution Example
+
 ```shell
 sudo curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloancilotto/development-environment-script/master/install.sh | bash
 ```
