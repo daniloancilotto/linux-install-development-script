@@ -88,10 +88,11 @@ do
   let "i++"
 done
 
+echo "Changing code configuration..."
 file="$HOME/.config/Code/User/settings.json"
 if [ ! -f "$file" ]
 then
-  touch "$HOME/.config/Code/User/settings.json"
+  echo "{}" | tee "$HOME/.config/Code/User/settings.json"
 fi
 json="`cat "$file"`"
 json="`echo "$json" | jq '."workbench.iconTheme"="material-icon-theme"'`"
@@ -108,6 +109,7 @@ json="`echo "$json" | jq '."liveServer.settings.donotShowInfoMsg"=true'`"
 json="`echo "$json" | jq '."java.configuration.checkProjectSettingsExclusions"=false'`"
 json="`echo "$json" | jq '."java.configuration.updateBuildConfiguration"="automatic"'`"
 echo "$json" > "$file"
+echo "code configuration changed"
 
 # Reboot
 echo "Done, please reboot your system."
