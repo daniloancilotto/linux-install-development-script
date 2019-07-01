@@ -88,5 +88,26 @@ do
   let "i++"
 done
 
+file="$HOME/.config/Code/User/settings.json"
+if [ ! -f "$file" ]
+then
+  touch "$HOME/.config/Code/User/settings.json"
+fi
+json="`cat "$file"`"
+json="`echo "$json" | jq '."workbench.iconTheme"="material-icon-theme"'`"
+json="`echo "$json" | jq '."workbench.startupEditor"="none"'`"
+json="`echo "$json" | jq '."editor.minimap.enabled"=false'`"
+json="`echo "$json" | jq '."editor.suggestSelection"="first"'`"
+json="`echo "$json" | jq '."extensions.showRecommendationsOnlyOnDemand"=true'`"
+json="`echo "$json" | jq '."terminal.integrated.fontSize"=13'`"
+json="`echo "$json" | jq '."debug.console.fontSize"=13'`"
+json="`echo "$json" | jq '."debug.internalConsoleOptions"="neverOpen"'`"
+json="`echo "$json" | jq '."debug.openDebug"="neverOpen"'`"
+json="`echo "$json" | jq '."debug.showInStatusBar"="never"'`"
+json="`echo "$json" | jq '."liveServer.settings.donotShowInfoMsg"=true'`"
+json="`echo "$json" | jq '."java.configuration.checkProjectSettingsExclusions"=false'`"
+json="`echo "$json" | jq '."java.configuration.updateBuildConfiguration"="automatic"'`"
+echo "$json" > "$file"
+
 # Reboot
 echo "Done, please reboot your system."

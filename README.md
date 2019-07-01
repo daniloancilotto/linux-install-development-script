@@ -47,8 +47,13 @@
   * Debugger for Chrome
   * Live Server
 
-### Add Environment Variables
-* $JAVA_HOME
+### Change Configurations
+* OpenJDK
+  * Environment Variables
+    * $JAVA_HOME
+* Visual Studio Code
+  * Json
+    * ~/.config/Code/User/settings.json
 
 <br/>
 
