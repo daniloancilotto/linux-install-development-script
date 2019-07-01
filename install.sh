@@ -25,7 +25,7 @@ dpkgInstall() {
 
 # Base
 sudo apt update
-sudo apt install snapd flatpak curl wget git unzip tar neofetch htop -y
+sudo apt install snapd flatpak curl wget git unzip tar jq neofetch htop -y
 sudo systemctl enable --now snapd.socket
 sudo flatpak remote-add --if-not-exists flathub "https://dl.flathub.org/repo/flathub.flatpakrepo"
 

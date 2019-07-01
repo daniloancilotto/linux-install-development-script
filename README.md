@@ -2,7 +2,7 @@
 
 ### Supported Systems
 * [Linux Mint - 19.1](https://linuxmint.com/)
-  * Cinnamon - 4.0.10
+  * Cinnamon - 4.0
 
 ### Supported Architectures
 * Fully Supported
@@ -19,6 +19,7 @@
   * Git
   * Unzip
   * Tar
+  * Jq
   * Neofetch
   * Htop
 * OpenJDK - 8
