@@ -1,7 +1,7 @@
 #!/bin/bash
 args=("$@")
 arch="amd64"
-if [ "$(uname -m)" != "x86_64" ]
+if [ "`uname -m`" != "x86_64" ]
 then
   arch="i386"
 fi
@@ -41,7 +41,7 @@ dpkgInstall() {
   sudo apt install -fy
 }
 
-printLine "Base Applications"
+printLine "Base"
 sudo apt update
 sudo apt install snapd flatpak curl wget git unzip tar jq neofetch htop -y
 sudo systemctl enable --now snapd.socket
@@ -59,11 +59,11 @@ echo "Running snap..."
 sudo snap install node --channel=10/stable --classic
 
 printLine "Docker"
-if [ -z "$(docker --version)" ]
+if [ -z "`docker --version`" ]
 then
   sudo curl -sSL "https://get.docker.com" | sh
 else
-  echo "Docker is already installed"
+  echo "docker is already installed"
 fi
 sudo apt install docker-compose -y
 sudo usermod -aG docker $USER
@@ -76,17 +76,18 @@ echo "Running snap..."
 sudo snap install postman --candidate
 
 printLine "Google Chrome"
-if [ -z "$(google-chrome --version)" ]
+if [ -z "`google-chrome --version`" ]
 then
   dpkgInstall "google-chrome.deb" "https://dl.google.com/linux/direct/google-chrome-stable_current_$arch.deb"
 else
-  echo "Google Chrome is already installed"
+  echo "google-chrome is already installed"
 fi
 
 printLine "Visual Studio Code"
 
 echo "Running snap..."
 sudo snap install code --classic
+
 code_extensions=( \
   "PKief.material-icon-theme" \
   "CoenraadS.bracket-pair-colorizer" \

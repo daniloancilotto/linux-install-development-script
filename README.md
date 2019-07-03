@@ -10,8 +10,8 @@
 * Partially Supported
   * i386 (32-bit)
 
-### Install Applications
-* Base Applications - Latest
+### Install
+* Base - Latest
   * Snap
   * Flatpak
   * Curl
@@ -23,36 +23,32 @@
   * Neofetch
   * Htop
 * OpenJDK - 8
+  * Environment Variables
+    * $JAVA_HOME
 * Maven - Latest
 * [Node - 10 (Snap)](https://snapcraft.io/node)
 * [Docker - Latest (Script)](https://www.docker.com/)
-* Docker Compose - Latest
+  * Compose - Latest
 * MySQL Workbench - Latest
 * [Postman - Latest (Snap)](https://snapcraft.io/postman)
 * [Google Chrome - Latest (Dpkg)](https://www.google.com/chrome/)
 * [Visual Studio Code - Latest (Snap)](https://snapcraft.io/code)
-* Visual Studio Code Extensions - Latest
-  * Material Icon Theme
-  * Bracket Pair Colorizer
-  * Beautify
-  * Version Lens
-  * GitLens — Git supercharged
-  * Java Extension Pack
-  * Spring Boot Tools
-  * Lombok Annotations Support for VS Code
-  * Vetur
-  * vuetify-vscode
-  * language-stylus
-  * Docker
-  * Debugger for Chrome
-  * Live Server
-
-### Change Configurations
-* OpenJDK
-  * Environment Variables
-    * $JAVA_HOME
-* Visual Studio Code
-  * Json
+  * Extensions - Latest
+    * Material Icon Theme
+    * Bracket Pair Colorizer
+    * Beautify
+    * Version Lens
+    * GitLens — Git supercharged
+    * Java Extension Pack
+    * Spring Boot Tools
+    * Lombok Annotations Support for VS Code
+    * Vetur
+    * vuetify-vscode
+    * language-stylus
+    * Docker
+    * Debugger for Chrome
+    * Live Server
+  * Settings
     * ~/.config/Code/User/settings.json
 
 <br/>
