@@ -14,7 +14,25 @@ echo "User: $USER"
 echo "Home: $HOME"
 echo "Author: Danilo Ancilotto"
 
-# Functions
+printLine() {
+  text="$1"
+  if [ ! -z "$text" ]
+  then
+    text="$text "
+  fi
+  lenght=${#text}
+  sudo echo ""
+  echo -n "$text"
+  for i in {1..80}
+  do
+    if [ $i -gt $lenght ]
+    then
+      echo -n "="
+    fi
+  done
+  echo ""
+}
+
 dpkgInstall() {
   file="$HOME/$1"
   wget -O "$file" "$2"
@@ -23,44 +41,52 @@ dpkgInstall() {
   sudo apt install -fy
 }
 
-# Base
+printLine "Base Applications"
 sudo apt update
 sudo apt install snapd flatpak curl wget git unzip tar jq neofetch htop -y
 sudo systemctl enable --now snapd.socket
 sudo flatpak remote-add --if-not-exists flathub "https://dl.flathub.org/repo/flathub.flatpakrepo"
 
-# OpenJDK
+printLine "OpenJDK"
 sudo apt install openjdk-8-jdk -y
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-$arch" | sudo tee "/etc/profile.d/openjdk-path.sh"
 
-# Maven
+printLine "Maven"
 sudo apt install maven -y
 
-# Node
-sudo script -q -c "snap install node --channel=10/stable --classic"
+printLine "Node"
+echo "Running snap..."
+sudo snap install node --channel=10/stable --classic
 
-# Docker
+printLine "Docker"
 if [ -z "$(docker --version)" ]
 then
   sudo curl -sSL "https://get.docker.com" | sh
+else
+  echo "Docker is already installed"
 fi
 sudo apt install docker-compose -y
 sudo usermod -aG docker $USER
 
-# MySQL Workbench
+printLine "MySQL Workbench"
 sudo apt install mysql-workbench -y
 
-# Postman
-sudo script -q -c "snap install postman --candidate"
+printLine "Postman"
+echo "Running snap..."
+sudo snap install postman --candidate
 
-# Google Chrome
+printLine "Google Chrome"
 if [ -z "$(google-chrome --version)" ]
 then
   dpkgInstall "google-chrome.deb" "https://dl.google.com/linux/direct/google-chrome-stable_current_$arch.deb"
+else
+  echo "Google Chrome is already installed"
 fi
 
-# Visual Studio Code
-sudo script -q -c "snap install code --classic"
+printLine "Visual Studio Code"
+
+echo "Running snap..."
+sudo snap install code --classic
 code_extensions=( \
   "PKief.material-icon-theme" \
   "CoenraadS.bracket-pair-colorizer" \
@@ -85,7 +111,6 @@ do
   let "i++"
 done
 
-echo "Changing code configuration..."
 file="$HOME/.config/Code/User/settings.json"
 touch "$file"
 if [ -f "$file" ]
@@ -110,7 +135,7 @@ then
   json="`echo "$json" | jq '."java.configuration.updateBuildConfiguration"="automatic"'`"
   echo "$json" > "$file"
 fi
-echo "code configuration changed"
 
-# Reboot
+printLine "Finished"
 echo "Done, please reboot your system."
+echo ""
