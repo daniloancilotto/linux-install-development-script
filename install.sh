@@ -37,7 +37,7 @@ echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-$arch" | sudo tee "/etc/profi
 sudo apt install maven -y
 
 # Node
-sudo snap install node --channel=10/stable --classic
+sudo script -q -c "snap install node --channel=10/stable --classic"
 
 # Docker
 if [ -z "$(docker --version)" ]
@@ -51,7 +51,7 @@ sudo usermod -aG docker $USER
 sudo apt install mysql-workbench -y
 
 # Postman
-sudo snap install postman --candidate
+sudo script -q -c "snap install postman --candidate"
 
 # Google Chrome
 if [ -z "$(google-chrome --version)" ]
@@ -60,7 +60,7 @@ then
 fi
 
 # Visual Studio Code
-sudo snap install code --classic
+sudo script -q -c "snap install code --classic"
 code_extensions=( \
   "PKief.material-icon-theme" \
   "CoenraadS.bracket-pair-colorizer" \
