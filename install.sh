@@ -41,7 +41,7 @@ dpkgInstall() {
   sudo apt install -fy
 }
 
-printLine "Base"
+printLine "Base Apps"
 sudo apt update
 sudo apt install snapd flatpak curl wget git unzip tar jq neofetch htop -y
 sudo systemctl enable --now snapd.socket

@@ -5,15 +5,15 @@
   * Cinnamon - 4.0
 
 ### Supported Architectures
-* Fully Supported
-  * amd64 (64-bit)
-* Partially Supported
-  * i386 (32-bit)
+* amd64 (64-bit)
+* i386 (32-bit) - PARTIALLY SUPPORTED
 
-### Install
-* Base - Latest
-  * Snap
-  * Flatpak
+### Install Apps
+* Base Apps - Latest
+  * [Snap](https://snapcraft.io/store)
+  * [Flatpak](https://flathub.org/home)
+    * Repositories
+      * Flathub
   * Curl
   * Wget
   * Git
@@ -29,6 +29,8 @@
 * [Node - 10 (Snap)](https://snapcraft.io/node)
 * [Docker - Latest (Script)](https://www.docker.com/)
   * Compose - Latest
+  * User Groups
+    * docker
 * MySQL Workbench - Latest
 * [Postman - Latest (Snap)](https://snapcraft.io/postman)
 * [Google Chrome - Latest (Dpkg)](https://www.google.com/chrome/)
@@ -48,8 +50,9 @@
     * Docker
     * Debugger for Chrome
     * Live Server
-  * Settings
-    * ~/.config/Code/User/settings.json
+  * User Configurations
+    * Json
+      * ~/.config/Code/User/settings.json
 
 <br/>
 
