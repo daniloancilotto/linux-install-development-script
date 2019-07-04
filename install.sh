@@ -7,12 +7,12 @@ then
 fi
 
 echo "DEVELOPMENT ENVIRONMENT SCRIPT"
+echo "Author: Danilo Ancilotto"
 echo "Arguments: [$args]"
 echo "Architecture: $arch"
 echo "Interface: $DESKTOP_SESSION"
 echo "User: $USER"
 echo "Home: $HOME"
-echo "Author: Danilo Ancilotto"
 
 printLine() {
   text="$1"
@@ -136,6 +136,8 @@ then
   json="`echo "$json" | jq '."java.configuration.updateBuildConfiguration"="automatic"'`"
   echo "$json" > "$file"
 fi
+
+echo "code have been configured"
 
 printLine "Finished"
 echo "Done, please reboot your system."
