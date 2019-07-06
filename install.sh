@@ -11,8 +11,8 @@ echo "Author: Danilo Ancilotto"
 echo "Arguments: [$args]"
 echo "Architecture: $arch"
 echo "Interface: $DESKTOP_SESSION"
-echo "User: $USER"
 echo "Home: $HOME"
+echo "User: $USER"
 
 printLine() {
   text="$1"
@@ -43,7 +43,7 @@ dpkgInstall() {
 
 printLine "Base Apps"
 sudo apt update
-sudo apt install snapd flatpak curl wget git unzip tar jq neofetch htop -y
+sudo apt install curl wget git unzip tar jq neofetch htop snapd flatpak -y
 sudo systemctl enable --now snapd.socket
 sudo flatpak remote-add --if-not-exists flathub "https://dl.flathub.org/repo/flathub.flatpakrepo"
 

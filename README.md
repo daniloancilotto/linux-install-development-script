@@ -10,10 +10,6 @@
 
 ### Install Apps
 * Base Apps - Latest
-  * [Snap](https://snapcraft.io/store)
-  * [Flatpak](https://flathub.org/home)
-    * Repositories
-      * Flathub
   * Curl
   * Wget
   * Git
@@ -22,6 +18,10 @@
   * Jq
   * Neofetch
   * Htop
+  * [Snap](https://snapcraft.io/store)
+  * [Flatpak](https://flathub.org/home)
+    * Repositories
+      * Flathub
 * OpenJDK - 8
   * Environment Variables
     * $JAVA_HOME
