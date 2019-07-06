@@ -6,7 +6,7 @@
 
 ### Supported Architectures
 * amd64 (64-bit)
-* i386 (32-bit) - PARTIALLY SUPPORTED
+* i386 (32-bit) - Partially
 
 ### Install Apps
 * Base Apps - Latest
@@ -18,6 +18,7 @@
   * Jq
   * Neofetch
   * Htop
+* App Hubs - Latest
   * [Snap](https://snapcraft.io/store)
   * [Flatpak](https://flathub.org/home)
     * Repositories
@@ -58,6 +59,6 @@
 
 # Execution Example
 
-```shell
+```bash
 curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloancilotto/development-environment-script/master/install.sh | bash
 ```
