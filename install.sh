@@ -142,6 +142,17 @@ fi
 
 echo "code have been configured"
 
+printLine "Skype"
+sudo apt install skypeforlinux -y
+
+printLine "Zoiper"
+if [ ! -f "/usr/bin/zoiper5" ]
+then
+  dpkgInstall "zoiper5.deb" "https://www.dropbox.com/s/dojmaltc6kanlrt/zoiper5_5.2.28_$arch.deb"
+else
+  echo "zoiper5 is already installed"
+fi
+
 printLine "Finished"
 echo "Done, please reboot your system."
 echo ""
