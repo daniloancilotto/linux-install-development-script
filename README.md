@@ -54,7 +54,7 @@
   * User Configurations
     * Json
       * ~/.config/Code/User/settings.json
-* Skype -Latest
+* Skype - Latest
 * [Zoiper - 5.2.28](https://www.zoiper.com/)
 
 <br/>
