@@ -146,6 +146,7 @@ printLine "Skype"
 sudo apt install skypeforlinux -y
 
 printLine "Slack"
+echo "Running snap..."
 sudo snap install slack --classic
 
 printLine "Zoiper"
