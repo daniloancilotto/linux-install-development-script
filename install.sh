@@ -145,6 +145,9 @@ echo "code have been configured"
 printLine "Skype"
 sudo apt install skypeforlinux -y
 
+printLine "Slack"
+sudo snap install slack --classic
+
 printLine "Zoiper"
 if [ ! -f "/usr/bin/zoiper5" ]
 then

@@ -55,6 +55,7 @@
     * Json
       * ~/.config/Code/User/settings.json
 * Skype - Latest
+* [Slack - Latest (Snap)](https://snapcraft.io/slack)
 * [Zoiper - 5.2.28](https://www.zoiper.com/)
 
 <br/>
