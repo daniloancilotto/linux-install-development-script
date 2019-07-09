@@ -146,8 +146,7 @@ printLine "Skype"
 sudo apt install skypeforlinux -y
 
 printLine "Slack"
-echo "Running snap..."
-sudo snap install slack --classic
+sudo flatpak install flathub com.slack.Slack -y
 
 printLine "Zoiper"
 if [ ! -f "/usr/bin/zoiper5" ]
