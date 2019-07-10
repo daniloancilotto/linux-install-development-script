@@ -142,12 +142,6 @@ fi
 
 echo "code have been configured"
 
-printLine "Skype"
-sudo apt install skypeforlinux -y
-
-printLine "Slack"
-sudo flatpak install flathub com.slack.Slack -y
-
 printLine "Zoiper"
 if [ ! -f "/usr/bin/zoiper5" ]
 then
