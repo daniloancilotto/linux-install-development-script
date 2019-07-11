@@ -55,6 +55,9 @@
     * Json
       * ~/.config/Code/User/settings.json
 * [Slack - 3.4.2 (Dpkg)](https://slack.com/)
+  * User Configurations
+    * Desktop
+      * ~/.config/autostart/slack.desktop
 * [Zoiper - 5.2.28 (Dpkg)](https://www.zoiper.com/)
 
 <br/>

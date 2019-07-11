@@ -149,6 +149,7 @@ then
 else
   echo "slack is already installed"
 fi
+sed -i 's/\/usr\/bin\/slack %U/\/usr\/bin\/slack -u %U/g' "$HOME/.config/autostart/slack.desktop"
 
 printLine "Zoiper"
 if [ ! -f "/usr/bin/zoiper5" ]
