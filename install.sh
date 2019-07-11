@@ -58,7 +58,7 @@ printLine "Maven"
 sudo apt install maven -y
 
 printLine "Node"
-echo "Running snap..."
+echo "Running snap, please wait..."
 sudo snap install node --channel=10/stable --classic
 
 printLine "Docker"
@@ -75,7 +75,7 @@ printLine "MySQL Workbench"
 sudo apt install mysql-workbench -y
 
 printLine "Postman"
-echo "Running snap..."
+echo "Running snap, please wait..."
 sudo snap install postman --candidate
 
 printLine "Google Chrome"
@@ -88,7 +88,7 @@ fi
 
 printLine "Visual Studio Code"
 
-echo "Running snap..."
+echo "Running snap, please wait..."
 sudo snap install code --classic
 
 code_extensions=( \
