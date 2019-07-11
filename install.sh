@@ -142,6 +142,14 @@ fi
 
 echo "code have been configured"
 
+printLine "Slack"
+if [ -z "`slack --version`" ]
+then
+  dpkgInstall "slack.deb" "https://downloads.slack-edge.com/linux_releases/slack-desktop-3.4.2-$arch.deb"
+else
+  echo "slack is already installed"
+fi
+
 printLine "Zoiper"
 if [ ! -f "/usr/bin/zoiper5" ]
 then
