@@ -143,13 +143,33 @@ fi
 echo "code have been configured"
 
 printLine "Slack"
-if [ -z "`slack --version`" ]
+
+if [ ! -f "/usr/bin/slack" ]
 then
   dpkgInstall "slack.deb" "https://downloads.slack-edge.com/linux_releases/slack-desktop-3.4.2-$arch.deb"
 else
   echo "slack is already installed"
 fi
-sed -i 's/\/usr\/bin\/slack %U/\/usr\/bin\/slack -u %U/g' "$HOME/.config/autostart/slack.desktop"
+
+file="$HOME/.config/autostart/slack.desktop"
+if [ ! -f "$file" ]
+then
+  conf=$'[Desktop Entry]\n'
+  conf+=$'Name=Slack\n'
+  conf+=$'Comment=Slack Desktop\n'
+  conf+=$'GenericName=Slack Client for Linux\n'
+  conf+=$'Exec=/usr/bin/slack --startup %U\n'
+  conf+=$'Icon=/usr/share/pixmaps/slack.png\n'
+  conf+=$'Type=Application\n'
+  conf+=$'StartupNotify=true\n'
+  conf+=$'Categories=GNOME;GTK;Network;InstantMessaging;\n'
+  conf+=$'MimeType=x-scheme-handler/slack;\n'
+  echo "$conf" > "$file"
+else
+  sed -i 's/\/usr\/bin\/slack %U/\/usr\/bin\/slack --startup %U/g' "$file"
+fi
+
+echo "slack have been configured"
 
 printLine "Zoiper"
 if [ ! -f "/usr/bin/zoiper5" ]
