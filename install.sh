@@ -144,7 +144,7 @@ echo "code have been configured"
 
 printLine "Slack"
 
-if [ ! -f "/usr/bin/slack" ]
+if [ -z "`slack --version`" ]
 then
   dpkgInstall "slack.deb" "https://downloads.slack-edge.com/linux_releases/slack-desktop-3.4.2-$arch.deb"
 else
@@ -172,12 +172,29 @@ fi
 echo "slack have been configured"
 
 printLine "Zoiper"
-if [ ! -f "/usr/bin/zoiper5" ]
+
+if [ ! -f "/usr/local/applications/Zoiper5/zoiper" ]
 then
   dpkgInstall "zoiper5.deb" "https://www.dropbox.com/s/dojmaltc6kanlrt/zoiper5_5.2.28_$arch.deb"
 else
   echo "zoiper5 is already installed"
 fi
+
+file="$HOME/.config/autostart/Zoiper5.desktop"
+if [ ! -f "$file" ]
+then
+  conf=$'[Desktop Entry]\n'
+  conf+=$'Encoding=UTF-8\n'
+  conf+=$'Name=Zoiper5\n'
+  conf+=$'Comment=VoIP Softphone\n'
+  conf+=$'Exec=/usr/local/applications/Zoiper5/zoiper\n'
+  conf+=$'Terminal=false\n'
+  conf+=$'Icon=\n'
+  conf+=$'Type=Application\n'
+  echo "$conf" > "$file"
+fi
+
+echo "zoiper5 have been configured"
 
 printLine "Finished"
 echo "Done, please reboot your system."
