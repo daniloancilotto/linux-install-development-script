@@ -58,7 +58,7 @@
   * User Configurations
     * Desktop
       * ~/.config/autostart/slack.desktop
-* [Zoiper - 5.2.28 (Dpkg)](https://www.zoiper.com/)
+* [Zoiper5 - 5.2.28 (Dpkg)](https://www.zoiper.com/)
 
 <br/>
 

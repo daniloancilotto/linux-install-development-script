@@ -10,7 +10,7 @@ echo "DEVELOPMENT ENVIRONMENT SCRIPT"
 echo "Author: Danilo Ancilotto"
 echo "Arguments: [$args]"
 echo "Architecture: $arch"
-echo "Interface: $DESKTOP_SESSION"
+echo "Desktop: $DESKTOP_SESSION"
 echo "Home: $HOME"
 echo "User: $USER"
 
@@ -171,7 +171,7 @@ fi
 
 echo "slack have been configured"
 
-printLine "Zoiper"
+printLine "Zoiper5"
 
 if [ ! -f "/usr/local/applications/Zoiper5/zoiper" ]
 then
@@ -189,9 +189,16 @@ then
   conf+=$'Comment=VoIP Softphone\n'
   conf+=$'Exec=/usr/local/applications/Zoiper5/zoiper\n'
   conf+=$'Terminal=false\n'
-  conf+=$'Icon=\n'
+  conf+=$'Icon=/usr/share/pixmaps/zoiper5.png\n'
   conf+=$'Type=Application\n'
   echo "$conf" > "$file"
+else
+  sed -i 's/Icon=\n/Icon=\/usr\/share\/pixmaps\/zoiper5.png/g' "$file"
+fi
+file="/usr/share/applications/zoiper5.desktop"
+if [ -f "$file" ]
+then
+  sudo sed -i 's/Name=zoiper5/Name=Zoiper5/g' "$file"
 fi
 
 echo "zoiper5 have been configured"
