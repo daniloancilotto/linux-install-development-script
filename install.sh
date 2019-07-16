@@ -193,7 +193,7 @@ then
   conf+=$'Type=Application\n'
   echo "$conf" > "$file"
 else
-  sed -i 's/Icon=\n/Icon=\/usr\/share\/pixmaps\/zoiper5.png/g' "$file"
+  sed -i 's/Icon=\n/Icon=\/usr\/share\/pixmaps\/zoiper5.png\n/g' "$file"
 fi
 file="/usr/share/applications/zoiper5.desktop"
 if [ -f "$file" ]
