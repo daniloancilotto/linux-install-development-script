@@ -52,7 +52,6 @@ sudo flatpak remote-add --if-not-exists flathub "https://dl.flathub.org/repo/fla
 
 printLine "OpenJDK"
 sudo apt install openjdk-8-jdk -y
-echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-$arch" | sudo tee "/etc/profile.d/openjdk-path.sh"
 
 printLine "Maven"
 sudo apt install maven -y
@@ -116,14 +115,10 @@ do
 done
 
 file="$HOME/.config/Code/User/settings.json"
-touch "$file"
-if [ -f "$file" ]
+json="`cat "$file"`"
+if [ -z "$json" ]
 then
-  json="`cat "$file"`"
-  if [ -z "$json" ]
-  then
-    json="{}"
-  fi
+  json="{}"
   json="`echo "$json" | jq '."workbench.iconTheme"="material-icon-theme"'`"
   json="`echo "$json" | jq '."workbench.startupEditor"="none"'`"
   json="`echo "$json" | jq '."editor.minimap.enabled"=false'`"
@@ -137,16 +132,19 @@ then
   json="`echo "$json" | jq '."liveServer.settings.donotShowInfoMsg"=true'`"
   json="`echo "$json" | jq '."java.configuration.checkProjectSettingsExclusions"=false'`"
   json="`echo "$json" | jq '."java.configuration.updateBuildConfiguration"="automatic"'`"
-  echo "$json" > "$file"
 fi
+json="`echo "$json" | jq '."java.home"="/usr/lib/jvm/java-8-openjdk-'$arch'"'`"
+echo "$json" > "$file"
+
+sudo rm -fv "/etc/profile.d/openjdk-path.sh"
 
 echo "code have been configured"
 
 printLine "Slack"
 
-if [ -z "`slack --version`" ]
+if [ ! -f "/usr/bin/slack" ]
 then
-  dpkgInstall "slack.deb" "https://downloads.slack-edge.com/linux_releases/slack-desktop-3.4.2-$arch.deb"
+  dpkgInstall "slack.deb" "https://downloads.slack-edge.com/linux_releases/slack-desktop-4.0.0-$arch.deb"
 else
   echo "slack is already installed"
 fi
@@ -195,6 +193,7 @@ then
 else
   sed -i ':a;N;$!ba;s/Icon=\n/Icon=\/usr\/share\/pixmaps\/zoiper5.png\n/g' "$file"
 fi
+
 file="/usr/share/applications/zoiper5.desktop"
 if [ -f "$file" ]
 then

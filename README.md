@@ -24,8 +24,6 @@
     * Repositories
       * Flathub
 * OpenJDK - 8
-  * Environment Variables
-    * $JAVA_HOME
 * Maven - Latest
 * [Node - 10 (Snap)](https://snapcraft.io/node)
 * [Docker - Latest (Script)](https://www.docker.com/)
@@ -54,7 +52,7 @@
   * User Configurations
     * Json
       * ~/.config/Code/User/settings.json
-* [Slack - 3.4.2 (Dpkg)](https://slack.com/)
+* [Slack - 4.0.0 (Dpkg)](https://slack.com/)
   * User Configurations
     * Desktop
       * ~/.config/autostart/slack.desktop
@@ -62,7 +60,7 @@
   * User Configurations
     * Desktop
       * ~/.config/autostart/Zoiper5.desktop
-  * Global Configurations
+  * Shared Configurations
     * Desktop
       * /usr/share/applications/zoiper5.desktop
 
