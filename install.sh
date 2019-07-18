@@ -134,6 +134,8 @@ then
   json="`echo "$json" | jq '."java.configuration.updateBuildConfiguration"="automatic"'`"
 fi
 json="`echo "$json" | jq '."java.home"="/usr/lib/jvm/java-8-openjdk-'$arch'"'`"
+json="`echo "$json" | jq '."spring-boot.ls.java.home"="/usr/lib/jvm/java-8-openjdk-'$arch'"'`"
+json="`echo "$json" | jq '."maven.terminal.useJavaHome"=true'`"
 echo "$json" > "$file"
 
 sudo rm -fv "/etc/profile.d/openjdk-path.sh"
