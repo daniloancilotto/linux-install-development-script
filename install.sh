@@ -52,6 +52,7 @@ sudo flatpak remote-add --if-not-exists flathub "https://dl.flathub.org/repo/fla
 
 printLine "OpenJDK"
 sudo apt install openjdk-8-jdk -y
+java_dir="/usr/lib/jvm/java-8-openjdk-$arch"
 
 printLine "Maven"
 sudo apt install maven -y
@@ -133,8 +134,8 @@ then
   json="`echo "$json" | jq '."java.configuration.checkProjectSettingsExclusions"=false'`"
   json="`echo "$json" | jq '."java.configuration.updateBuildConfiguration"="automatic"'`"
 fi
-json="`echo "$json" | jq '."java.home"="/usr/lib/jvm/java-8-openjdk-'$arch'"'`"
-json="`echo "$json" | jq '."spring-boot.ls.java.home"="/usr/lib/jvm/java-8-openjdk-'$arch'"'`"
+json="`echo "$json" | jq '."java.home"="'$java_dir'"'`"
+json="`echo "$json" | jq '."spring-boot.ls.java.home"="'$java_dir'"'`"
 json="`echo "$json" | jq '."maven.terminal.useJavaHome"=true'`"
 echo "$json" > "$file"
 
