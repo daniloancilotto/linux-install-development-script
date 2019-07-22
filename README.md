@@ -1,11 +1,10 @@
 # Development Environment Script
 
 ### Supported Systems
-* [Linux Mint - 19.1](https://linuxmint.com/)
-  * Cinnamon - 4.0
+* [Linux Mint - 19.1 ~ 19.2](https://linuxmint.com/)
 
 ### Supported Architectures
-* amd64 (64-bit)
+* amd64 (64-bit) - Fully
 * i386 (32-bit) - Partially
 
 ### Install Apps
