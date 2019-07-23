@@ -1,16 +1,15 @@
 #!/bin/bash
-args=("$@")
+system="`lsb_release -sd`"
 arch="amd64"
 if [ "`uname -m`" != "x86_64" ]
 then
   arch="i386"
 fi
 
-echo "DEVELOPMENT ENVIRONMENT SCRIPT"
+echo "DEVELOPMENT ENVIRONMENT SCRIPT - UBUNTU"
 echo "Author: Danilo Ancilotto"
-echo "Arguments: [$args]"
+echo "System: $system"
 echo "Architecture: $arch"
-echo "Desktop: $DESKTOP_SESSION"
 echo "Home: $HOME"
 echo "User: $USER"
 

@@ -1,11 +1,15 @@
 # Development Environment Script
 
 ### Supported Systems
-* [Linux Mint - 19.1 ~ 19.2](https://linuxmint.com/)
+* Ubuntu Derivatives
+  * [Ubuntu - 19.04](https://ubuntu.com/)
+  * [Linux Mint - 19.1 ~ 19.2](https://linuxmint.com/)
 
 ### Supported Architectures
-* amd64 (64-bit) - Fully
-* i386 (32-bit) - Partially
+* 64-bit - Fully
+  * amd64
+* 32-bit - Partially
+  * i386
 
 ### Install Apps
 * Base Apps - Latest
@@ -67,6 +71,7 @@
 
 # Execution Example
 
+### Ubuntu Derivatives
 ```bash
-curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloancilotto/development-environment-script/master/install.sh | bash
+curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloancilotto/development-environment-script/master/ubuntu.sh | bash
 ```
