@@ -57,16 +57,21 @@ dpkgInstall() {
 
 printLine "Base Apps"
 sudo apt update
-sudo apt install curl wget git unzip tar jq neofetch htop -y
+sudo apt install wget unzip tar jq neofetch htop -y
 
 printLine "App Hubs"
 sudo apt install snapd flatpak -y
 sudo systemctl enable --now snapd.socket
 sudo flatpak remote-add --if-not-exists flathub "https://dl.flathub.org/repo/flathub.flatpakrepo"
+autostart_dir="$HOME/.config/autostart"
+mkdir -pv "$autostart_dir"
 
 printLine "OpenJDK"
 sudo apt install openjdk-8-jdk -y
 java_dir="/usr/lib/jvm/java-8-openjdk-$arch"
+
+printLine "Git"
+sudo apt install git -y
 
 printLine "Maven"
 sudo apt install maven -y
@@ -171,7 +176,7 @@ else
   echo "slack is already installed"
 fi
 
-file="$HOME/.config/autostart/slack.desktop"
+file="$autostart_dir/slack.desktop"
 if [ ! -f "$file" ]
 then
   conf=$'[Desktop Entry]\n'
@@ -200,7 +205,7 @@ else
   echo "zoiper5 is already installed"
 fi
 
-file="$HOME/.config/autostart/Zoiper5.desktop"
+file="$autostart_dir/Zoiper5.desktop"
 if [ ! -f "$file" ]
 then
   conf=$'[Desktop Entry]\n'

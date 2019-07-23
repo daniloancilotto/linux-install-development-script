@@ -13,9 +13,7 @@
 
 ### Install Apps
 * Base Apps - Latest
-  * Curl
   * Wget
-  * Git
   * Unzip
   * Tar
   * Jq
@@ -27,6 +25,7 @@
     * Repositories
       * Flathub
 * OpenJDK - 8
+* Git - Latest
 * Maven - Latest
 * [Node - 10 (Snap)](https://snapcraft.io/node)
 * [Docker - Latest (Script)](https://www.docker.com/)
@@ -69,7 +68,16 @@
 
 <br/>
 
-# Execution Example
+# Preparing to Run the Script
+
+### Ubuntu and Derivatives
+```bash
+sudo apt install curl -y
+```
+
+<br/>
+
+# Running the Script
 
 ### Ubuntu and Derivatives
 ```bash
