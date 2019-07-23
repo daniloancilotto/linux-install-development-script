@@ -1,12 +1,27 @@
 #!/bin/bash
 system="`lsb_release -sd`"
+system_id="`lsb_release -si`"
+system_version="`lsb_release -sr`"
+system_release="$system_version"
+if [ "$system_id" == "LinuxMint" ]
+then
+  case "$system_version" in
+    "19.1"|"19.2")
+      system_release="18.04"
+    ;;
+    *)
+      system_release="19.04"
+    ;;
+  esac
+fi
+
 arch="amd64"
 if [ "`uname -m`" != "x86_64" ]
 then
   arch="i386"
 fi
 
-echo "DEVELOPMENT ENVIRONMENT SCRIPT - UBUNTU"
+echo "DEVELOPMENT ENVIRONMENT SCRIPT - UBUNTU $system_release"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $arch"
@@ -73,7 +88,7 @@ sudo usermod -aG docker $USER
 printLine "MySQL Workbench"
 if [ -z "`mysql-workbench --version`" ]
 then
-  dpkgInstall "mysql-workbench.deb" "https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community_8.0.17-1ubuntu19.04_$arch.deb"
+  dpkgInstall "mysql-workbench.deb" "https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community_8.0.17-1ubuntu$system_release$'_'$arch.deb"
 else
   echo "mysql-workbench is already installed"
 fi
