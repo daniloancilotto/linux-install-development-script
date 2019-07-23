@@ -1,7 +1,7 @@
 # Development Environment Script
 
 ### Supported Systems
-* Ubuntu Derivatives
+* Ubuntu and Derivatives
   * [Ubuntu - 19.04](https://ubuntu.com/)
   * [Linux Mint - 19.1 ~ 19.2](https://linuxmint.com/)
 
@@ -33,7 +33,7 @@
   * Compose - Latest
   * User Groups
     * docker
-* MySQL Workbench - Latest
+* [MySQL Workbench - 8.0.17 (Dpkg)](https://www.mysql.com/products/workbench/)
 * [Postman - Latest (Snap)](https://snapcraft.io/postman)
 * [Google Chrome - Latest (Dpkg)](https://www.google.com/chrome/)
 * [Visual Studio Code - Latest (Snap)](https://snapcraft.io/code)
@@ -71,7 +71,7 @@
 
 # Execution Example
 
-### Ubuntu Derivatives
+### Ubuntu and Derivatives
 ```bash
 curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloancilotto/development-environment-script/master/ubuntu.sh | bash
 ```
