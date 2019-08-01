@@ -171,7 +171,7 @@ printLine "Slack"
 
 if [ ! -f "/usr/bin/slack" ]
 then
-  dpkgInstall "slack.deb" "https://downloads.slack-edge.com/linux_releases/slack-desktop-4.0.0-$arch.deb"
+  dpkgInstall "slack.deb" "https://downloads.slack-edge.com/linux_releases/slack-desktop-4.0.1-$arch.deb"
 else
   echo "slack is already installed"
 fi

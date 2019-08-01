@@ -54,7 +54,7 @@
   * User Configurations
     * Json
       * ~/.config/Code/User/settings.json
-* [Slack - 4.0.0 (Dpkg)](https://slack.com/)
+* [Slack - 4.0.1 (Dpkg)](https://slack.com/)
   * User Configurations
     * Desktop
       * ~/.config/autostart/slack.desktop
