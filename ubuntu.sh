@@ -163,7 +163,12 @@ json="`echo "$json" | jq '."spring-boot.ls.java.home"="'$java_dir'"'`"
 json="`echo "$json" | jq '."maven.terminal.useJavaHome"=true'`"
 echo "$json" > "$file"
 
-sudo rm -fv "/etc/profile.d/openjdk-path.sh"
+inotify_watches="524288"
+if [ "`cat /proc/sys/fs/inotify/max_user_watches`" != "$inotify_watches" ]
+then
+  echo "fs.inotify.max_user_watches=$inotify_watches" | sudo tee "/etc/sysctl.d/60-inotify-watches.conf"
+  sudo sysctl -p
+fi
 
 echo "code have been configured"
 

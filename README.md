@@ -54,6 +54,9 @@
   * User Configurations
     * Json
       * ~/.config/Code/User/settings.json
+  * Shared Configurations
+    * Conf
+      * /etc/sysctl.d/60-inotify-watches.conf
 * [Slack - 4.0.1 (Dpkg)](https://slack.com/)
   * User Configurations
     * Desktop
