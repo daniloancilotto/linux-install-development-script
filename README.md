@@ -51,22 +51,19 @@
     * Docker
     * Debugger for Chrome
     * Live Server
-  * User Configurations
-    * Json
-      * ~/.config/Code/User/settings.json
-  * Shared Configurations
+  * Configurations
     * Conf
       * /etc/sysctl.d/60-inotify-watches.conf
+    * Json
+      * ~/.config/Code/User/settings.json
 * [Slack - 4.0.1 (Dpkg)](https://slack.com/)
-  * User Configurations
+  * Configurations
     * Desktop
       * ~/.config/autostart/slack.desktop
 * [Zoiper5 - 5.2.28 (Dpkg)](https://www.zoiper.com/)
-  * User Configurations
+  * Configurations
     * Desktop
       * ~/.config/autostart/Zoiper5.desktop
-  * Shared Configurations
-    * Desktop
       * /usr/share/applications/zoiper5.desktop
 
 <br/>
