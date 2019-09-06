@@ -144,8 +144,8 @@ json="`cat "$file"`"
 if [ -z "$json" ]
 then
   json="{}"
-  json="`echo "$json" | jq '."workbench.iconTheme"="material-icon-theme"'`"
   json="`echo "$json" | jq '."workbench.startupEditor"="none"'`"
+  json="`echo "$json" | jq '."workbench.iconTheme"="material-icon-theme"'`"
   json="`echo "$json" | jq '."breadcrumbs.enabled"=false'`"
   json="`echo "$json" | jq '."editor.minimap.enabled"=false'`"
 fi
