@@ -146,6 +146,7 @@ then
   json="{}"
   json="`echo "$json" | jq '."workbench.iconTheme"="material-icon-theme"'`"
   json="`echo "$json" | jq '."workbench.startupEditor"="none"'`"
+  json="`echo "$json" | jq '."breadcrumbs.enabled"=false'`"
   json="`echo "$json" | jq '."editor.minimap.enabled"=false'`"
   json="`echo "$json" | jq '."editor.suggestSelection"="first"'`"
   json="`echo "$json" | jq '."extensions.showRecommendationsOnlyOnDemand"=true'`"
@@ -176,7 +177,7 @@ printLine "Slack"
 
 if [ ! -f "/usr/bin/slack" ]
 then
-  dpkgInstall "slack.deb" "https://downloads.slack-edge.com/linux_releases/slack-desktop-4.0.1-$arch.deb"
+  dpkgInstall "slack.deb" "https://downloads.slack-edge.com/linux_releases/slack-desktop-4.0.2-$arch.deb"
 else
   echo "slack is already installed"
 fi
