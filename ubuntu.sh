@@ -126,7 +126,6 @@ code_extensions=( \
   "GabrielBB.vscode-lombok" \
   "octref.vetur" \
   "vuetifyjs.vuetify-vscode" \
-  "sysoev.language-stylus" \
   "ms-azuretools.vscode-docker" \
   "msjsdiag.debugger-for-chrome" \
   "ritwickdey.LiveServer" \
