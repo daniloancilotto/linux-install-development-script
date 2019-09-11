@@ -11,7 +11,29 @@
 * 32-bit - Partially
   * i386
 
-### Install Apps
+<br/>
+
+# Preparing to Run the Script
+
+### Ubuntu and Derivatives
+```bash
+sudo apt install curl -y
+```
+
+<br/>
+
+# Running the Script
+
+### Ubuntu and Derivatives
+```bash
+curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloancilotto/development-environment-script/master/ubuntu.sh | bash
+```
+
+<br/>
+
+# Installations
+
+### Apps
 * Base Apps - Latest
   * Wget
   * Unzip
@@ -65,21 +87,3 @@
     * Desktop
       * ~/.config/autostart/Zoiper5.desktop
       * /usr/share/applications/zoiper5.desktop
-
-<br/>
-
-# Preparing to Run the Script
-
-### Ubuntu and Derivatives
-```bash
-sudo apt install curl -y
-```
-
-<br/>
-
-# Running the Script
-
-### Ubuntu and Derivatives
-```bash
-curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloancilotto/development-environment-script/master/ubuntu.sh | bash
-```
