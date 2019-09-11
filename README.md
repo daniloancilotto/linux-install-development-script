@@ -31,7 +31,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 
 <br/>
 
-# Installations
+# Installations and Configurations
 
 ### Apps
 * Base Apps - Latest
