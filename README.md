@@ -6,10 +6,10 @@
   * [Linux Mint - 19.1 ~ 19.2](https://linuxmint.com/)
 
 ### Supported Architectures
-* 64-bit - Fully
-  * amd64
-* 32-bit - Partially
-  * i386
+* Fully
+  * amd64 (64-bit)
+* Partially
+  * i386 (32-bit)
 
 <br/>
 
