@@ -82,7 +82,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
   * Configurations
     * Desktop
       * ~/.config/autostart/slack.desktop
-* [Zoiper5 - 5.2.28 (Dpkg)](https://www.zoiper.com/)
+* [Zoiper5 - 5.3.3 (Dpkg)](https://www.zoiper.com/)
   * Configurations
     * Desktop
       * ~/.config/autostart/Zoiper5.desktop

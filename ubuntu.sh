@@ -205,7 +205,7 @@ printLine "Zoiper5"
 
 if [ ! -f "/usr/local/applications/Zoiper5/zoiper" ]
 then
-  dpkgInstall "zoiper5.deb" "https://www.dropbox.com/s/dojmaltc6kanlrt/zoiper5_5.2.28_$arch.deb"
+  dpkgInstall "zoiper5.deb" "https://www.dropbox.com/s/qkywbe6jwpv5boq/zoiper5_5.3.3_$arch.deb"
 else
   echo "zoiper5 is already installed"
 fi
