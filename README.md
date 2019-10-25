@@ -51,10 +51,11 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 * Maven - Latest
 * [Node - 10 (Snap)](https://snapcraft.io/node)
 * [Docker - Latest (Script)](https://www.docker.com/)
-  * Extensions - Latest
+  * Modules - Latest
     * Compose
-  * User Groups
-    * docker
+  * Configurations
+    * User Groups
+      * docker
 * MySQL Workbench - Latest
 * [Postman - Latest (Snap)](https://snapcraft.io/postman)
 * [Google Chrome - Latest (Dpkg)](https://www.google.com/chrome/)
