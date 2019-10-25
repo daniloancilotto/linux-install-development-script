@@ -17,7 +17,7 @@
 
 ### Ubuntu and Derivatives
 ```bash
-sudo apt install curl -y
+sudo apt install curl snapd flatpak -y
 ```
 
 <br/>
@@ -34,27 +34,28 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 # Installations and Configurations
 
 ### Apps
-* Base Apps - Latest
+* Base - Latest
   * Wget
   * Unzip
   * Tar
   * Jq
   * Neofetch
   * Htop
-* App Hubs - Latest
-  * [Snap](https://snapcraft.io/store)
-  * [Flatpak](https://flathub.org/home)
+  * Configurations
     * Repositories
-      * Flathub
+      * https://dl.flathub.org/repo/flathub.flatpakrepo
+    * Directories
+      * ~/.config/autostart
 * OpenJDK - 8
 * Git - Latest
 * Maven - Latest
 * [Node - 10 (Snap)](https://snapcraft.io/node)
 * [Docker - Latest (Script)](https://www.docker.com/)
-  * Compose - Latest
+  * Extensions - Latest
+    * Compose
   * User Groups
     * docker
-* [MySQL Workbench - 8.0.17 (Dpkg)](https://www.mysql.com/products/workbench/)
+* MySQL Workbench - Latest
 * [Postman - Latest (Snap)](https://snapcraft.io/postman)
 * [Google Chrome - Latest (Dpkg)](https://www.google.com/chrome/)
 * [Visual Studio Code - Latest (Snap)](https://snapcraft.io/code)
@@ -78,11 +79,11 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
       * /etc/sysctl.d/60-inotify-watches.conf
     * Json
       * ~/.config/Code/User/settings.json
-* [Slack - 4.0.2 (Dpkg)](https://slack.com/)
+* [Slack - 4.1.1 (Dpkg)](https://slack.com/)
   * Configurations
     * Desktop
       * ~/.config/autostart/slack.desktop
-* [Zoiper5 - 5.3.3 (Dpkg)](https://www.zoiper.com/)
+* [Zoiper5 - 5.3.4 (Dpkg)](https://www.zoiper.com/)
   * Configurations
     * Desktop
       * ~/.config/autostart/Zoiper5.desktop

@@ -55,14 +55,14 @@ dpkgInstall() {
   sudo apt install -fy
 }
 
-printLine "Base Apps"
+printLine "Base"
+
 sudo apt update
 sudo apt install wget unzip tar jq neofetch htop -y
 
-printLine "App Hubs"
-sudo apt install snapd flatpak -y
 sudo systemctl enable --now snapd.socket
 sudo flatpak remote-add --if-not-exists flathub "https://dl.flathub.org/repo/flathub.flatpakrepo"
+
 autostart_dir="$HOME/.config/autostart"
 mkdir -pv "$autostart_dir"
 
@@ -176,7 +176,7 @@ printLine "Slack"
 
 if [ ! -f "/usr/bin/slack" ]
 then
-  dpkgInstall "slack.deb" "https://downloads.slack-edge.com/linux_releases/slack-desktop-4.0.2-$arch.deb"
+  dpkgInstall "slack.deb" "https://downloads.slack-edge.com/linux_releases/slack-desktop-4.1.1-$arch.deb"
 else
   echo "slack is already installed"
 fi
@@ -205,7 +205,7 @@ printLine "Zoiper5"
 
 if [ ! -f "/usr/local/applications/Zoiper5/zoiper" ]
 then
-  dpkgInstall "zoiper5.deb" "https://www.dropbox.com/s/qkywbe6jwpv5boq/zoiper5_5.3.3_$arch.deb"
+  dpkgInstall "zoiper5.deb" "https://www.dropbox.com/s/g1ttqzz8z8cj3pf/zoiper5_5.3.4_$arch.deb"
 else
   echo "zoiper5 is already installed"
 fi
