@@ -26,7 +26,7 @@ sudo apt install curl snapd flatpak -y
 
 ### Ubuntu and Derivatives
 ```bash
-curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloancilotto/linux-development-script/master/ubuntu.sh | bash
+curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloancilotto/linux-development-script/master/linux-development-ubuntu.sh | bash
 ```
 
 <br/>

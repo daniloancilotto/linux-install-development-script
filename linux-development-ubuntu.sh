@@ -10,7 +10,7 @@ then
   arch2="ia32"
 fi
 
-echo "LINUX DEVELOPMENT SCRIPT - UBUNTU"
+echo "LINUX DEVELOPMENT UBUNTU"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $arch"
