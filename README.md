@@ -1,4 +1,4 @@
-# Development Environment Script
+# Linux Development Script
 
 ### Supported Systems
 * Ubuntu and Derivatives
@@ -26,7 +26,7 @@ sudo apt install curl snapd flatpak -y
 
 ### Ubuntu and Derivatives
 ```bash
-curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloancilotto/development-environment-script/master/ubuntu.sh | bash
+curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloancilotto/linux-development-script/master/ubuntu.sh | bash
 ```
 
 <br/>
