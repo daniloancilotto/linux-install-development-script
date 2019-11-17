@@ -160,7 +160,7 @@ printLine "Slack"
 
 if [ ! -f "/usr/bin/slack" ]
 then
-  dpkgInstall "slack.deb" "https://downloads.slack-edge.com/linux_releases/slack-desktop-4.1.1-$arch.deb"
+  dpkgInstall "slack.deb" "https://downloads.slack-edge.com/linux_releases/slack-desktop-4.1.2-$arch.deb"
 else
   echo "slack is already installed"
 fi
@@ -189,7 +189,7 @@ printLine "Zoiper5"
 
 if [ ! -f "/usr/local/applications/Zoiper5/zoiper" ]
 then
-  dpkgInstall "zoiper5.deb" "https://www.dropbox.com/s/g1ttqzz8z8cj3pf/zoiper5_5.3.4_$arch.deb"
+  dpkgInstall "zoiper5.deb" "https://www.dropbox.com/s/kvlebrqd3n4b3e7/zoiper5_5.3.5_$arch.deb"
 else
   echo "zoiper5 is already installed"
 fi
