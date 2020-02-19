@@ -3,7 +3,7 @@
 ### Supported Systems
 * Ubuntu and Derivatives
   * [Ubuntu - 18.04 ~ 19.10](https://ubuntu.com/)
-  * [Linux Mint - 19.1 ~ 19.2](https://linuxmint.com/)
+  * [Linux Mint - 19.1 ~ 19.3](https://linuxmint.com/)
 
 ### Supported Architectures
 * Fully
@@ -80,11 +80,11 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
       * /etc/sysctl.d/60-inotify-watches.conf
     * Json
       * ~/.config/Code/User/settings.json
-* [Slack - 4.2.0 (Dpkg)](https://slack.com/)
+* [Slack - 4.3.2 (Dpkg)](https://slack.com/)
   * Configurations
     * Desktop
       * ~/.config/autostart/slack.desktop
-* [Zoiper5 - 5.3.5 (Dpkg)](https://www.zoiper.com/)
+* [Zoiper5 - 5.3.7 (Dpkg)](https://www.zoiper.com/)
   * Configurations
     * Desktop
       * ~/.config/autostart/Zoiper5.desktop
