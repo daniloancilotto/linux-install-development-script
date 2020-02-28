@@ -113,7 +113,6 @@ code_extensions=( \
   "ms-azuretools.vscode-docker" \
   "msjsdiag.debugger-for-chrome" \
   "ritwickdey.LiveServer" \
-  "vsciot-vscode.vscode-arduino" \
 )
 i=0
 while [ $i != ${#code_extensions[@]} ]

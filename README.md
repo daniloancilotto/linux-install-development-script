@@ -75,7 +75,6 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     * Docker
     * Debugger for Chrome
     * Live Server
-    * Arduino
   * Configurations
     * Conf
       * /etc/sysctl.d/60-inotify-watches.conf
