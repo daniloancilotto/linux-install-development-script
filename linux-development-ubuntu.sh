@@ -113,6 +113,7 @@ code_extensions=( \
   "ms-azuretools.vscode-docker" \
   "msjsdiag.debugger-for-chrome" \
   "ritwickdey.LiveServer" \
+  "vsciot-vscode.vscode-arduino" \
 )
 i=0
 while [ $i != ${#code_extensions[@]} ]
@@ -189,7 +190,7 @@ printLine "Zoiper5"
 
 if [ ! -f "/usr/local/applications/Zoiper5/zoiper" ]
 then
-  dpkgInstall "zoiper5.deb" "https://www.dropbox.com/s/ji25ixz7yacoaao/zoiper5_5.3.7_$arch.deb"
+  dpkgInstall "zoiper5.deb" "https://www.dropbox.com/s/qslfyc416knkr3s/zoiper5_5.3.8_$arch.deb"
 else
   echo "zoiper5 is already installed"
 fi

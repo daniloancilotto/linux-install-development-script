@@ -75,6 +75,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     * Docker
     * Debugger for Chrome
     * Live Server
+    * Arduino
   * Configurations
     * Conf
       * /etc/sysctl.d/60-inotify-watches.conf
@@ -84,7 +85,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
   * Configurations
     * Desktop
       * ~/.config/autostart/slack.desktop
-* [Zoiper5 - 5.3.7 (Dpkg)](https://www.zoiper.com/)
+* [Zoiper5 - 5.3.8 (Dpkg)](https://www.zoiper.com/)
   * Configurations
     * Desktop
       * ~/.config/autostart/Zoiper5.desktop
