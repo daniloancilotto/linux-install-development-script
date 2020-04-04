@@ -117,7 +117,7 @@ code_extensions=( \
 i=0
 while [ $i != ${#code_extensions[@]} ]
 do
-  /snap/bin/code --install-extension "${code_extensions[$i]}"
+  snap run code --install-extension "${code_extensions[$i]}"
   
   let "i++"
 done
@@ -160,7 +160,7 @@ printLine "Slack"
 
 if [ ! -f "/usr/bin/slack" ]
 then
-  dpkgInstall "slack.deb" "https://downloads.slack-edge.com/linux_releases/slack-desktop-4.3.2-$arch.deb"
+  dpkgInstall "slack.deb" "https://downloads.slack-edge.com/linux_releases/slack-desktop-4.4.0-$arch.deb"
 else
   echo "slack is already installed"
 fi
