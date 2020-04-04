@@ -80,7 +80,13 @@ sudo apt install docker-compose -y
 sudo usermod -aG docker $USER
 
 printLine "MySQL Workbench"
-sudo apt install mysql-workbench -y
+
+if [ -z "`mysql-workbench --version`" ]
+then
+  dpkgInstall "mysql-workbench.deb" "https://www.dropbox.com/s/tk99jp28k9xw1ue/mysql-workbench-community_8.0.19_$arch.deb"
+else
+  echo "mysql-workbench is already installed"
+fi
 
 printLine "Postman"
 echo "Running snap, please wait..."

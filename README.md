@@ -2,7 +2,7 @@
 
 ### Supported Systems
 * Ubuntu and Derivatives
-  * [Ubuntu - 18.04 ~ 19.10](https://ubuntu.com/)
+  * [Ubuntu - 18.04 ~ 20.04](https://ubuntu.com/)
   * [Linux Mint - 19.1 ~ 19.3](https://linuxmint.com/)
 
 ### Supported Architectures
@@ -56,7 +56,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
   * Configurations
     * User Groups
       * docker
-* MySQL Workbench - Latest
+* [MySQL Workbench - 8.0.19 (Dpkg)](https://dev.mysql.com/downloads/workbench/)
 * [Postman - Latest (Snap)](https://snapcraft.io/postman)
 * [Google Chrome - Latest (Dpkg)](https://www.google.com/chrome/)
 * [Visual Studio Code - Latest (Snap)](https://snapcraft.io/code)
