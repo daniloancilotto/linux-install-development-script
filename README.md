@@ -1,9 +1,7 @@
 # Linux Development Script
 
 ### Supported Systems
-* Ubuntu and Derivatives
-  * [Ubuntu - 18.04 ~ 20.04](https://ubuntu.com/)
-  * [Linux Mint - 19.1 ~ 19.3](https://linuxmint.com/)
+* [Ubuntu - 19.10 ~ 20.04](https://ubuntu.com/)
 
 ### Supported Architectures
 * Fully
@@ -15,7 +13,7 @@
 
 # Preparing to Run the Script
 
-### Ubuntu and Derivatives
+### Ubuntu
 ```bash
 sudo apt install curl snapd flatpak -y
 ```
@@ -24,7 +22,7 @@ sudo apt install curl snapd flatpak -y
 
 # Running the Script
 
-### Ubuntu and Derivatives
+### Ubuntu
 ```bash
 curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloancilotto/linux-development-script/master/linux-development-ubuntu.sh | bash
 ```
