@@ -78,7 +78,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
       * /etc/sysctl.d/60-inotify-watches.conf
     * Json
       * ~/.config/Code/User/settings.json
-* [Slack - 4.4.0 (Dpkg)](https://slack.com/)
+* [Slack - Latest (Snap)](https://snapcraft.io/slack)
   * Configurations
     * Desktop
       * ~/.config/autostart/slack.desktop

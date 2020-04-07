@@ -164,12 +164,8 @@ echo "code have been configured"
 
 printLine "Slack"
 
-if [ ! -f "/usr/bin/slack" ]
-then
-  dpkgInstall "slack.deb" "https://downloads.slack-edge.com/linux_releases/slack-desktop-4.4.0-$arch.deb"
-else
-  echo "slack is already installed"
-fi
+echo "Running snap, please wait..."
+sudo snap install slack --classic
 
 file="$autostart_dir/slack.desktop"
 if [ ! -f "$file" ]
@@ -178,15 +174,17 @@ then
   conf+=$'Name=Slack\n'
   conf+=$'Comment=Slack Desktop\n'
   conf+=$'GenericName=Slack Client for Linux\n'
-  conf+=$'Exec=/usr/bin/slack --startup %U\n'
+  conf+=$'Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/slack_slack.desktop /snap/bin/slack --startup %U\n'
   conf+=$'Icon=/usr/share/pixmaps/slack.png\n'
   conf+=$'Type=Application\n'
+  conf+=$'X-SnapInstanceName=slack\n'
+  conf+=$'StartupWMClass=Slack\n'
   conf+=$'StartupNotify=true\n'
   conf+=$'Categories=GNOME;GTK;Network;InstantMessaging;\n'
   conf+=$'MimeType=x-scheme-handler/slack;\n'
   echo "$conf" > "$file"
 else
-  sed -i 's/\/usr\/bin\/slack %U/\/usr\/bin\/slack --startup %U/g' "$file"
+  sed -i 's/\/snap\/bin\/slack %U/\/snap\/bin\/slack --startup %U/g' "$file"
 fi
 
 echo "slack have been configured"
