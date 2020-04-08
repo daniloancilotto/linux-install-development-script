@@ -50,7 +50,6 @@ sudo apt update
 sudo apt install wget unzip tar jq neofetch htop -y
 
 sudo systemctl enable --now snapd.socket
-sudo flatpak remote-add --if-not-exists flathub "https://dl.flathub.org/repo/flathub.flatpakrepo"
 
 autostart_dir="$HOME/.config/autostart"
 mkdir -pv "$autostart_dir"
