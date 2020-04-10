@@ -169,19 +169,19 @@ sudo snap install slack --classic
 file="$autostart_dir/slack.desktop"
 if [ ! -f "$file" ]
 then
-  conf=$'[Desktop Entry]\n'
-  conf+=$'Name=Slack\n'
-  conf+=$'Comment=Slack Desktop\n'
-  conf+=$'GenericName=Slack Client for Linux\n'
-  conf+=$'Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/slack_slack.desktop /snap/bin/slack --startup %U\n'
-  conf+=$'Icon=/usr/share/pixmaps/slack.png\n'
-  conf+=$'Type=Application\n'
-  conf+=$'X-SnapInstanceName=slack\n'
-  conf+=$'StartupWMClass=Slack\n'
-  conf+=$'StartupNotify=true\n'
-  conf+=$'Categories=GNOME;GTK;Network;InstantMessaging;\n'
-  conf+=$'MimeType=x-scheme-handler/slack;\n'
-  echo "$conf" > "$file"
+  desk=$'[Desktop Entry]\n'
+  desk+=$'Name=Slack\n'
+  desk+=$'Comment=Slack Desktop\n'
+  desk+=$'GenericName=Slack Client for Linux\n'
+  desk+=$'Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/slack_slack.desktop /snap/bin/slack --startup %U\n'
+  desk+=$'Icon=/usr/share/pixmaps/slack.png\n'
+  desk+=$'Type=Application\n'
+  desk+=$'X-SnapInstanceName=slack\n'
+  desk+=$'StartupWMClass=Slack\n'
+  desk+=$'StartupNotify=true\n'
+  desk+=$'Categories=GNOME;GTK;Network;InstantMessaging;\n'
+  desk+=$'MimeType=x-scheme-handler/slack;\n'
+  echo "$desk" > "$file"
 else
   sed -i 's/\/snap\/bin\/slack %U/\/snap\/bin\/slack --startup %U/g' "$file"
 fi
@@ -200,15 +200,15 @@ fi
 file="$autostart_dir/Zoiper5.desktop"
 if [ ! -f "$file" ]
 then
-  conf=$'[Desktop Entry]\n'
-  conf+=$'Encoding=UTF-8\n'
-  conf+=$'Name=Zoiper5\n'
-  conf+=$'Comment=VoIP Softphone\n'
-  conf+=$'Exec=/usr/local/applications/Zoiper5/zoiper\n'
-  conf+=$'Terminal=false\n'
-  conf+=$'Icon=/usr/share/pixmaps/zoiper5.png\n'
-  conf+=$'Type=Application\n'
-  echo "$conf" > "$file"
+  desk=$'[Desktop Entry]\n'
+  desk+=$'Encoding=UTF-8\n'
+  desk+=$'Name=Zoiper5\n'
+  desk+=$'Comment=VoIP Softphone\n'
+  desk+=$'Exec=/usr/local/applications/Zoiper5/zoiper\n'
+  desk+=$'Terminal=false\n'
+  desk+=$'Icon=/usr/share/pixmaps/zoiper5.png\n'
+  desk+=$'Type=Application\n'
+  echo "$desk" > "$file"
 else
   sed -i ':a;N;$!ba;s/Icon=\n/Icon=\/usr\/share\/pixmaps\/zoiper5.png\n/g' "$file"
 fi
