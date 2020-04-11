@@ -47,8 +47,7 @@ dpkgInstall() {
 printLine "Base"
 
 sudo apt update
-sudo apt install wget unzip tar jq neofetch htop -y
-
+sudo apt install wget unzip tar jq neofetch htop snapd -y
 sudo systemctl enable --now snapd.socket
 
 autostart_dir="$HOME/.config/autostart"

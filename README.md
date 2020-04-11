@@ -15,7 +15,7 @@
 
 ### Ubuntu
 ```bash
-sudo apt install curl snapd -y
+sudo apt install curl -y
 ```
 
 <br/>
@@ -39,6 +39,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
   * Jq
   * Neofetch
   * Htop
+  * Snap
 * OpenJDK - 8
 * Git - Latest
 * Maven - Latest
@@ -47,7 +48,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
   * Modules - Latest
     * Compose
   * Configurations
-    * User Groups
+    * User Group
       * docker
 * [MySQL Workbench - 8.0.19 (Dpkg)](https://dev.mysql.com/downloads/workbench/)
 * [Postman - Latest (Snap)](https://snapcraft.io/postman)
@@ -69,10 +70,10 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     * Debugger for Chrome
     * Live Server
   * Configurations
-    * Conf
-      * /etc/sysctl.d/60-inotify-watches.conf
-    * Json
+    * Settings
       * ~/.config/Code/User/settings.json
+    * System
+      * /etc/sysctl.d/60-inotify-watches.conf
 * [Slack - Latest (Snap)](https://snapcraft.io/slack)
   * Configurations
     * Desktop
