@@ -39,9 +39,6 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
   * Jq
   * Neofetch
   * Htop
-  * Configurations
-    * Directories
-      * ~/.config/autostart
 * OpenJDK - 8
 * Git - Latest
 * Maven - Latest
