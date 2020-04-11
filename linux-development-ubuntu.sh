@@ -174,7 +174,7 @@ then
   desk+=$'Comment=Slack Desktop\n'
   desk+=$'GenericName=Slack Client for Linux\n'
   desk+=$'Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/slack_slack.desktop /snap/bin/slack --startup %U\n'
-  desk+=$'Icon=/usr/share/pixmaps/slack.png\n'
+  desk+=$'Icon=/snap/slack/current/usr/share/pixmaps/slack.png\n'
   desk+=$'Type=Application\n'
   desk+=$'X-SnapInstanceName=slack\n'
   desk+=$'StartupWMClass=Slack\n'
