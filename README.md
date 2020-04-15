@@ -70,16 +70,17 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     * Debugger for Chrome
     * Live Server
   * Configurations
-    * Settings
+    * Preferences
       * ~/.config/Code/User/settings.json
     * System
       * /etc/sysctl.d/60-inotify-watches.conf
 * [Slack - Latest (Snap)](https://snapcraft.io/slack)
   * Configurations
-    * Desktop
+    * Autostart
       * ~/.config/autostart/slack.desktop
 * [Zoiper5 - 5.3.8 (Dpkg)](https://www.zoiper.com/)
   * Configurations
-    * Desktop
+    * Autostart
       * ~/.config/autostart/Zoiper5.desktop
-      * /usr/share/applications/zoiper5.desktop
+    * Desktop
+      * ~/.local/share/applications/zoiper5.desktop

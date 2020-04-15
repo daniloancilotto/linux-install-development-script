@@ -50,6 +50,8 @@ sudo apt update
 sudo apt install wget unzip tar jq neofetch htop snapd -y
 sudo systemctl enable --now snapd.socket
 
+desktop_dir="$HOME/.local/share/applications"
+mkdir -pv "$desktop_dir"
 autostart_dir="$HOME/.config/autostart"
 mkdir -pv "$autostart_dir"
 
@@ -212,10 +214,16 @@ else
   sed -i ':a;N;$!ba;s/Icon=\n/Icon=\/usr\/share\/pixmaps\/zoiper5.png\n/g' "$file"
 fi
 
-file="/usr/share/applications/zoiper5.desktop"
-if [ -f "$file" ]
+file="zoiper5.desktop"
+origin_file="/usr/share/applications/$file"
+target_file="$desktop_dir/$file"
+if [ -f "$origin_file" ] && [ ! -f "$target_file" ]
 then
-  sudo sed -i 's/Name=zoiper5/Name=Zoiper5/g' "$file"
+  cp "$origin_file" "$target_file"
+fi
+if [ -f "$target_file" ]
+then
+  sed -i 's/Name=zoiper5/Name=Zoiper5/g' "$target_file"
 fi
 
 echo "zoiper5 have been configured"
