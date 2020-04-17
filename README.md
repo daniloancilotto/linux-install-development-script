@@ -3,7 +3,7 @@
 ### Supported Systems
 * [Ubuntu - 20.04](https://ubuntu.com/)
 
-### Supported Machines
+### Supported Architectures
 * x86_64 (amd64)
 
 <br/>

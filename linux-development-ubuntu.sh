@@ -1,11 +1,11 @@
 #!/bin/bash
 system="`lsb_release -sd`"
-machine="`uname -m`"
+architecture="`uname -m`"
 
 echo "LINUX DEVELOPMENT UBUNTU"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
-echo "Machine: $machine"
+echo "Architecture: $architecture"
 echo "Home: $HOME"
 echo "User: $USER"
 
