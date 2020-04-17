@@ -2,18 +2,10 @@
 system="`lsb_release -sd`"
 machine="`uname -m`"
 
-arch="amd64"
-arch2="x64"
-if [ "$machine" != "x86_64" ]
-then
-  arch="i386"
-  arch2="ia32"
-fi
-
 echo "LINUX DEVELOPMENT UBUNTU"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
-echo "Architecture: $arch"
+echo "Machine: $machine"
 echo "Home: $HOME"
 echo "User: $USER"
 
@@ -56,8 +48,8 @@ autostart_dir="$HOME/.config/autostart"
 mkdir -pv "$autostart_dir"
 
 printLine "OpenJDK"
-sudo apt install openjdk-8-jdk -y
-java_dir="/usr/lib/jvm/java-8-openjdk-$arch"
+sudo apt install openjdk-8-jdk openjdk-14-jdk -y
+java14_dir="/usr/lib/jvm/java-14-openjdk-amd64"
 
 printLine "Git"
 sudo apt install git -y
@@ -82,7 +74,7 @@ sudo usermod -aG docker $USER
 printLine "MySQL Workbench"
 if [ -z "`mysql-workbench --version`" ]
 then
-  dpkgInstall "mysql-workbench.deb" "https://www.dropbox.com/s/tk99jp28k9xw1ue/mysql-workbench-community_8.0.19_$arch.deb"
+  dpkgInstall "mysql-workbench.deb" "https://www.dropbox.com/s/tk99jp28k9xw1ue/mysql-workbench-community_8.0.19_amd64.deb"
 else
   echo "mysql-workbench is already installed"
 fi
@@ -95,7 +87,7 @@ sudo snap install postman --candidate
 printLine "Google Chrome"
 if [ -z "`google-chrome --version`" ]
 then
-  dpkgInstall "google-chrome.deb" "https://dl.google.com/linux/direct/google-chrome-stable_current_$arch.deb"
+  dpkgInstall "google-chrome.deb" "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 else
   echo "google-chrome is already installed"
 fi
@@ -148,8 +140,8 @@ json="`echo "$json" | jq '."debug.showInStatusBar"="never"'`"
 json="`echo "$json" | jq '."liveServer.settings.donotShowInfoMsg"=true'`"
 json="`echo "$json" | jq '."java.configuration.checkProjectSettingsExclusions"=false'`"
 json="`echo "$json" | jq '."java.configuration.updateBuildConfiguration"="automatic"'`"
-json="`echo "$json" | jq '."java.home"="'$java_dir'"'`"
-json="`echo "$json" | jq '."spring-boot.ls.java.home"="'$java_dir'"'`"
+json="`echo "$json" | jq '."java.home"="'$java14_dir'"'`"
+json="`echo "$json" | jq '."spring-boot.ls.java.home"="'$java14_dir'"'`"
 json="`echo "$json" | jq '."maven.terminal.useJavaHome"=true'`"
 echo "$json" > "$file"
 
@@ -193,7 +185,7 @@ printLine "Zoiper5"
 
 if [ ! -f "/usr/local/applications/Zoiper5/zoiper" ]
 then
-  dpkgInstall "zoiper5.deb" "https://www.dropbox.com/s/qslfyc416knkr3s/zoiper5_5.3.8_$arch.deb"
+  dpkgInstall "zoiper5.deb" "https://www.dropbox.com/s/qslfyc416knkr3s/zoiper5_5.3.8_amd64.deb"
 else
   echo "zoiper5 is already installed"
 fi

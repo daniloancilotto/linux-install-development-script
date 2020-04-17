@@ -3,11 +3,8 @@
 ### Supported Systems
 * [Ubuntu - 20.04](https://ubuntu.com/)
 
-### Supported Architectures
-* Fully
-  * amd64 (64-bit)
-* Partially
-  * i386 (32-bit)
+### Supported Machines
+* x86_64 (amd64)
 
 <br/>
 
@@ -40,7 +37,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
   * Neofetch
   * Htop
   * Snap
-* OpenJDK - 8
+* OpenJDK - 8, 14
 * Git - Latest
 * Maven - Latest
 * [Node - 10 (Snap)](https://snapcraft.io/node)
