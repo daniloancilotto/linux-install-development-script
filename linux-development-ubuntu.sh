@@ -60,7 +60,9 @@ sudo apt install maven -y
 
 printLine "Node"
 echo "Running snap, please wait..."
-sudo snap install node --channel=10/stable --classic
+sudo snap install node --channel=13/stable --classic
+sudo snap switch node --channel=13/stable
+sudo snap refresh node
 
 printLine "Docker"
 if [ -z "`docker --version`" ]
@@ -83,7 +85,7 @@ sudo apt install libproj-dev -y
 
 printLine "Postman"
 echo "Running snap, please wait..."
-sudo snap install postman --candidate
+sudo snap install postman
 
 printLine "Google Chrome"
 if [ -z "`google-chrome --version`" ]
