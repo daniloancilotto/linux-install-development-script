@@ -37,10 +37,10 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
   * Neofetch
   * Htop
   * Snap
-* OpenJDK - 8 & 14
+* OpenJDK - 8 & 11
 * Git - Latest
 * Maven - Latest
-* [Node - 14 (Snap)](https://snapcraft.io/node)
+* [Node - 12 (Snap)](https://snapcraft.io/node)
 * [Docker - Latest (Script)](https://get.docker.com)
   * Modules - Latest
     * Compose

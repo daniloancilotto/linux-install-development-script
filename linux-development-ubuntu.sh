@@ -48,9 +48,9 @@ autostart_dir="$HOME/.config/autostart"
 mkdir -pv "$autostart_dir"
 
 printLine "OpenJDK"
-sudo apt install openjdk-8-jdk openjdk-14-jdk -y
+sudo apt install openjdk-8-jdk openjdk-11-jdk -y
 java8_dir="/usr/lib/jvm/java-8-openjdk-amd64"
-java14_dir="/usr/lib/jvm/java-14-openjdk-amd64"
+java11_dir="/usr/lib/jvm/java-11-openjdk-amd64"
 
 printLine "Git"
 sudo apt install git -y
@@ -60,8 +60,8 @@ sudo apt install maven -y
 
 printLine "Node"
 echo "Running snap, please wait..."
-sudo snap install node --channel=14/stable --classic
-sudo snap switch node --channel=14/stable
+sudo snap install node --channel=12/stable --classic
+sudo snap switch node --channel=12/stable
 sudo snap refresh node
 
 printLine "Docker"
@@ -145,9 +145,9 @@ json="`echo "$json" | jq '."java.configuration.checkProjectSettingsExclusions"=f
 json="`echo "$json" | jq '."java.configuration.updateBuildConfiguration"="automatic"'`"
 json="`echo "$json" | jq '."java.configuration.runtimes"=[]'`"
 json="`echo "$json" | jq '."java.configuration.runtimes"+=[{"name":"JavaSE-1.8","path":"'$java8_dir'"}]'`"
-json="`echo "$json" | jq '."java.configuration.runtimes"+=[{"name":"JavaSE-14","path":"'$java14_dir'","default":true}]'`"
-json="`echo "$json" | jq '."java.home"="'$java14_dir'"'`"
-json="`echo "$json" | jq '."spring-boot.ls.java.home"="'$java14_dir'"'`"
+json="`echo "$json" | jq '."java.configuration.runtimes"+=[{"name":"JavaSE-11","path":"'$java11_dir'","default":true}]'`"
+json="`echo "$json" | jq '."java.home"="'$java11_dir'"'`"
+json="`echo "$json" | jq '."spring-boot.ls.java.home"="'$java11_dir'"'`"
 json="`echo "$json" | jq '."maven.terminal.useJavaHome"=true'`"
 echo "$json" > "$file"
 
