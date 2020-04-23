@@ -60,8 +60,8 @@ sudo apt install maven -y
 
 printLine "Node"
 echo "Running snap, please wait..."
-sudo snap install node --channel=13/stable --classic
-sudo snap switch node --channel=13/stable
+sudo snap install node --channel=14/stable --classic
+sudo snap switch node --channel=14/stable
 sudo snap refresh node
 
 printLine "Docker"
