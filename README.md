@@ -33,6 +33,8 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 * Jq - Latest
 * Snap - Latest
 * OpenJDK - 8 & 11
+  * Desktop
+    * ~/.local/share/applications/openjdk-8-policytool.desktop
 * Git - Latest
 * Maven - Latest
 * [Node - 12 (Snap)](https://snapcraft.io/node)
