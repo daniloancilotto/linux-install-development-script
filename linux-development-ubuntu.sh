@@ -2,7 +2,7 @@
 system="`lsb_release -sd`"
 architecture="`uname -m`"
 
-echo "LINUX DEVELOPMENT UBUNTU"
+echo "LINUX DEVELOPMENT (UBUNTU)"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $architecture"
@@ -36,24 +36,32 @@ dpkgInstall() {
   sudo apt install -fy
 }
 
-printLine "Base"
-
-sudo apt update
-sudo apt install wget unzip tar jq neofetch htop snapd -y
-sudo systemctl enable --now snapd.socket
-
 desktop_dir="$HOME/.local/share/applications"
 mkdir -pv "$desktop_dir"
+
 autostart_dir="$HOME/.config/autostart"
 mkdir -pv "$autostart_dir"
+
+printLine "Update"
+sudo apt update
+
+printLine "Wget"
+sudo apt install wget -y
+
+printLine "Jq"
+sudo apt install jq -y
+
+printLine "Snap"
+sudo apt install snapd -y
+sudo systemctl enable --now snapd.socket
+
+printLine "Git"
+sudo apt install git -y
 
 printLine "OpenJDK"
 sudo apt install openjdk-8-jdk openjdk-11-jdk -y
 java8_dir="/usr/lib/jvm/java-8-openjdk-amd64"
 java11_dir="/usr/lib/jvm/java-11-openjdk-amd64"
-
-printLine "Git"
-sudo apt install git -y
 
 printLine "Maven"
 sudo apt install maven -y
@@ -196,6 +204,18 @@ else
   echo "zoiper5 is already installed"
 fi
 
+file="zoiper5.desktop"
+origin_file="/usr/share/applications/$file"
+target_file="$desktop_dir/$file"
+if [ -f "$origin_file" ] && [ ! -f "$target_file" ]
+then
+  cp "$origin_file" "$target_file"
+fi
+if [ -f "$target_file" ]
+then
+  sed -i 's/Name=zoiper5/Name=Zoiper5/g' "$target_file"
+fi
+
 file="$autostart_dir/Zoiper5.desktop"
 if [ ! -f "$file" ]
 then
@@ -210,18 +230,6 @@ then
   echo "$desk" > "$file"
 else
   sed -i ':a;N;$!ba;s/Icon=\n/Icon=\/usr\/share\/pixmaps\/zoiper5.png\n/g' "$file"
-fi
-
-file="zoiper5.desktop"
-origin_file="/usr/share/applications/$file"
-target_file="$desktop_dir/$file"
-if [ -f "$origin_file" ] && [ ! -f "$target_file" ]
-then
-  cp "$origin_file" "$target_file"
-fi
-if [ -f "$target_file" ]
-then
-  sed -i 's/Name=zoiper5/Name=Zoiper5/g' "$target_file"
 fi
 
 echo "zoiper5 have been configured"

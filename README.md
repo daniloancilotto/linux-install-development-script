@@ -29,24 +29,18 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 # Installations and Configurations
 
 ### Apps
-* Base - Latest
-  * Wget
-  * Unzip
-  * Tar
-  * Jq
-  * Neofetch
-  * Htop
-  * Snap
-* OpenJDK - 8 & 11
+* Wget - Latest
+* Jq - Latest
+* Snap - Latest
 * Git - Latest
+* OpenJDK - 8 & 11
 * Maven - Latest
 * [Node - 12 (Snap)](https://snapcraft.io/node)
 * [Docker - Latest (Script)](https://get.docker.com)
   * Modules - Latest
     * Compose
-  * Configurations
-    * User Group
-      * docker
+  * User Group
+    * docker
 * [MySQL Workbench - 8.0.19 (Dpkg)](https://dev.mysql.com/downloads/workbench/)
 * [Postman - Latest (Snap)](https://snapcraft.io/postman)
 * [Google Chrome - Latest (Dpkg)](https://www.google.com/chrome/)
@@ -66,18 +60,15 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     * Docker
     * Debugger for Chrome
     * Live Server
-  * Configurations
-    * Preferences
-      * ~/.config/Code/User/settings.json
-    * System
-      * /etc/sysctl.d/60-inotify-watches.conf
+  * Preferences
+    * ~/.config/Code/User/settings.json
+  * Watches
+    * /etc/sysctl.d/60-inotify-watches.conf
 * [Slack - Latest (Snap)](https://snapcraft.io/slack)
-  * Configurations
-    * Autostart
-      * ~/.config/autostart/slack.desktop
+  * Autostart
+    * ~/.config/autostart/slack.desktop
 * [Zoiper5 - 5.3.8 (Dpkg)](https://www.zoiper.com/)
-  * Configurations
-    * Autostart
-      * ~/.config/autostart/Zoiper5.desktop
-    * Desktop
-      * ~/.local/share/applications/zoiper5.desktop
+  * Desktop
+    * ~/.local/share/applications/zoiper5.desktop
+  * Autostart
+    * ~/.config/autostart/Zoiper5.desktop
