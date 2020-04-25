@@ -64,12 +64,12 @@ sudo apt install wget -y
 printLine "Jq"
 sudo apt install jq -y
 
-printLine "Git"
-sudo apt install git -y
-
 printLine "Snap"
 sudo apt install snapd -y
 sudo systemctl enable --now snapd.socket
+
+printLine "Git"
+sudo apt install git -y
 
 printLine "OpenJDK"
 sudo apt install openjdk-8-jdk openjdk-11-jdk -y
