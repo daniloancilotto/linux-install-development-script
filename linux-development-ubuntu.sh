@@ -105,7 +105,6 @@ then
 else
   echo "mysql-workbench is already installed"
 fi
-sudo apt install libproj-dev -y
 
 printLine "Postman"
 echo "Running snap, please wait..."
