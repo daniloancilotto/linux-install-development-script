@@ -36,14 +36,27 @@ dpkgInstall() {
   sudo apt install -fy
 }
 
+desktopHide() {
+  source_file="/usr/share/applications/$2"
+  target_file="$1/$2"
+  if [ -f "$source_file" ] && [ ! -f "$target_file" ]
+  then
+    cp "$source_file" "$target_file"
+  fi
+  if [ -f "$target_file" ]
+  then
+    sed -i '/^NoDisplay=/{h;s/=.*/=true/};${x;/^$/{s//NoDisplay=true/;H};x}' "$target_file"
+  fi
+}
+
+printLine "Update"
+sudo apt update
+
 desktop_dir="$HOME/.local/share/applications"
 mkdir -pv "$desktop_dir"
 
 autostart_dir="$HOME/.config/autostart"
 mkdir -pv "$autostart_dir"
-
-printLine "Update"
-sudo apt update
 
 printLine "Wget"
 sudo apt install wget -y
@@ -51,15 +64,18 @@ sudo apt install wget -y
 printLine "Jq"
 sudo apt install jq -y
 
+printLine "Git"
+sudo apt install git -y
+
 printLine "Snap"
 sudo apt install snapd -y
 sudo systemctl enable --now snapd.socket
 
-printLine "Git"
-sudo apt install git -y
-
 printLine "OpenJDK"
 sudo apt install openjdk-8-jdk openjdk-11-jdk -y
+desktopHide "$desktop_dir" "openjdk-8-policytool.desktop"
+echo "openjdk have been configured"
+
 java8_dir="/usr/lib/jvm/java-8-openjdk-amd64"
 java11_dir="/usr/lib/jvm/java-11-openjdk-amd64"
 
@@ -235,5 +251,6 @@ fi
 echo "zoiper5 have been configured"
 
 printLine "Finished"
+notify-send "Done, please reboot your system."
 echo "Done, please reboot your system."
 echo ""
