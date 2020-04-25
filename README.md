@@ -28,7 +28,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 
 # Installations and Configurations
 
-### Apps
+### Ubuntu
 * Wget - Latest
 * Jq - Latest
 * Snap - Latest
