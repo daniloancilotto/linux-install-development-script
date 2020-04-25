@@ -36,7 +36,7 @@ dpkgInstall() {
   sudo apt install -fy
 }
 
-desktopHide() {
+desktopConf() {
   source_file="/usr/share/applications/$2"
   target_file="$1/$2"
   if [ -f "$source_file" ] && [ ! -f "$target_file" ]
@@ -45,7 +45,7 @@ desktopHide() {
   fi
   if [ -f "$target_file" ]
   then
-    sed -i '/^NoDisplay=/{h;s/=.*/=true/};${x;/^$/{s//NoDisplay=true/;H};x}' "$target_file"
+    crudini --set "$target_file" "Desktop Entry" "$3" "$4"
   fi
 }
 
@@ -61,6 +61,9 @@ mkdir -pv "$autostart_dir"
 printLine "Wget"
 sudo apt install wget -y
 
+printLine "Crudini"
+sudo apt install crudini -y
+
 printLine "Jq"
 sudo apt install jq -y
 
@@ -70,7 +73,7 @@ sudo systemctl enable --now snapd.socket
 
 printLine "OpenJDK"
 sudo apt install openjdk-8-jdk openjdk-11-jdk -y
-desktopHide "$desktop_dir" "openjdk-8-policytool.desktop"
+desktopConf "$desktop_dir" "openjdk-8-policytool.desktop" "NoDisplay" "true"
 echo "openjdk have been configured"
 
 java8_dir="/usr/lib/jvm/java-8-openjdk-amd64"
@@ -205,7 +208,7 @@ then
   desk+=$'MimeType=x-scheme-handler/slack;\n'
   echo "$desk" > "$file"
 else
-  sed -i 's/\/snap\/bin\/slack %U/\/snap\/bin\/slack --startup %U/g' "$file"
+  crudini --set "$file" "Desktop Entry" "Exec" "env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/slack_slack.desktop /snap/bin/slack --startup %U"
 fi
 
 echo "slack have been configured"
@@ -219,17 +222,7 @@ else
   echo "zoiper5 is already installed"
 fi
 
-file="zoiper5.desktop"
-source_file="/usr/share/applications/$file"
-target_file="$desktop_dir/$file"
-if [ -f "$source_file" ] && [ ! -f "$target_file" ]
-then
-  cp "$source_file" "$target_file"
-fi
-if [ -f "$target_file" ]
-then
-  sed -i 's/Name=zoiper5/Name=Zoiper5/g' "$target_file"
-fi
+desktopConf "$desktop_dir" "zoiper5.desktop" "Name" "Zoiper5"
 
 file="$autostart_dir/Zoiper5.desktop"
 if [ ! -f "$file" ]
@@ -244,7 +237,7 @@ then
   desk+=$'Type=Application\n'
   echo "$desk" > "$file"
 else
-  sed -i ':a;N;$!ba;s/Icon=\n/Icon=\/usr\/share\/pixmaps\/zoiper5.png\n/g' "$file"
+  crudini --set "$file" "Desktop Entry" "Icon" "/usr/share/pixmaps/zoiper5.png"
 fi
 
 echo "zoiper5 have been configured"

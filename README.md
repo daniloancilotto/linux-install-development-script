@@ -30,6 +30,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 
 ### Ubuntu
 * Wget - Latest
+* Crudini - Latest
 * Jq - Latest
 * Snap - Latest
 * OpenJDK - 8 & 11
