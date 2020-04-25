@@ -32,8 +32,8 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 * Wget - Latest
 * Jq - Latest
 * Snap - Latest
-* Git - Latest
 * OpenJDK - 8 & 11
+* Git - Latest
 * Maven - Latest
 * [Node - 12 (Snap)](https://snapcraft.io/node)
 * [Docker - Latest (Script)](https://get.docker.com)

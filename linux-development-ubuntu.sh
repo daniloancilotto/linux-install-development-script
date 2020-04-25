@@ -68,9 +68,6 @@ printLine "Snap"
 sudo apt install snapd -y
 sudo systemctl enable --now snapd.socket
 
-printLine "Git"
-sudo apt install git -y
-
 printLine "OpenJDK"
 sudo apt install openjdk-8-jdk openjdk-11-jdk -y
 desktopHide "$desktop_dir" "openjdk-8-policytool.desktop"
@@ -78,6 +75,9 @@ echo "openjdk have been configured"
 
 java8_dir="/usr/lib/jvm/java-8-openjdk-amd64"
 java11_dir="/usr/lib/jvm/java-11-openjdk-amd64"
+
+printLine "Git"
+sudo apt install git -y
 
 printLine "Maven"
 sudo apt install maven -y
