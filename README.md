@@ -39,7 +39,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 * [Docker - Latest (Script)](https://get.docker.com)
   * Modules - Latest
     * Compose
-  * User Group
+  * User Groups
     * docker
 * [MySQL Workbench - 8.0.19 (Dpkg)](https://dev.mysql.com/downloads/workbench/)
 * [Postman - Latest (Snap)](https://snapcraft.io/postman)

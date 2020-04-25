@@ -205,11 +205,11 @@ else
 fi
 
 file="zoiper5.desktop"
-origin_file="/usr/share/applications/$file"
+source_file="/usr/share/applications/$file"
 target_file="$desktop_dir/$file"
-if [ -f "$origin_file" ] && [ ! -f "$target_file" ]
+if [ -f "$source_file" ] && [ ! -f "$target_file" ]
 then
-  cp "$origin_file" "$target_file"
+  cp "$source_file" "$target_file"
 fi
 if [ -f "$target_file" ]
 then
