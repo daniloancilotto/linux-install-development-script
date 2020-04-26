@@ -2,7 +2,7 @@
 system="`lsb_release -sd`"
 architecture="`uname -m`"
 
-echo "LINUX DEVELOPMENT (UBUNTU)"
+echo "LINUX DEVELOPMENT SCRIPT (UBUNTU)"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $architecture"
@@ -243,6 +243,7 @@ fi
 echo "zoiper5 have been configured"
 
 printLine "Finished"
-notify-send "Done, please reboot your system."
-echo "Done, please reboot your system."
+echo "Please reboot your system."
 echo ""
+
+notify-send "LINUX DEVELOPMENT SCRIPT (UBUNTU)" "[Finished] Please reboot your system."
