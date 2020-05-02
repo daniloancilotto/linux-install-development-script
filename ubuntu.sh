@@ -240,4 +240,7 @@ printLine "Finished"
 echo "Please reboot your system."
 echo ""
 
-notify-send "LINUX DEVELOPMENT SCRIPT (UBUNTU)" "Please reboot your system."
+if [ ! -z "`notify-send --version`" ]
+then
+  notify-send "LINUX DEVELOPMENT SCRIPT (UBUNTU)" "Please reboot your system."
+fi
