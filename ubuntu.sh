@@ -92,19 +92,13 @@ sudo snap switch node --channel=12/stable
 sudo snap refresh node
 
 printLine "Docker"
-if [ -z "`docker --version`" ]
-then
-  sudo curl -sSL "https://get.docker.com" | sh
-else
-  echo "docker is already installed"
-fi
-sudo apt install docker-compose -y
+sudo apt install docker docker-compose -y
 sudo usermod -aG docker $USER
 
 printLine "MySQL Workbench"
 if [ -z "`mysql-workbench --version`" ]
 then
-  dpkgInstall "mysql-workbench.deb" "https://www.dropbox.com/s/tk99jp28k9xw1ue/mysql-workbench-community_8.0.19_amd64.deb"
+  dpkgInstall "mysql-workbench.deb" "https://www.dropbox.com/s/b6gjsuzif261qib/mysql-workbench-community_8.0.20-1ubuntu20.04_amd64.deb"
 else
   echo "mysql-workbench is already installed"
 fi
@@ -246,4 +240,4 @@ printLine "Finished"
 echo "Please reboot your system."
 echo ""
 
-notify-send "LINUX DEVELOPMENT SCRIPT (UBUNTU)" "[Finished] Please reboot your system."
+notify-send "LINUX DEVELOPMENT SCRIPT (UBUNTU)" "Please reboot your system."

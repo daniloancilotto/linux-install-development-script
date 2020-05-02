@@ -39,12 +39,12 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 * Git - Latest
 * Maven - Latest
 * [Node - 12 (Snap)](https://snapcraft.io/node)
-* [Docker - Latest (Script)](https://get.docker.com)
+* Docker - Latest
   * Modules - Latest
     * Compose
   * User Groups
     * docker
-* [MySQL Workbench - 8.0.19 (Dpkg)](https://dev.mysql.com/downloads/workbench/)
+* [MySQL Workbench - 8.0.20 (Dpkg)](https://dev.mysql.com/downloads/workbench/)
 * [Postman - Latest (Snap)](https://snapcraft.io/postman)
 * [Google Chrome - Latest (Dpkg)](https://www.google.com/chrome/)
 * [Visual Studio Code - Latest (Snap)](https://snapcraft.io/code)
