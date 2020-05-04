@@ -171,6 +171,7 @@ json="`echo "$json" | jq '."java.configuration.runtimes"+=[{"name":"JavaSE-11","
 json="`echo "$json" | jq '."java.home"="'$java11_dir'"'`"
 json="`echo "$json" | jq '."spring-boot.ls.java.home"="'$java11_dir'"'`"
 json="`echo "$json" | jq '."maven.terminal.useJavaHome"=true'`"
+json="`echo "$json" | jq '."git.confirmSync"=false'`"
 echo "$json" > "$file"
 
 inotify_watches="524288"
