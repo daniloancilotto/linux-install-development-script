@@ -109,7 +109,7 @@ if [ "$portable_cversion" != "$portable_version" ]
 then
   rm -rf "$portable_subdir"
 
-  sudo apt remove mysql-workbench -y
+  sudo apt remove mysql-workbench-community -y
 fi
 
 if [ -z "`mysql-workbench --version`" ]
