@@ -202,33 +202,6 @@ fi
 
 echo "code have been configured"
 
-printLine "Slack"
-
-echo "Running snap, please wait..."
-sudo snap install slack --classic
-
-file="$autostart_dir/slack.desktop"
-if [ ! -f "$file" ]
-then
-  desk=$'[Desktop Entry]\n'
-  desk+=$'Name=Slack\n'
-  desk+=$'Comment=Slack Desktop\n'
-  desk+=$'GenericName=Slack Client for Linux\n'
-  desk+=$'Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/slack_slack.desktop /snap/bin/slack --startup %U\n'
-  desk+=$'Icon=/snap/slack/current/usr/share/pixmaps/slack.png\n'
-  desk+=$'Type=Application\n'
-  desk+=$'X-SnapInstanceName=slack\n'
-  desk+=$'StartupWMClass=Slack\n'
-  desk+=$'StartupNotify=true\n'
-  desk+=$'Categories=GNOME;GTK;Network;InstantMessaging;\n'
-  desk+=$'MimeType=x-scheme-handler/slack;\n'
-  echo "$desk" > "$file"
-else
-  crudini --set "$file" "Desktop Entry" "Exec" "env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/slack_slack.desktop /snap/bin/slack --startup %U"
-fi
-
-echo "slack have been configured"
-
 printLine "Zoiper5"
 
 portable_name="zoiper5"

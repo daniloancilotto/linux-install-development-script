@@ -67,9 +67,6 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     * ~/.config/Code/User/settings.json
   * Watches
     * /etc/sysctl.d/60-inotify-watches.conf
-* [Slack - Latest (Snap)](https://snapcraft.io/slack)
-  * Autostart
-    * ~/.config/autostart/slack.desktop
 * [Zoiper5 - 5.3.8 (Dpkg)](https://www.zoiper.com/)
   * Desktop
     * ~/.local/share/applications/zoiper5.desktop
