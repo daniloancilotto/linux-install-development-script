@@ -143,7 +143,6 @@ code_extensions=( \
   "PKief.material-icon-theme" \
   "CoenraadS.bracket-pair-colorizer" \
   "HookyQR.beautify" \
-  "pflannery.vscode-versionlens" \
   "eamodio.gitlens" \
   "vscjava.vscode-java-pack" \
   "Pivotal.vscode-spring-boot" \

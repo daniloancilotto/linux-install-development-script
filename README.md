@@ -52,14 +52,12 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     * Material Icon Theme
     * Bracket Pair Colorizer
     * Beautify
-    * Version Lens
     * GitLens — Git supercharged
     * Java Extension Pack
     * Spring Boot Tools
     * Lombok Annotations Support for VS Code
     * Vetur
     * vuetify-vscode
-    * language-stylus
     * Docker
     * Debugger for Chrome
     * Live Server
