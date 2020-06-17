@@ -103,6 +103,7 @@ printLine "MySQL Workbench"
 portable_name="mysql-workbench"
 portable_subdir="$portable_dir/$portable_name"
 portable_cversion="`cat "$portable_subdir/version.txt"`"
+portable_dropbox_path="b6gjsuzif261qib"
 portable_version="8.0.20"
 
 if [ "$portable_cversion" != "$portable_version" ]
@@ -114,7 +115,7 @@ fi
 
 if [ -z "`mysql-workbench --version`" ]
 then
-  dpkgInstall "mysql-workbench.deb" "https://www.dropbox.com/s/b6gjsuzif261qib/mysql-workbench-community_$portable_version-1ubuntu20.04_amd64.deb"
+  dpkgInstall "mysql-workbench.deb" "https://www.dropbox.com/s/$portable_dropbox_path/mysql-workbench-community_$portable_version-1ubuntu20.04_amd64.deb"
 
   mkdir -pv "$portable_subdir"
   echo "$portable_version" > "$portable_subdir/version.txt"
@@ -206,7 +207,8 @@ printLine "Zoiper5"
 portable_name="zoiper5"
 portable_subdir="$portable_dir/$portable_name"
 portable_cversion="`cat "$portable_subdir/version.txt"`"
-portable_version="5.3.8"
+portable_dropbox_path="yxe4exovctr3xez"
+portable_version="5.4.5"
 
 if [ "$portable_cversion" != "$portable_version" ]
 then
@@ -217,7 +219,7 @@ fi
 
 if [ ! -f "/usr/local/applications/Zoiper5/zoiper" ]
 then
-  dpkgInstall "zoiper5.deb" $'https://www.dropbox.com/s/qslfyc416knkr3s/zoiper5_'$portable_version$'_amd64.deb'
+  dpkgInstall "zoiper5.deb" $'https://www.dropbox.com/s/'$portable_dropbox_path$'/zoiper5_'$portable_version$'_x86_64.deb'
 
   mkdir -pv "$portable_subdir"
   echo "$portable_version" > "$portable_subdir/version.txt"
