@@ -141,18 +141,17 @@ echo "Running snap, please wait..."
 sudo snap install code --classic
 
 code_extensions=( \
-  "PKief.material-icon-theme" \
-  "CoenraadS.bracket-pair-colorizer" \
-  "HookyQR.beautify" \
+  "pkief.material-icon-theme" \
+  "coenraads.bracket-pair-colorizer-2" \
   "eamodio.gitlens" \
   "vscjava.vscode-java-pack" \
-  "Pivotal.vscode-spring-boot" \
-  "GabrielBB.vscode-lombok" \
+  "pivotal.vscode-spring-boot" \
+  "gabrielbb.vscode-lombok" \
   "octref.vetur" \
   "vuetifyjs.vuetify-vscode" \
+  "visualstudioexptteam.vscodeintellicode" \
   "ms-azuretools.vscode-docker" \
-  "msjsdiag.debugger-for-chrome" \
-  "ritwickdey.LiveServer" \
+  "ritwickdey.liveserver" \
 )
 i=0
 while [ $i != ${#code_extensions[@]} ]
@@ -169,7 +168,6 @@ then
   json="{}"
   json="`echo "$json" | jq '."workbench.startupEditor"="none"'`"
   json="`echo "$json" | jq '."workbench.iconTheme"="material-icon-theme"'`"
-  json="`echo "$json" | jq '."breadcrumbs.enabled"=false'`"
   json="`echo "$json" | jq '."editor.minimap.enabled"=false'`"
 fi
 json="`echo "$json" | jq '."editor.suggestSelection"="first"'`"

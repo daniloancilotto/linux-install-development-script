@@ -50,16 +50,15 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 * [Visual Studio Code - Latest (Snap)](https://snapcraft.io/code)
   * Extensions - Latest
     * Material Icon Theme
-    * Bracket Pair Colorizer
-    * Beautify
+    * Bracket Pair Colorizer 2
     * GitLens — Git supercharged
     * Java Extension Pack
     * Spring Boot Tools
     * Lombok Annotations Support for VS Code
     * Vetur
     * vuetify-vscode
+    * Visual Studio IntelliCode
     * Docker
-    * Debugger for Chrome
     * Live Server
   * Preferences
     * ~/.config/Code/User/settings.json
