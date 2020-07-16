@@ -57,7 +57,6 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     * Lombok Annotations Support for VS Code
     * Vetur
     * vuetify-vscode
-    * Visual Studio IntelliCode
     * Docker
     * Live Server
   * Preferences

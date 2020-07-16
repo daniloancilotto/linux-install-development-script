@@ -149,7 +149,6 @@ code_extensions=( \
   "gabrielbb.vscode-lombok" \
   "octref.vetur" \
   "vuetifyjs.vuetify-vscode" \
-  "visualstudioexptteam.vscodeintellicode" \
   "ms-azuretools.vscode-docker" \
   "ritwickdey.liveserver" \
 )
