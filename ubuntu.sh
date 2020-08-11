@@ -149,6 +149,7 @@ code_extensions=( \
   "gabrielbb.vscode-lombok" \
   "octref.vetur" \
   "vuetifyjs.vuetify-vscode" \
+  "dbaeumer.vscode-eslint" \
   "ms-azuretools.vscode-docker" \
   "ritwickdey.liveserver" \
 )
@@ -165,29 +166,33 @@ json="`cat "$file"`"
 if [ -z "$json" ]
 then
   json="{}"
-  json="`echo "$json" | jq '."workbench.startupEditor"="none"'`"
-  json="`echo "$json" | jq '."workbench.iconTheme"="material-icon-theme"'`"
-  json="`echo "$json" | jq '."editor.minimap.enabled"=false'`"
 fi
-json="`echo "$json" | jq '."editor.suggestSelection"="first"'`"
+json="`echo "$json" | jq '."workbench.startupEditor"="none"'`"
+json="`echo "$json" | jq '."workbench.iconTheme"="material-icon-theme"'`"
 json="`echo "$json" | jq '."extensions.showRecommendationsOnlyOnDemand"=true'`"
+json="`echo "$json" | jq '."window.zoomLevel"=0'`"
+json="`echo "$json" | jq '."editor.minimap.enabled"=false'`"
+json="`echo "$json" | jq '."editor.suggestSelection"="first"'`"
+json="`echo "$json" | jq '."diffEditor.ignoreTrimWhitespace"=false'`"
 json="`echo "$json" | jq '."terminal.integrated.fontSize"=13'`"
 json="`echo "$json" | jq '."debug.console.fontSize"=13'`"
 json="`echo "$json" | jq '."debug.internalConsoleOptions"="neverOpen"'`"
 json="`echo "$json" | jq '."debug.openDebug"="neverOpen"'`"
 json="`echo "$json" | jq '."debug.showInStatusBar"="never"'`"
-json="`echo "$json" | jq '."window.zoomLevel"=0'`"
-json="`echo "$json" | jq '."liveServer.settings.donotShowInfoMsg"=true'`"
+json="`echo "$json" | jq '."git.confirmSync"=false'`"
+json="`echo "$json" | jq '."git.fetchOnPull"=true'`"
 json="`echo "$json" | jq '."java.semanticHighlighting.enabled"=true'`"
 json="`echo "$json" | jq '."java.configuration.checkProjectSettingsExclusions"=false'`"
 json="`echo "$json" | jq '."java.configuration.updateBuildConfiguration"="automatic"'`"
+json="`echo "$json" | jq '."java.project.importOnFirstTimeStartup"="automatic"'`"
+json="`echo "$json" | jq '."java.refactor.renameFromFileExplorer"="autoApply"'`"
 json="`echo "$json" | jq '."java.configuration.runtimes"=[]'`"
 json="`echo "$json" | jq '."java.configuration.runtimes"+=[{"name":"JavaSE-1.8","path":"'$java8_dir'"}]'`"
 json="`echo "$json" | jq '."java.configuration.runtimes"+=[{"name":"JavaSE-11","path":"'$java11_dir'","default":true}]'`"
 json="`echo "$json" | jq '."java.home"="'$java11_dir'"'`"
 json="`echo "$json" | jq '."spring-boot.ls.java.home"="'$java11_dir'"'`"
 json="`echo "$json" | jq '."maven.terminal.useJavaHome"=true'`"
-json="`echo "$json" | jq '."git.confirmSync"=false'`"
+json="`echo "$json" | jq '."liveServer.settings.donotShowInfoMsg"=true'`"
 echo "$json" > "$file"
 
 inotify_watches="524288"
