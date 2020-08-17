@@ -209,8 +209,8 @@ printLine "Zoiper5"
 portable_name="zoiper5"
 portable_subdir="$portable_dir/$portable_name"
 portable_cversion="`cat "$portable_subdir/version.txt"`"
-portable_dropbox_path="yxe4exovctr3xez"
-portable_version="5.4.5"
+portable_dropbox_path="z7ofwhzrjz45lnx"
+portable_version="5.4.6"
 
 if [ "$portable_cversion" != "$portable_version" ]
 then
