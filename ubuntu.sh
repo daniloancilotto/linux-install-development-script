@@ -73,6 +73,7 @@ sudo apt install jq -y
 printLine "Snap"
 sudo apt install snapd -y
 sudo systemctl enable --now snapd.socket
+sudo snap set system refresh.timer=mon,04:00
 
 printLine "OpenJDK"
 sudo apt install openjdk-8-jdk openjdk-11-jdk -y

@@ -40,7 +40,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 - Maven - Latest
 - [Node - 12 (Snap)](https://snapcraft.io/node)
 - Docker - Latest
-  - Modules - Latest
+  - Modules
     - Compose
   - User Groups
     - docker
@@ -48,7 +48,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 - [Postman - Latest (Snap)](https://snapcraft.io/postman)
 - [Google Chrome - Latest (Dpkg)](https://www.google.com/chrome/)
 - [Visual Studio Code - Latest (Snap)](https://snapcraft.io/code)
-  - Extensions - Latest
+  - Extensions
     - Material Icon Theme
     - Bracket Pair Colorizer 2
     - GitLens — Git supercharged
