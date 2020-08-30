@@ -32,6 +32,10 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 - Wget - Latest
 - Crudini - Latest
 - Jq - Latest
+- GNOME Keyring - Latest
+- Kssh Askpass - Latest
+  - Autostart Scripts
+    - ~/.config/autostart-scripts/kssh-askpass.sh
 - Snap - Latest
 - OpenJDK - 8 & 11
   - Desktop

@@ -58,6 +58,9 @@ mkdir -pv "$desktop_dir"
 autostart_dir="$HOME/.config/autostart"
 mkdir -pv "$autostart_dir"
 
+autostart_scripts_dir="$HOME/.config/autostart-scripts"
+mkdir -pv "$autostart_scripts_dir"
+
 portable_dir="$HOME/portable"
 mkdir -pv "$portable_dir"
 
@@ -69,6 +72,25 @@ sudo apt install crudini -y
 
 printLine "Jq"
 sudo apt install jq -y
+
+printLine "GNOME Keyring"
+sudo apt install gnome-keyring -y
+
+printLine "Kssh Askpass"
+
+sudo apt install ksshaskpass -y
+
+file="$autostart_scripts_dir/kssh-askpass.sh"
+if [ ! -f "$file" ]
+then
+  conf=$'#!/bin/bash\n'
+  conf+=$'export SSH_ASKPASS=/usr/bin/ksshaskpass\n'
+  conf+=$'/usr/bin/ssh-add </dev/null\n'
+  echo "$conf" | sudo tee "$file"
+  sudo chmod +x "$file"
+fi
+
+echo "ksshaskpass have been configured"
 
 printLine "Snap"
 sudo apt install snapd -y
