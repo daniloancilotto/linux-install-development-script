@@ -80,7 +80,7 @@ printLine "Kssh Askpass"
 
 sudo apt install ksshaskpass -y
 
-file="$autostart_scripts_dir/kssh-askpass.sh"
+file="$autostart_scripts_dir/ssh-askpass.sh"
 if [ ! -f "$file" ]
 then
   conf=$'#!/bin/bash\n'
