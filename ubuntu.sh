@@ -61,7 +61,7 @@ mkdir -pv "$autostart_dir"
 autostart_scripts_dir="$HOME/.config/autostart-scripts"
 mkdir -pv "$autostart_scripts_dir"
 
-portable_dir="$HOME/portable"
+portable_dir="$HOME/Applications"
 mkdir -pv "$portable_dir"
 
 printLine "Wget"
