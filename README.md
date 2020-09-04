@@ -29,14 +29,14 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 # Installations and Configurations
 
 ### Ubuntu
+- Snap - Latest
 - Wget - Latest
 - Crudini - Latest
 - Jq - Latest
-- GNOME Keyring - Latest
+- Seahorse - Latest
 - Kssh Askpass - Latest
   - Autostart Scripts
     - ~/.config/autostart-scripts/ssh-askpass.sh
-- Snap - Latest
 - OpenJDK - 8 & 11
   - Desktop
     - ~/.local/share/applications/openjdk-8-policytool.desktop

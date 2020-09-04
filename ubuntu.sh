@@ -64,6 +64,11 @@ mkdir -pv "$autostart_scripts_dir"
 portable_dir="$HOME/Applications"
 mkdir -pv "$portable_dir"
 
+printLine "Snap"
+sudo apt install snapd -y
+sudo systemctl enable --now snapd.socket
+sudo snap set system refresh.timer=mon,04:00
+
 printLine "Wget"
 sudo apt install wget -y
 
@@ -73,8 +78,8 @@ sudo apt install crudini -y
 printLine "Jq"
 sudo apt install jq -y
 
-printLine "GNOME Keyring"
-sudo apt install gnome-keyring -y
+printLine "Seahorse"
+sudo apt install seahorse -y
 
 printLine "Kssh Askpass"
 
@@ -91,11 +96,6 @@ then
 fi
 
 echo "ksshaskpass have been configured"
-
-printLine "Snap"
-sudo apt install snapd -y
-sudo systemctl enable --now snapd.socket
-sudo snap set system refresh.timer=mon,04:00
 
 printLine "OpenJDK"
 sudo apt install openjdk-8-jdk openjdk-11-jdk -y
