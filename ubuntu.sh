@@ -275,8 +275,3 @@ echo "zoiper5 have been configured"
 printLine "Finished"
 echo "Please reboot your system."
 echo ""
-
-if [ ! -z "`notify-send --version`" ]
-then
-  notify-send "LINUX DEVELOPMENT SCRIPT (UBUNTU)" "Please reboot your system."
-fi
