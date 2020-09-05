@@ -64,6 +64,9 @@ mkdir -pv "$autostart_scripts_dir"
 portable_dir="$HOME/Applications"
 mkdir -pv "$portable_dir"
 
+printLine "Language Pack"
+sudo apt install language-pack-pt language-pack-gnome-pt -y
+
 printLine "Snap"
 sudo apt install snapd -y
 sudo systemctl enable --now snapd.socket
