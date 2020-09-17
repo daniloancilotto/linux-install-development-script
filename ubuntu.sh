@@ -64,13 +64,23 @@ mkdir -pv "$autostart_scripts_dir"
 portable_dir="$HOME/Applications"
 mkdir -pv "$portable_dir"
 
-printLine "Language Pack"
+printLine "Language Pack Pt"
 sudo apt install language-pack-pt language-pack-gnome-pt -y
 
 printLine "Snap"
+
 sudo apt install snapd -y
+
 sudo systemctl enable --now snapd.socket
 sudo snap set system refresh.timer=mon,04:00
+
+snap_cronjob="@reboot /usr/bin/sudo /usr/bin/snap refresh"
+if [ -z "$(sudo crontab -l | grep -F "$snap_cronjob")" ]
+then
+  (sudo crontab -l 2>/dev/null; echo "$snap_cronjob") | sudo crontab -
+fi
+
+echo "snap have been configured"
 
 printLine "Wget"
 sudo apt install wget -y
