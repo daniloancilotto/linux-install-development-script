@@ -1,7 +1,7 @@
 # Linux Development Script
 
 ### Supported Systems
-- [Ubuntu - 20.04](https://ubuntu.com/)
+- [Ubuntu - 20.04 (Base)](https://ubuntu.com/download)
 
 ### Supported Architectures
 - x86_64 (amd64)
@@ -29,22 +29,26 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 # Installations and Configurations
 
 ### Ubuntu
-- Language Pack Pt - Latest
-- Snap - Latest
-- Wget - Latest
-- Crudini - Latest
-- Jq - Latest
-- Seahorse - Latest
-- Kssh Askpass - Latest
+- Language Pack Pt - Latest (Repository)
+- Snap - Latest (Repository)
+- Wget - Latest (Repository)
+- Crudini - Latest (Repository)
+- Jq - Latest (Repository)
+- Seahorse - Latest (Repository)
+  - Autostart
+    - ~/.config/autostart/gnome-keyring-pkcs11.desktop
+    - ~/.config/autostart/gnome-keyring-secrets.desktop
+    - ~/.config/autostart/gnome-keyring-ssh.desktop
+- Kssh Askpass - Latest (Repository)
   - Autostart Scripts
     - ~/.config/autostart-scripts/ssh-askpass.sh
-- OpenJDK - 8 & 11
+- OpenJDK - 8 & 11 (Repository)
   - Desktop
     - ~/.local/share/applications/openjdk-8-policytool.desktop
-- Git - Latest
-- Maven - Latest
+- Git - Latest (Repository)
+- Maven - Latest (Repository)
 - [Node - 12 (Snap)](https://snapcraft.io/node)
-- Docker - Latest
+- Docker - Latest (Repository)
   - Modules
     - Compose
   - User Groups
@@ -69,7 +73,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - ~/.config/Code/User/settings.json
   - Watches
     - /etc/sysctl.d/60-inotify-watches.conf
-- [Zoiper5 - 5.4.6 (Dpkg)](https://www.zoiper.com/)
+- [Zoiper5 - 5.4.6 (Dpkg)](https://www.zoiper.com/en/voip-softphone/download/current)
   - Desktop
     - ~/.local/share/applications/zoiper5.desktop
   - Autostart

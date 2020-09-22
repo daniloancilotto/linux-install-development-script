@@ -92,7 +92,29 @@ printLine "Jq"
 sudo apt install jq -y
 
 printLine "Seahorse"
+
 sudo apt install seahorse -y
+
+file="$autostart_dir/gnome-keyring-pkcs11.desktop"
+if [ ! -f "$file" ]
+then
+  cp "/etc/xdg/autostart/gnome-keyring-pkcs11.desktop" "$autostart_dir"
+  sed -i '/^OnlyShowIn.*$/d' "$file"
+fi
+file="$autostart_dir/gnome-keyring-secrets.desktop"
+if [ ! -f "$file" ]
+then
+  cp "/etc/xdg/autostart/gnome-keyring-secrets.desktop" "$autostart_dir"
+  sed -i '/^OnlyShowIn.*$/d' "$file"
+fi
+file="$autostart_dir/gnome-keyring-ssh.desktop"
+if [ ! -f "$file" ]
+then
+  cp "/etc/xdg/autostart/gnome-keyring-ssh.desktop" "$autostart_dir"
+  sed -i '/^OnlyShowIn.*$/d' "$file"
+fi
+
+echo "seahorse have been configured"
 
 printLine "Kssh Askpass"
 
