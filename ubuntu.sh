@@ -147,10 +147,19 @@ printLine "Maven"
 sudo apt install maven -y
 
 printLine "Node"
+
+snap_channel="12/stable"
+
 echo "Running snap, please wait..."
-sudo snap install node --channel=12/stable --classic
-sudo snap switch node --channel=12/stable
-sudo snap refresh node
+sudo snap install node --channel=$snap_channel --classic
+
+if [[ "`snap list node`" != *" $snap_channel "* ]]
+then
+  sudo snap switch node --channel=$snap_channel
+  sudo snap refresh node
+fi
+
+echo "node have been configured"
 
 printLine "Docker"
 sudo apt install docker docker-compose -y
@@ -267,8 +276,8 @@ printLine "Zoiper5"
 portable_name="zoiper5"
 portable_subdir="$portable_dir/$portable_name"
 portable_cversion="`cat "$portable_subdir/version.txt"`"
-portable_dropbox_path="z7ofwhzrjz45lnx"
-portable_version="5.4.6"
+portable_dropbox_path="athklsusfepw5wz"
+portable_version="5.4.8"
 
 if [ "$portable_cversion" != "$portable_version" ]
 then
