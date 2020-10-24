@@ -170,8 +170,8 @@ printLine "MySQL Workbench"
 portable_name="mysql-workbench"
 portable_subdir="$portable_dir/$portable_name"
 portable_cversion="`cat "$portable_subdir/version.txt"`"
-portable_dropbox_path="qrihk27pqs7mf2n"
-portable_version="8.0.21"
+portable_dropbox_path="enzcrapu19a6i4w"
+portable_version="8.0.22"
 
 if [ "$portable_cversion" != "$portable_version" ]
 then
