@@ -148,7 +148,7 @@ sudo apt install maven -y
 
 printLine "Node"
 
-snap_channel="12/stable"
+snap_channel="14/stable"
 
 echo "Running snap, please wait..."
 sudo snap install node --channel=$snap_channel --classic
@@ -276,8 +276,8 @@ printLine "Zoiper5"
 portable_name="zoiper5"
 portable_subdir="$portable_dir/$portable_name"
 portable_cversion="`cat "$portable_subdir/version.txt"`"
-portable_dropbox_path="athklsusfepw5wz"
-portable_version="5.4.8"
+portable_dropbox_path="ttkubg8acd3avjx"
+portable_version="5.4.9"
 
 if [ "$portable_cversion" != "$portable_version" ]
 then
