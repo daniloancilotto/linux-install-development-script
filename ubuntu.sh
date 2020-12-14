@@ -163,6 +163,7 @@ echo "node have been configured"
 
 printLine "Docker"
 sudo apt install docker docker-compose -y
+sudo systemctl enable docker.service
 sudo usermod -aG docker $USER
 
 printLine "MySQL Workbench"
@@ -276,8 +277,8 @@ printLine "Zoiper5"
 portable_name="zoiper5"
 portable_subdir="$portable_dir/$portable_name"
 portable_cversion="`cat "$portable_subdir/version.txt"`"
-portable_dropbox_path="ttkubg8acd3avjx"
-portable_version="5.4.9"
+portable_dropbox_path="p2nmgamqjz4anuz"
+portable_version="5.4.10"
 
 if [ "$portable_cversion" != "$portable_version" ]
 then
