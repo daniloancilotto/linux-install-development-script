@@ -133,7 +133,7 @@ fi
 echo "ksshaskpass have been configured"
 
 printLine "Python"
-sudo apt install python3 python3-pip -y
+sudo apt install python3 python3-pip python3-tk python3-dev -y
 
 python3_dir="/usr/bin/python3"
 
