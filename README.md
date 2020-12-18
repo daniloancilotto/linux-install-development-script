@@ -42,6 +42,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 - Kssh Askpass - Latest (Repository)
   - Autostart Scripts
     - ~/.config/autostart-scripts/ssh-askpass.sh
+- Python - 3 (Repository)
 - OpenJDK - 8 & 11 (Repository)
   - Desktop
     - ~/.local/share/applications/openjdk-8-policytool.desktop
@@ -61,6 +62,8 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - Material Icon Theme
     - Bracket Pair Colorizer 2
     - GitLens — Git supercharged
+    - Python
+    - Pylance
     - Java Extension Pack
     - Spring Boot Tools
     - Lombok Annotations Support for VS Code

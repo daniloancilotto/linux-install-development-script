@@ -132,6 +132,11 @@ fi
 
 echo "ksshaskpass have been configured"
 
+printLine "Python"
+sudo apt install python3 -y
+
+python3_dir="/usr/bin/python3"
+
 printLine "OpenJDK"
 sudo apt install openjdk-8-jdk openjdk-11-jdk -y
 desktopConf "$desktop_dir" "openjdk-8-policytool.desktop" "NoDisplay" "true"
@@ -212,6 +217,8 @@ code_extensions=( \
   "pkief.material-icon-theme" \
   "coenraads.bracket-pair-colorizer-2" \
   "eamodio.gitlens" \
+  "ms-python.python" \
+  "ms-python.vscode-pylance" \
   "vscjava.vscode-java-pack" \
   "pivotal.vscode-spring-boot" \
   "gabrielbb.vscode-lombok" \
@@ -249,6 +256,9 @@ json="`echo "$json" | jq '."debug.openDebug"="neverOpen"'`"
 json="`echo "$json" | jq '."debug.showInStatusBar"="never"'`"
 json="`echo "$json" | jq '."git.confirmSync"=false'`"
 json="`echo "$json" | jq '."git.fetchOnPull"=true'`"
+json="`echo "$json" | jq '."python.showStartPage"=true'`"
+json="`echo "$json" | jq '."python.languageServer"="Pylance"'`"
+json="`echo "$json" | jq '."python.pythonPath"="'$python3_dir'"'`"
 json="`echo "$json" | jq '."java.semanticHighlighting.enabled"=true'`"
 json="`echo "$json" | jq '."java.configuration.checkProjectSettingsExclusions"=false'`"
 json="`echo "$json" | jq '."java.configuration.updateBuildConfiguration"="automatic"'`"
