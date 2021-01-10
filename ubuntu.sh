@@ -171,6 +171,9 @@ sudo apt install docker docker-compose -y
 sudo systemctl enable docker.service
 sudo usermod -aG docker $USER
 
+printLine "MySQL Client"
+sudo apt install mysql-client -y
+
 printLine "MySQL Workbench"
 
 portable_name="mysql-workbench"
