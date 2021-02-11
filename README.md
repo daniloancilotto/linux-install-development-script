@@ -77,7 +77,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - ~/.config/Code/User/settings.json
   - Watches
     - /etc/sysctl.d/60-inotify-watches.conf
-- [Zoiper5 - 5.4.10 (Dpkg)](https://www.zoiper.com/en/voip-softphone/download/current)
+- [Zoiper5 - 5.4.12 (Dpkg)](https://www.zoiper.com/en/voip-softphone/download/current)
   - Desktop
     - ~/.local/share/applications/zoiper5.desktop
   - Autostart
