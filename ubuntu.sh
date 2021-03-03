@@ -69,22 +69,25 @@ printLine "Kernel"
 swappiness="10"
 if [ "`cat /proc/sys/vm/swappiness`" != "$swappiness" ]
 then
-  echo "vm.swappiness=$swappiness" | sudo tee "/etc/sysctl.d/60-swappiness.conf"
-  sudo sysctl -p
+  file="/etc/sysctl.d/60-swappiness.conf"
+  echo "vm.swappiness=$swappiness" | sudo tee "$file"
+  sudo sysctl -p "$file"
 fi
 
 cache_pressure="50"
 if [ "`cat /proc/sys/vm/vfs_cache_pressure`" != "$cache_pressure" ]
 then
-  echo "vm.vfs_cache_pressure=$cache_pressure" | sudo tee "/etc/sysctl.d/60-cache-pressure.conf"
-  sudo sysctl -p
+  file="/etc/sysctl.d/60-cache-pressure.conf"
+  echo "vm.vfs_cache_pressure=$cache_pressure" | sudo tee "$file"
+  sudo sysctl -p "$file"
 fi
 
 inotify_watches="524288"
 if [ "`cat /proc/sys/fs/inotify/max_user_watches`" != "$inotify_watches" ]
 then
-  echo "fs.inotify.max_user_watches=$inotify_watches" | sudo tee "/etc/sysctl.d/60-inotify-watches.conf"
-  sudo sysctl -p
+  file="/etc/sysctl.d/60-inotify-watches.conf"
+  echo "fs.inotify.max_user_watches=$inotify_watches" | sudo tee "$file"
+  sudo sysctl -p "$file"
 fi
 
 echo "kernel have been configured"
@@ -328,8 +331,6 @@ else
   echo "zoiper5 is already installed"
 fi
 
-desktopConf "$desktop_dir" "zoiper5.desktop" "Name" "Zoiper5"
-
 file="$autostart_dir/Zoiper5.desktop"
 if [ ! -f "$file" ]
 then
@@ -339,11 +340,11 @@ then
   desk+=$'Comment=VoIP Softphone\n'
   desk+=$'Exec=/usr/local/applications/Zoiper5/zoiper\n'
   desk+=$'Terminal=false\n'
-  desk+=$'Icon=/usr/share/pixmaps/zoiper5.png\n'
+  desk+=$'Icon=/usr/share/pixmaps/Zoiper5.png\n'
   desk+=$'Type=Application\n'
   echo "$desk" > "$file"
 else
-  crudini --set "$file" "Desktop Entry" "Icon" "/usr/share/pixmaps/zoiper5.png"
+  crudini --set "$file" "Desktop Entry" "Icon" "/usr/share/pixmaps/Zoiper5.png"
 fi
 
 echo "zoiper5 have been configured"
