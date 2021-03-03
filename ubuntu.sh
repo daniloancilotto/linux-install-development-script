@@ -8,6 +8,7 @@ echo "System: $system"
 echo "Architecture: $architecture"
 echo "Home: $HOME"
 echo "User: $USER"
+sudo echo -n ""
 
 printLine() {
   text="$1"
