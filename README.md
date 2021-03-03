@@ -29,6 +29,11 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 # Installations and Configurations
 
 ### Ubuntu
+- Kernel
+  - Parameters
+    - /etc/sysctl.d/60-swappiness.conf
+    - /etc/sysctl.d/60-cache-pressure.conf
+    - /etc/sysctl.d/60-inotify-watches.conf
 - Language Pack Pt - Latest (Repository)
 - Snap - Latest (Repository)
 - Wget - Latest (Repository)
@@ -75,8 +80,6 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - Live Server
   - Preferences
     - ~/.config/Code/User/settings.json
-  - Watches
-    - /etc/sysctl.d/60-inotify-watches.conf
 - [Zoiper5 - 5.4.12 (Dpkg)](https://www.zoiper.com/en/voip-softphone/download/current)
   - Desktop
     - ~/.local/share/applications/zoiper5.desktop

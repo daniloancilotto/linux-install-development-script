@@ -64,6 +64,31 @@ mkdir -pv "$autostart_scripts_dir"
 portable_dir="$HOME/Applications"
 mkdir -pv "$portable_dir"
 
+printLine "Kernel"
+
+swappiness="10"
+if [ "`cat /proc/sys/vm/swappiness`" != "$swappiness" ]
+then
+  echo "vm.swappiness=$swappiness" | sudo tee "/etc/sysctl.d/60-swappiness.conf"
+  sudo sysctl -p
+fi
+
+cache_pressure="50"
+if [ "`cat /proc/sys/vm/vfs_cache_pressure`" != "$cache_pressure" ]
+then
+  echo "vm.vfs_cache_pressure=$cache_pressure" | sudo tee "/etc/sysctl.d/60-cache-pressure.conf"
+  sudo sysctl -p
+fi
+
+inotify_watches="524288"
+if [ "`cat /proc/sys/fs/inotify/max_user_watches`" != "$inotify_watches" ]
+then
+  echo "fs.inotify.max_user_watches=$inotify_watches" | sudo tee "/etc/sysctl.d/60-inotify-watches.conf"
+  sudo sysctl -p
+fi
+
+echo "kernel have been configured"
+
 printLine "Language Pack Pt"
 sudo apt install language-pack-pt language-pack-gnome-pt -y
 
@@ -275,13 +300,6 @@ json="`echo "$json" | jq '."spring-boot.ls.java.home"="'$java11_dir'"'`"
 json="`echo "$json" | jq '."maven.terminal.useJavaHome"=true'`"
 json="`echo "$json" | jq '."liveServer.settings.donotShowInfoMsg"=true'`"
 echo "$json" > "$file"
-
-inotify_watches="524288"
-if [ "`cat /proc/sys/fs/inotify/max_user_watches`" != "$inotify_watches" ]
-then
-  echo "fs.inotify.max_user_watches=$inotify_watches" | sudo tee "/etc/sysctl.d/60-inotify-watches.conf"
-  sudo sysctl -p
-fi
 
 echo "code have been configured"
 
