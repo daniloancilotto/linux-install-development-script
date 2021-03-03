@@ -36,7 +36,7 @@ dpkgInstall() {
   sudo apt install -fy
 }
 
-desktopConf() {
+menuConf() {
   source_file="/usr/share/applications/$2"
   target_file="$1/$2"
   if [ -f "$source_file" ] && [ ! -f "$target_file" ]
@@ -49,11 +49,13 @@ desktopConf() {
   fi
 }
 
-printLine "Update"
-sudo apt update
+python3_dir="/usr/bin/python3"
 
-desktop_dir="$HOME/.local/share/applications"
-mkdir -pv "$desktop_dir"
+java8_dir="/usr/lib/jvm/java-8-openjdk-amd64"
+java11_dir="/usr/lib/jvm/java-11-openjdk-amd64"
+
+menu_dir="$HOME/.local/share/applications"
+mkdir -pv "$menu_dir"
 
 autostart_dir="$HOME/.config/autostart"
 mkdir -pv "$autostart_dir"
@@ -63,6 +65,9 @@ mkdir -pv "$autostart_scripts_dir"
 
 portable_dir="$HOME/Applications"
 mkdir -pv "$portable_dir"
+
+printLine "Update"
+sudo apt update
 
 printLine "Kernel"
 
@@ -98,8 +103,8 @@ sudo apt install language-pack-pt language-pack-gnome-pt -y
 printLine "Snap"
 
 sudo apt install snapd -y
-
 sudo systemctl enable --now snapd.socket
+
 sudo snap set system refresh.timer=mon,04:00
 
 snap_cronjob="@reboot /usr/bin/sudo /usr/bin/snap refresh"
@@ -163,15 +168,12 @@ echo "ksshaskpass have been configured"
 printLine "Python"
 sudo apt install python3 python3-pip python3-tk python3-dev -y
 
-python3_dir="/usr/bin/python3"
-
 printLine "OpenJDK"
-sudo apt install openjdk-8-jdk openjdk-11-jdk -y
-desktopConf "$desktop_dir" "openjdk-8-policytool.desktop" "NoDisplay" "true"
-echo "openjdk have been configured"
 
-java8_dir="/usr/lib/jvm/java-8-openjdk-amd64"
-java11_dir="/usr/lib/jvm/java-11-openjdk-amd64"
+sudo apt install openjdk-8-jdk openjdk-11-jdk -y
+menuConf "$menu_dir" "openjdk-8-policytool.desktop" "NoDisplay" "true"
+
+echo "openjdk have been configured"
 
 printLine "Git"
 sudo apt install git -y
@@ -181,23 +183,25 @@ sudo apt install maven -y
 
 printLine "Node"
 
-snap_channel="14/stable"
+node_channel="14/stable"
 
 echo "Running snap, please wait..."
-sudo snap install node --channel=$snap_channel --classic
+sudo snap install node --channel=$node_channel --classic
 
-if [[ "`snap list node`" != *" $snap_channel "* ]]
+if [[ "`snap list node`" != *" $node_channel "* ]]
 then
-  sudo snap switch node --channel=$snap_channel
+  sudo snap switch node --channel=$node_channel
   sudo snap refresh node
 fi
 
-echo "node have been configured"
-
 printLine "Docker"
+
 sudo apt install docker docker-compose -y
 sudo systemctl enable docker.service
+
 sudo usermod -aG docker $USER
+
+echo "docker have been configured"
 
 printLine "MySQL Client"
 sudo apt install mysql-client -y

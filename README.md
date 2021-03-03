@@ -49,7 +49,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - ~/.config/autostart-scripts/ssh-askpass.sh
 - Python - 3 (Repository)
 - OpenJDK - 8 & 11 (Repository)
-  - Desktop
+  - Menu
     - ~/.local/share/applications/openjdk-8-policytool.desktop
 - Git - Latest (Repository)
 - Maven - Latest (Repository)
