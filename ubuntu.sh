@@ -261,6 +261,7 @@ code_extensions=( \
   "octref.vetur" \
   "vuetifyjs.vuetify-vscode" \
   "dbaeumer.vscode-eslint" \
+  "pflannery.vscode-versionlens" \
   "ms-azuretools.vscode-docker" \
   "ritwickdey.liveserver" \
 )

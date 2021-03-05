@@ -76,6 +76,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - Vetur
     - vuetify-vscode
     - ESLint
+    - Version Lens
     - Docker
     - Live Server
   - Preferences
