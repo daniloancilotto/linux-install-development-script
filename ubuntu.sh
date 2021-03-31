@@ -54,8 +54,8 @@ python3_dir="/usr/bin/python3"
 java8_dir="/usr/lib/jvm/java-8-openjdk-amd64"
 java11_dir="/usr/lib/jvm/java-11-openjdk-amd64"
 
-home_app_dir="$HOME/Applications"
-mkdir -pv "$home_app_dir"
+root_app_dir="/root/Applications"
+sudo mkdir -pv "$root_app_dir"
 
 home_menu_dir="$HOME/.local/share/applications"
 mkdir -pv "$home_menu_dir"
@@ -221,27 +221,27 @@ sudo apt install mysql-client -y
 
 printLine "MySQL Workbench"
 
-home_app_name="mysql-workbench"
-home_app_subdir="$home_app_dir/$home_app_name"
-home_app_cversion="`cat "$home_app_subdir/version.txt"`"
-home_app_dropbox_path="84o4fbqicv786et"
-home_app_version="8.0.23"
+root_app_name="mysql-workbench"
+root_app_subdir="$root_app_dir/$root_app_name"
+root_app_cversion="`sudo cat "$root_app_subdir/version.txt"`"
+root_app_dropbox_path="84o4fbqicv786et"
+root_app_version="8.0.23"
 
-if [ "$home_app_cversion" != "$home_app_version" ]
+if [ "$root_app_cversion" != "$root_app_version" ]
 then
-  rm -rf "$home_app_subdir"
+  sudo rm -rf "$root_app_subdir"
 
   sudo apt remove mysql-workbench-community -y
 fi
 
 if [ -z "`mysql-workbench --version`" ]
 then
-  dpkgInstall "mysql-workbench.deb" "https://www.dropbox.com/s/$home_app_dropbox_path/mysql-workbench-community_$home_app_version-1ubuntu20.04_amd64.deb"
+  dpkgInstall "mysql-workbench.deb" "https://www.dropbox.com/s/$root_app_dropbox_path/mysql-workbench-community_$root_app_version-1ubuntu20.04_amd64.deb"
 
-  mkdir -pv "$home_app_subdir"
-  echo "$home_app_version" > "$home_app_subdir/version.txt"
+  sudo mkdir -pv "$root_app_subdir"
+  echo "$root_app_version" | sudo tee "$root_app_subdir/version.txt"
 else
-  echo "mysql-workbench is already installed"
+  echo "$root_app_name is already installed"
 fi
 
 printLine "Postman"
@@ -328,27 +328,27 @@ echo "code have been configured"
 
 printLine "Zoiper5"
 
-home_app_name="zoiper5"
-home_app_subdir="$home_app_dir/$home_app_name"
-home_app_cversion="`cat "$home_app_subdir/version.txt"`"
-home_app_dropbox_path="3jex7pp5q1ev1b4"
-home_app_version="5.4.12"
+root_app_name="zoiper5"
+root_app_subdir="$root_app_dir/$root_app_name"
+root_app_cversion="`sudo cat "$root_app_subdir/version.txt"`"
+root_app_dropbox_path="3jex7pp5q1ev1b4"
+root_app_version="5.4.12"
 
-if [ "$home_app_cversion" != "$home_app_version" ]
+if [ "$root_app_cversion" != "$root_app_version" ]
 then
-  rm -rf "$home_app_subdir"
+  sudo rm -rf "$root_app_subdir"
 
   sudo apt remove zoiper5 -y
 fi
 
 if [ ! -f "/usr/local/applications/Zoiper5/zoiper" ]
 then
-  dpkgInstall "zoiper5.deb" $'https://www.dropbox.com/s/'$home_app_dropbox_path$'/zoiper5_'$home_app_version$'_x86_64.deb'
+  dpkgInstall "zoiper5.deb" $'https://www.dropbox.com/s/'$root_app_dropbox_path$'/zoiper5_'$root_app_version$'_x86_64.deb'
 
-  mkdir -pv "$home_app_subdir"
-  echo "$home_app_version" > "$home_app_subdir/version.txt"
+  sudo mkdir -pv "$root_app_subdir"
+  echo "$root_app_version" | sudo tee "$root_app_subdir/version.txt"
 else
-  echo "zoiper5 is already installed"
+  echo "$root_app_name is already installed"
 fi
 
 file="$home_autostart_dir/Zoiper5.desktop"
@@ -367,7 +367,7 @@ else
   crudini --set "$file" "Desktop Entry" "Icon" "/usr/share/pixmaps/Zoiper5.png"
 fi
 
-echo "zoiper5 have been configured"
+echo "$root_app_name have been configured"
 
 printLine "Finished"
 echo "Please reboot your system."
