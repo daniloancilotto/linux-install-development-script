@@ -16,12 +16,12 @@ printLine() {
   then
     text="$text "
   fi
-  lenght=${#text}
+  length=${#text}
   sudo echo ""
   echo -n "$text"
   for i in {1..80}
   do
-    if [ $i -gt $lenght ]
+    if [ $i -gt $length ]
     then
       echo -n "="
     fi
@@ -51,21 +51,20 @@ menuConf() {
 }
 
 python3_dir="/usr/bin/python3"
-
 java8_dir="/usr/lib/jvm/java-8-openjdk-amd64"
 java11_dir="/usr/lib/jvm/java-11-openjdk-amd64"
 
-menu_dir="$HOME/.local/share/applications"
-mkdir -pv "$menu_dir"
+home_app_dir="$HOME/Applications"
+mkdir -pv "$home_app_dir"
 
-autostart_dir="$HOME/.config/autostart"
-mkdir -pv "$autostart_dir"
+home_menu_dir="$HOME/.local/share/applications"
+mkdir -pv "$home_menu_dir"
 
-autostart_scripts_dir="$HOME/.config/autostart-scripts"
-mkdir -pv "$autostart_scripts_dir"
+home_autostart_dir="$HOME/.config/autostart"
+mkdir -pv "$home_autostart_dir"
 
-portable_dir="$HOME/Applications"
-mkdir -pv "$portable_dir"
+home_autostart_scripts_dir="$HOME/.config/autostart-scripts"
+mkdir -pv "$home_autostart_scripts_dir"
 
 printLine "Update"
 sudo apt update
@@ -129,22 +128,22 @@ printLine "Seahorse"
 
 sudo apt install seahorse -y
 
-file="$autostart_dir/gnome-keyring-pkcs11.desktop"
+file="$home_autostart_dir/gnome-keyring-pkcs11.desktop"
 if [ ! -f "$file" ]
 then
-  cp "/etc/xdg/autostart/gnome-keyring-pkcs11.desktop" "$autostart_dir"
+  cp "/etc/xdg/autostart/gnome-keyring-pkcs11.desktop" "$home_autostart_dir"
   sed -i '/^OnlyShowIn.*$/d' "$file"
 fi
-file="$autostart_dir/gnome-keyring-secrets.desktop"
+file="$home_autostart_dir/gnome-keyring-secrets.desktop"
 if [ ! -f "$file" ]
 then
-  cp "/etc/xdg/autostart/gnome-keyring-secrets.desktop" "$autostart_dir"
+  cp "/etc/xdg/autostart/gnome-keyring-secrets.desktop" "$home_autostart_dir"
   sed -i '/^OnlyShowIn.*$/d' "$file"
 fi
-file="$autostart_dir/gnome-keyring-ssh.desktop"
+file="$home_autostart_dir/gnome-keyring-ssh.desktop"
 if [ ! -f "$file" ]
 then
-  cp "/etc/xdg/autostart/gnome-keyring-ssh.desktop" "$autostart_dir"
+  cp "/etc/xdg/autostart/gnome-keyring-ssh.desktop" "$home_autostart_dir"
   sed -i '/^OnlyShowIn.*$/d' "$file"
 fi
 
@@ -154,7 +153,7 @@ printLine "Kssh Askpass"
 
 sudo apt install ksshaskpass -y
 
-file="$autostart_scripts_dir/ssh-askpass.sh"
+file="$home_autostart_scripts_dir/ssh-askpass.sh"
 if [ ! -f "$file" ]
 then
   conf=$'#!/bin/bash\n'
@@ -166,13 +165,26 @@ fi
 
 echo "ksshaskpass have been configured"
 
+printLine "NVIDIA X Server Settings"
+
+file="$home_autostart_scripts_dir/nvidia-settings.sh"
+if [ ! -f "$file" ]
+then
+  conf=$'#!/bin/bash\n'
+  conf+=$'/usr/bin/nvidia-settings -a [gpu:0]/GpuPowerMizerMode=1\n'
+  echo "$conf" | sudo tee "$file"
+  sudo chmod +x "$file"
+fi
+
+echo "nvidia-settings have been configured"
+
 printLine "Python"
 sudo apt install python3 python3-pip python3-tk python3-dev -y
 
 printLine "OpenJDK"
 
 sudo apt install openjdk-8-jdk openjdk-11-jdk -y
-menuConf "$menu_dir" "openjdk-8-policytool.desktop" "NoDisplay" "true"
+menuConf "$home_menu_dir" "openjdk-8-policytool.desktop" "NoDisplay" "true"
 
 echo "openjdk have been configured"
 
@@ -209,25 +221,25 @@ sudo apt install mysql-client -y
 
 printLine "MySQL Workbench"
 
-portable_name="mysql-workbench"
-portable_subdir="$portable_dir/$portable_name"
-portable_cversion="`cat "$portable_subdir/version.txt"`"
-portable_dropbox_path="84o4fbqicv786et"
-portable_version="8.0.23"
+home_app_name="mysql-workbench"
+home_app_subdir="$home_app_dir/$home_app_name"
+home_app_cversion="`cat "$home_app_subdir/version.txt"`"
+home_app_dropbox_path="84o4fbqicv786et"
+home_app_version="8.0.23"
 
-if [ "$portable_cversion" != "$portable_version" ]
+if [ "$home_app_cversion" != "$home_app_version" ]
 then
-  rm -rf "$portable_subdir"
+  rm -rf "$home_app_subdir"
 
   sudo apt remove mysql-workbench-community -y
 fi
 
 if [ -z "`mysql-workbench --version`" ]
 then
-  dpkgInstall "mysql-workbench.deb" "https://www.dropbox.com/s/$portable_dropbox_path/mysql-workbench-community_$portable_version-1ubuntu20.04_amd64.deb"
+  dpkgInstall "mysql-workbench.deb" "https://www.dropbox.com/s/$home_app_dropbox_path/mysql-workbench-community_$home_app_version-1ubuntu20.04_amd64.deb"
 
-  mkdir -pv "$portable_subdir"
-  echo "$portable_version" > "$portable_subdir/version.txt"
+  mkdir -pv "$home_app_subdir"
+  echo "$home_app_version" > "$home_app_subdir/version.txt"
 else
   echo "mysql-workbench is already installed"
 fi
@@ -316,30 +328,30 @@ echo "code have been configured"
 
 printLine "Zoiper5"
 
-portable_name="zoiper5"
-portable_subdir="$portable_dir/$portable_name"
-portable_cversion="`cat "$portable_subdir/version.txt"`"
-portable_dropbox_path="3jex7pp5q1ev1b4"
-portable_version="5.4.12"
+home_app_name="zoiper5"
+home_app_subdir="$home_app_dir/$home_app_name"
+home_app_cversion="`cat "$home_app_subdir/version.txt"`"
+home_app_dropbox_path="3jex7pp5q1ev1b4"
+home_app_version="5.4.12"
 
-if [ "$portable_cversion" != "$portable_version" ]
+if [ "$home_app_cversion" != "$home_app_version" ]
 then
-  rm -rf "$portable_subdir"
+  rm -rf "$home_app_subdir"
 
   sudo apt remove zoiper5 -y
 fi
 
 if [ ! -f "/usr/local/applications/Zoiper5/zoiper" ]
 then
-  dpkgInstall "zoiper5.deb" $'https://www.dropbox.com/s/'$portable_dropbox_path$'/zoiper5_'$portable_version$'_x86_64.deb'
+  dpkgInstall "zoiper5.deb" $'https://www.dropbox.com/s/'$home_app_dropbox_path$'/zoiper5_'$home_app_version$'_x86_64.deb'
 
-  mkdir -pv "$portable_subdir"
-  echo "$portable_version" > "$portable_subdir/version.txt"
+  mkdir -pv "$home_app_subdir"
+  echo "$home_app_version" > "$home_app_subdir/version.txt"
 else
   echo "zoiper5 is already installed"
 fi
 
-file="$autostart_dir/Zoiper5.desktop"
+file="$home_autostart_dir/Zoiper5.desktop"
 if [ ! -f "$file" ]
 then
   desk=$'[Desktop Entry]\n'

@@ -29,7 +29,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 # Installations and Configurations
 
 ### Ubuntu
-- Kernel
+- Kernel (Configuration Only)
   - Parameters
     - /etc/sysctl.d/60-swappiness.conf
     - /etc/sysctl.d/60-cache-pressure.conf
@@ -47,6 +47,9 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 - Kssh Askpass - Latest (Repository)
   - Autostart Scripts
     - ~/.config/autostart-scripts/ssh-askpass.sh
+- NVIDIA X Server Settings (Configuration Only)
+  - Autostart Scripts
+    - ~/.config/autostart-scripts/nvidia-settings.sh
 - Python - 3 (Repository)
 - OpenJDK - 8 & 11 (Repository)
   - Menu
