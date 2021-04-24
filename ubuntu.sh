@@ -224,8 +224,8 @@ printLine "MySQL Workbench"
 root_app_name="mysql-workbench"
 root_app_subdir="$root_app_dir/$root_app_name"
 root_app_cversion="`sudo cat "$root_app_subdir/version.txt"`"
-root_app_dropbox_path="84o4fbqicv786et"
-root_app_version="8.0.23"
+root_app_distro_release="`lsb_release -sr`"
+root_app_version="8.0.24"
 
 if [ "$root_app_cversion" != "$root_app_version" ]
 then
@@ -236,7 +236,7 @@ fi
 
 if [ -z "`mysql-workbench --version`" ]
 then
-  dpkgInstall "mysql-workbench.deb" "https://www.dropbox.com/s/$root_app_dropbox_path/mysql-workbench-community_$root_app_version-1ubuntu20.04_amd64.deb"
+  dpkgInstall "mysql-workbench.deb" $'https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community_'$root_app_version$'-1ubuntu'$root_app_distro_release$'_amd64.deb'
 
   sudo mkdir -pv "$root_app_subdir"
   echo "$root_app_version" | sudo tee "$root_app_subdir/version.txt"
