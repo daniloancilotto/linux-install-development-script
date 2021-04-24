@@ -1,11 +1,12 @@
 #!/bin/bash
 system="`lsb_release -sd`"
-architecture="`uname -m`"
+system_release="`lsb_release -sr`"
+system_architecture="`uname -m`"
 
 echo "LINUX DEVELOPMENT SCRIPT (UBUNTU)"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
-echo "Architecture: $architecture"
+echo "Architecture: $system_architecture"
 echo "Home: $HOME"
 echo "User: $USER"
 sudo echo -n ""
@@ -224,7 +225,6 @@ printLine "MySQL Workbench"
 root_app_name="mysql-workbench"
 root_app_subdir="$root_app_dir/$root_app_name"
 root_app_cversion="`sudo cat "$root_app_subdir/version.txt"`"
-root_app_distro_release="`lsb_release -sr`"
 root_app_version="8.0.24"
 
 if [ "$root_app_cversion" != "$root_app_version" ]
@@ -236,7 +236,7 @@ fi
 
 if [ -z "`mysql-workbench --version`" ]
 then
-  dpkgInstall "mysql-workbench.deb" $'https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community_'$root_app_version$'-1ubuntu'$root_app_distro_release$'_amd64.deb'
+  dpkgInstall "mysql-workbench.deb" $'https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community_'$root_app_version$'-1ubuntu'$system_release$'_amd64.deb'
 
   sudo mkdir -pv "$root_app_subdir"
   echo "$root_app_version" | sudo tee "$root_app_subdir/version.txt"
