@@ -263,7 +263,6 @@ sudo snap install code --classic
 
 code_extensions=( \
   "pkief.material-icon-theme" \
-  "oderwat.indent-rainbow" \
   "eamodio.gitlens" \
   "ms-python.python" \
   "ms-python.vscode-pylance" \
