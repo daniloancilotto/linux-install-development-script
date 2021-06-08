@@ -69,7 +69,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 - [Visual Studio Code - Latest (Snap)](https://snapcraft.io/code)
   - Extensions
     - Material Icon Theme
-    - Bracket Pair Colorizer 2
+    - indent-rainbow
     - GitLens — Git supercharged
     - Python
     - Pylance

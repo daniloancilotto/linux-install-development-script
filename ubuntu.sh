@@ -263,7 +263,7 @@ sudo snap install code --classic
 
 code_extensions=( \
   "pkief.material-icon-theme" \
-  "coenraads.bracket-pair-colorizer-2" \
+  "oderwat.indent-rainbow" \
   "eamodio.gitlens" \
   "ms-python.python" \
   "ms-python.vscode-pylance" \
