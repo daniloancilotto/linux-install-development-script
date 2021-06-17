@@ -64,9 +64,6 @@ mkdir -pv "$home_menu_dir"
 home_autostart_dir="$HOME/.config/autostart"
 mkdir -pv "$home_autostart_dir"
 
-home_autostart_scripts_dir="$HOME/.config/autostart-scripts"
-mkdir -pv "$home_autostart_scripts_dir"
-
 printLine "Update"
 sudo apt update
 
@@ -124,60 +121,6 @@ sudo apt install crudini -y
 
 printLine "Jq"
 sudo apt install jq -y
-
-printLine "Seahorse"
-
-sudo apt install seahorse -y
-
-file="$home_autostart_dir/gnome-keyring-pkcs11.desktop"
-if [ ! -f "$file" ]
-then
-  cp "/etc/xdg/autostart/gnome-keyring-pkcs11.desktop" "$home_autostart_dir"
-  sed -i '/^OnlyShowIn.*$/d' "$file"
-fi
-file="$home_autostart_dir/gnome-keyring-secrets.desktop"
-if [ ! -f "$file" ]
-then
-  cp "/etc/xdg/autostart/gnome-keyring-secrets.desktop" "$home_autostart_dir"
-  sed -i '/^OnlyShowIn.*$/d' "$file"
-fi
-file="$home_autostart_dir/gnome-keyring-ssh.desktop"
-if [ ! -f "$file" ]
-then
-  cp "/etc/xdg/autostart/gnome-keyring-ssh.desktop" "$home_autostart_dir"
-  sed -i '/^OnlyShowIn.*$/d' "$file"
-fi
-
-echo "seahorse have been configured"
-
-printLine "Kssh Askpass"
-
-sudo apt install ksshaskpass -y
-
-file="$home_autostart_scripts_dir/ssh-askpass.sh"
-if [ ! -f "$file" ]
-then
-  conf=$'#!/bin/bash\n'
-  conf+=$'export SSH_ASKPASS=/usr/bin/ksshaskpass\n'
-  conf+=$'/usr/bin/ssh-add </dev/null\n'
-  echo "$conf" | sudo tee "$file"
-  sudo chmod +x "$file"
-fi
-
-echo "ksshaskpass have been configured"
-
-printLine "NVIDIA X Server Settings"
-
-file="$home_autostart_scripts_dir/nvidia-settings.sh"
-if [ ! -f "$file" ]
-then
-  conf=$'#!/bin/bash\n'
-  conf+=$'/usr/bin/nvidia-settings -a [gpu:0]/GpuPowerMizerMode=1\n'
-  echo "$conf" | sudo tee "$file"
-  sudo chmod +x "$file"
-fi
-
-echo "nvidia-settings have been configured"
 
 printLine "Python"
 sudo apt install python3 python3-pip python3-tk python3-dev -y
@@ -297,6 +240,7 @@ json="`echo "$json" | jq '."window.zoomLevel"=0'`"
 json="`echo "$json" | jq '."editor.minimap.enabled"=false'`"
 json="`echo "$json" | jq '."editor.suggestSelection"="first"'`"
 json="`echo "$json" | jq '."diffEditor.ignoreTrimWhitespace"=false'`"
+json="`echo "$json" | jq '."terminal.integrated.cursorStyle"="underline"'`"
 json="`echo "$json" | jq '."terminal.integrated.fontSize"=13'`"
 json="`echo "$json" | jq '."debug.console.fontSize"=13'`"
 json="`echo "$json" | jq '."debug.internalConsoleOptions"="neverOpen"'`"
