@@ -276,8 +276,8 @@ printLine "Zoiper5"
 root_app_name="zoiper5"
 root_app_subdir="$root_app_dir/$root_app_name"
 root_app_cversion="`sudo cat "$root_app_subdir/version.txt"`"
-root_app_dropbox_path="3jex7pp5q1ev1b4"
-root_app_version="5.4.12"
+root_app_dropbox_path="93z8h7673qv8wm6"
+root_app_version="5.5.3"
 
 if [ "$root_app_cversion" != "$root_app_version" ]
 then
@@ -288,7 +288,7 @@ fi
 
 if [ ! -f "/usr/local/applications/Zoiper5/zoiper" ]
 then
-  dpkgInstall "zoiper5.deb" $'https://www.dropbox.com/s/'$root_app_dropbox_path$'/zoiper5_'$root_app_version$'_x86_64.deb'
+  dpkgInstall "zoiper5.deb" $'https://www.dropbox.com/s/'$root_app_dropbox_path$'/Zoiper5_'$root_app_version$'_x86_64.deb'
 
   sudo mkdir -pv "$root_app_subdir"
   echo "$root_app_version" | sudo tee "$root_app_subdir/version.txt"

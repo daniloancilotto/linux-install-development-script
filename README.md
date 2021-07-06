@@ -72,6 +72,6 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - Live Server
   - Preferences
     - ~/.config/Code/User/settings.json
-- [Zoiper5 - 5.4.12 (Dpkg)](https://www.zoiper.com/en/voip-softphone/download/current)
+- [Zoiper5 - 5.5.3 (Dpkg)](https://www.zoiper.com/en/voip-softphone/download/current)
   - Autostart
     - ~/.config/autostart/Zoiper5.desktop
