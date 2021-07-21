@@ -52,7 +52,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
   - User Groups
     - docker
 - MySQL Client - Latest (Repository)
-- [MySQL Workbench - 8.0.25 (Dpkg)](https://dev.mysql.com/downloads/workbench/)
+- [MySQL Workbench - 8.0.26 (Dpkg)](https://dev.mysql.com/downloads/workbench/)
 - [Postman - Latest (Snap)](https://snapcraft.io/postman)
 - [Google Chrome - Latest (Dpkg)](https://www.google.com/chrome/)
 - [Visual Studio Code - Latest (Snap)](https://snapcraft.io/code)

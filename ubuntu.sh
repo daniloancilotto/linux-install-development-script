@@ -168,7 +168,7 @@ printLine "MySQL Workbench"
 root_app_name="mysql-workbench"
 root_app_subdir="$root_app_dir/$root_app_name"
 root_app_cversion="`sudo cat "$root_app_subdir/version.txt"`"
-root_app_version="8.0.25"
+root_app_version="8.0.26"
 
 if [ "$root_app_cversion" != "$root_app_version" ]
 then
