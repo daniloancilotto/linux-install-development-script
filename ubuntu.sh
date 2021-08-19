@@ -276,8 +276,8 @@ printLine "Zoiper5"
 root_app_name="zoiper5"
 root_app_subdir="$root_app_dir/$root_app_name"
 root_app_cversion="`sudo cat "$root_app_subdir/version.txt"`"
-root_app_dropbox_path="93z8h7673qv8wm6"
-root_app_version="5.5.3"
+root_app_dropbox_path="ykghgo9zbnq551k"
+root_app_version="5.5.5"
 
 if [ "$root_app_cversion" != "$root_app_version" ]
 then
