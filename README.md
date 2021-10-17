@@ -34,7 +34,6 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - /etc/sysctl.d/60-swappiness.conf
     - /etc/sysctl.d/60-cache-pressure.conf
     - /etc/sysctl.d/60-inotify-watches.conf
-- Language Pack Pt - Latest (Repository)
 - Snap - Latest (Repository)
 - Wget - Latest (Repository)
 - Crudini - Latest (Repository)
@@ -75,3 +74,4 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 - [Zoiper5 - 5.5.6 (Dpkg)](https://www.zoiper.com/en/voip-softphone/download/current)
   - Autostart
     - ~/.config/autostart/Zoiper5.desktop
+- Language Pack Pt - Latest (Repository)
