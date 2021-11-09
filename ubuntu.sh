@@ -137,7 +137,7 @@ sudo apt install maven -y
 
 printLine "Node"
 
-node_channel="14/stable"
+node_channel="16/stable"
 
 echo "Running snap, please wait..."
 sudo snap install node --channel=$node_channel --classic
@@ -275,8 +275,8 @@ printLine "Zoiper5"
 root_app_name="zoiper5"
 root_app_subdir="$root_app_dir/$root_app_name"
 root_app_cversion="`sudo cat "$root_app_subdir/version.txt"`"
-root_app_dropbox_path="9rpp03lfyfgfxtq"
-root_app_version="5.5.6"
+root_app_dropbox_path="vksvbna859nru6u"
+root_app_version="5.5.8"
 
 if [ "$root_app_cversion" != "$root_app_version" ]
 then

@@ -44,7 +44,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - ~/.local/share/applications/openjdk-8-policytool.desktop
 - Git - Latest (Repository)
 - Maven - Latest (Repository)
-- [Node - 14 (Snap)](https://snapcraft.io/node)
+- [Node - 16 (Snap)](https://snapcraft.io/node)
 - Docker - Latest (Repository)
   - Modules
     - Compose
@@ -71,7 +71,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - Live Server
   - Preferences
     - ~/.config/Code/User/settings.json
-- [Zoiper5 - 5.5.6 (Dpkg)](https://www.zoiper.com/en/voip-softphone/download/current)
+- [Zoiper5 - 5.5.8 (Dpkg)](https://www.zoiper.com/en/voip-softphone/download/current)
   - Autostart
     - ~/.config/autostart/Zoiper5.desktop
 - Language Pack Pt - Latest (Repository)
