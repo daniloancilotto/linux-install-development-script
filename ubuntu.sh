@@ -137,14 +137,14 @@ sudo apt install maven -y
 
 printLine "Node"
 
-node_channel="16/stable"
+app_channel="16/stable"
 
 echo "Running snap, please wait..."
-sudo snap install node --channel=$node_channel --classic
+sudo snap install node --channel=$app_channel --classic
 
-if [[ "`snap list node`" != *" $node_channel "* ]]
+if [[ "`snap list node`" != *" $app_channel "* ]]
 then
-  sudo snap switch node --channel=$node_channel
+  sudo snap switch node --channel=$app_channel
   sudo snap refresh node
 fi
 
@@ -185,8 +185,17 @@ else
 fi
 
 printLine "Postman"
+
+app_channel="v9/stable"
+
 echo "Running snap, please wait..."
-sudo snap install postman
+sudo snap install postman --channel=$app_channel
+
+if [[ "`snap list postman`" != *" $app_channel "* ]]
+then
+  sudo snap switch postman --channel=$app_channel
+  sudo snap refresh postman
+fi
 
 printLine "Google Chrome"
 if [ -z "`google-chrome --version`" ]
@@ -236,6 +245,7 @@ json="`echo "$json" | jq '."extensions.ignoreRecommendations"=true'`"
 json="`echo "$json" | jq '."window.zoomLevel"=0'`"
 json="`echo "$json" | jq '."editor.minimap.enabled"=false'`"
 json="`echo "$json" | jq '."editor.suggestSelection"="first"'`"
+json="`echo "$json" | jq '."editor.inlineSuggest.enabled"=false'`"
 json="`echo "$json" | jq '."editor.bracketPairColorization.enabled"=true'`"
 json="`echo "$json" | jq '."diffEditor.ignoreTrimWhitespace"=false'`"
 json="`echo "$json" | jq '."terminal.integrated.cursorStyle"="underline"'`"
