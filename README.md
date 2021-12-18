@@ -52,7 +52,6 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - docker
 - MySQL Client - Latest (Repository)
 - [MySQL Workbench - 8.0.27 (Dpkg)](https://dev.mysql.com/downloads/workbench/)
-- [Postman - v9 (Snap)](https://snapcraft.io/postman)
 - [Google Chrome - Latest (Dpkg)](https://www.google.com/chrome/)
 - [Visual Studio Code - Latest (Snap)](https://snapcraft.io/code)
   - Extensions
@@ -68,6 +67,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - ESLint
     - Version Lens
     - Docker
+    - Thunder Client
     - Live Server
   - Preferences
     - ~/.config/Code/User/settings.json

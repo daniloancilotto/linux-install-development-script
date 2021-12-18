@@ -184,19 +184,6 @@ else
   echo "$root_app_name is already installed"
 fi
 
-printLine "Postman"
-
-app_channel="v9/stable"
-
-echo "Running snap, please wait..."
-sudo snap install postman --channel=$app_channel
-
-if [[ "`snap list postman`" != *" $app_channel "* ]]
-then
-  sudo snap switch postman --channel=$app_channel
-  sudo snap refresh postman
-fi
-
 printLine "Google Chrome"
 if [ -z "`google-chrome --version`" ]
 then
@@ -223,6 +210,7 @@ code_extensions=( \
   "dbaeumer.vscode-eslint" \
   "pflannery.vscode-versionlens" \
   "ms-azuretools.vscode-docker" \
+  "rangav.vscode-thunder-client"
   "ritwickdey.liveserver" \
 )
 i=0
