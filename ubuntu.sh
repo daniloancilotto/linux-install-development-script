@@ -61,9 +61,6 @@ sudo mkdir -pv "$root_app_dir"
 home_menu_dir="$HOME/.local/share/applications"
 mkdir -pv "$home_menu_dir"
 
-home_autostart_dir="$HOME/.config/autostart"
-mkdir -pv "$home_autostart_dir"
-
 printLine "Update"
 sudo apt update
 
@@ -267,49 +264,6 @@ json="`echo "$json" | jq '."redhat.telemetry.enabled"=false'`"
 echo "$json" > "$file"
 
 echo "code have been configured"
-
-printLine "Zoiper5"
-
-root_app_name="zoiper5"
-root_app_subdir="$root_app_dir/$root_app_name"
-root_app_cversion="`sudo cat "$root_app_subdir/version.txt"`"
-root_app_dropbox_path="vksvbna859nru6u"
-root_app_version="5.5.8"
-
-if [ "$root_app_cversion" != "$root_app_version" ]
-then
-  sudo rm -rf "$root_app_subdir"
-
-  sudo apt remove zoiper5 -y
-fi
-
-if [ ! -f "/usr/local/applications/Zoiper5/zoiper" ]
-then
-  dpkgInstall "zoiper5.deb" $'https://www.dropbox.com/s/'$root_app_dropbox_path$'/Zoiper5_'$root_app_version$'_x86_64.deb'
-
-  sudo mkdir -pv "$root_app_subdir"
-  echo "$root_app_version" | sudo tee "$root_app_subdir/version.txt"
-else
-  echo "$root_app_name is already installed"
-fi
-
-file="$home_autostart_dir/Zoiper5.desktop"
-if [ ! -f "$file" ]
-then
-  desk=$'[Desktop Entry]\n'
-  desk+=$'Encoding=UTF-8\n'
-  desk+=$'Name=Zoiper5\n'
-  desk+=$'Comment=VoIP Softphone\n'
-  desk+=$'Exec=/usr/local/applications/Zoiper5/zoiper\n'
-  desk+=$'Terminal=false\n'
-  desk+=$'Icon=/usr/share/pixmaps/Zoiper5.png\n'
-  desk+=$'Type=Application\n'
-  echo "$desk" > "$file"
-else
-  crudini --set "$file" "Desktop Entry" "Icon" "/usr/share/pixmaps/Zoiper5.png"
-fi
-
-echo "$root_app_name have been configured"
 
 printLine "Language Pack Pt"
 sudo apt install language-pack-pt language-pack-gnome-pt -y
