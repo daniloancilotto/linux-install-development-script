@@ -53,7 +53,7 @@ menuConf() {
 
 python3_dir="/usr/bin/python3"
 java8_dir="/usr/lib/jvm/java-8-openjdk-amd64"
-java11_dir="/usr/lib/jvm/java-11-openjdk-amd64"
+java17_dir="/usr/lib/jvm/java-17-openjdk-amd64"
 
 root_app_dir="/root/Applications"
 sudo mkdir -pv "$root_app_dir"
@@ -121,7 +121,7 @@ sudo apt install python3 python3-pip python3-tk python3-dev -y
 
 printLine "OpenJDK"
 
-sudo apt install openjdk-8-jdk openjdk-11-jdk -y
+sudo apt install openjdk-8-jdk openjdk-17-jdk -y
 menuConf "$home_menu_dir" "openjdk-8-policytool.desktop" "NoDisplay" "true"
 
 echo "openjdk have been configured"
@@ -255,9 +255,9 @@ json="`echo "$json" | jq '."java.project.importOnFirstTimeStartup"="automatic"'`
 json="`echo "$json" | jq '."java.refactor.renameFromFileExplorer"="autoApply"'`"
 json="`echo "$json" | jq '."java.configuration.runtimes"=[]'`"
 json="`echo "$json" | jq '."java.configuration.runtimes"+=[{"name":"JavaSE-1.8","path":"'$java8_dir'"}]'`"
-json="`echo "$json" | jq '."java.configuration.runtimes"+=[{"name":"JavaSE-11","path":"'$java11_dir'","default":true}]'`"
-json="`echo "$json" | jq '."java.jdt.ls.java.home"="'$java11_dir'"'`"
-json="`echo "$json" | jq '."spring-boot.ls.java.home"="'$java11_dir'"'`"
+json="`echo "$json" | jq '."java.configuration.runtimes"+=[{"name":"JavaSE-17","path":"'$java17_dir'","default":true}]'`"
+json="`echo "$json" | jq '."java.jdt.ls.java.home"="'$java17_dir'"'`"
+json="`echo "$json" | jq '."spring-boot.ls.java.home"="'$java17_dir'"'`"
 json="`echo "$json" | jq '."maven.terminal.useJavaHome"=true'`"
 json="`echo "$json" | jq '."liveServer.settings.donotShowInfoMsg"=true'`"
 json="`echo "$json" | jq '."redhat.telemetry.enabled"=false'`"
