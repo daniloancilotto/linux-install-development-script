@@ -219,7 +219,7 @@ do
 done
 
 code_extensions_dir="$HOME/.vscode/extensions"
-code_extensions_lombok_file="`ls $code_extensions_dir/gabrielbb.vscode-lombok-*/server/lombok.jar`"
+code_extensions_lombok_agent="`ls $code_extensions_dir/gabrielbb.vscode-lombok-*/server/lombok.jar`"
 
 file="$HOME/.config/Code/User/settings.json"
 json="`cat "$file"`"
@@ -262,7 +262,7 @@ json="`echo "$json" | jq '."java.configuration.runtimes"=[]'`"
 json="`echo "$json" | jq '."java.configuration.runtimes"+=[{"name":"JavaSE-1.8","path":"'$java8_dir'"}]'`"
 json="`echo "$json" | jq '."java.configuration.runtimes"+=[{"name":"JavaSE-11","path":"'$java11_dir'","default":true}]'`"
 json="`echo "$json" | jq '."java.home"="'$java11_dir'"'`"
-json="`echo "$json" | jq '."java.jdt.ls.vmargs"="-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx4G -Xms100m -javaagent:\\"'$code_extensions_lombok_file'\\""'`"
+json="`echo "$json" | jq '."java.jdt.ls.vmargs"="-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx4G -Xms100m -javaagent:\\\"'$code_extensions_lombok_agent'\\\""'`"
 json="`echo "$json" | jq '."java.jdt.ls.java.home"="'$java11_dir'"'`"
 json="`echo "$json" | jq '."spring-boot.ls.java.home"="'$java11_dir'"'`"
 json="`echo "$json" | jq '."maven.terminal.useJavaHome"=true'`"
