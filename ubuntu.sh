@@ -4,6 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "LINUX DEVELOPMENT SCRIPT (UBUNTU)"
+echo "Version: 2022.2.15-1850"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
