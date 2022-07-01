@@ -39,7 +39,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 - Crudini - Latest (Repository)
 - Jq - Latest (Repository)
 - Python - 3 (Repository)
-- OpenJDK - 8 & 11 (Repository)
+- OpenJDK - 8 & 17 (Repository)
   - Menu
     - ~/.local/share/applications/openjdk-8-policytool.desktop
 - Git - Latest (Repository)
@@ -59,7 +59,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - GitLens — Git supercharged
     - Python
     - Pylance
-    - Java Extension Pack
+    - Extension Pack for Java
     - Spring Boot Tools
     - Lombok Annotations Support for VS Code
     - Vetur

@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "LINUX DEVELOPMENT SCRIPT (UBUNTU)"
-echo "Version: 2022.4.27-1900"
+echo "Version: 2022.7.1-1000"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -54,7 +54,7 @@ menuConf() {
 
 python3_dir="/usr/bin/python3"
 java8_dir="/usr/lib/jvm/java-8-openjdk-amd64"
-java11_dir="/usr/lib/jvm/java-11-openjdk-amd64"
+java17_dir="/usr/lib/jvm/java-17-openjdk-amd64"
 
 root_app_dir="/root/Applications"
 sudo mkdir -pv "$root_app_dir"
@@ -122,7 +122,7 @@ sudo apt install python3 python3-pip python3-tk python3-dev -y
 
 printLine "OpenJDK"
 
-sudo apt install openjdk-8-jdk openjdk-11-jdk -y
+sudo apt install openjdk-8-jdk openjdk-17-jdk -y
 menuConf "$home_menu_dir" "openjdk-8-policytool.desktop" "NoDisplay" "true"
 
 echo "openjdk have been configured"
@@ -238,7 +238,7 @@ json="`echo "$json" | jq '."editor.inlineSuggest.enabled"=false'`"
 json="`echo "$json" | jq '."editor.bracketPairColorization.enabled"=true'`"
 json="`echo "$json" | jq '."diffEditor.ignoreTrimWhitespace"=false'`"
 json="`echo "$json" | jq '."terminal.integrated.env.linux"={}'`"
-json="`echo "$json" | jq '."terminal.integrated.env.linux"."JAVA_HOME"="'$java11_dir'"'`"
+json="`echo "$json" | jq '."terminal.integrated.env.linux"."JAVA_HOME"="'$java17_dir'"'`"
 json="`echo "$json" | jq '."terminal.integrated.cursorStyle"="underline"'`"
 json="`echo "$json" | jq '."terminal.integrated.fontSize"=13'`"
 json="`echo "$json" | jq '."debug.console.fontSize"=13'`"
@@ -262,11 +262,11 @@ json="`echo "$json" | jq '."java.project.importOnFirstTimeStartup"="automatic"'`
 json="`echo "$json" | jq '."java.refactor.renameFromFileExplorer"="autoApply"'`"
 json="`echo "$json" | jq '."java.configuration.runtimes"=[]'`"
 json="`echo "$json" | jq '."java.configuration.runtimes"+=[{"name":"JavaSE-1.8","path":"'$java8_dir'"}]'`"
-json="`echo "$json" | jq '."java.configuration.runtimes"+=[{"name":"JavaSE-11","path":"'$java11_dir'","default":true}]'`"
-json="`echo "$json" | jq '."java.home"="'$java11_dir'"'`"
+json="`echo "$json" | jq '."java.configuration.runtimes"+=[{"name":"JavaSE-17","path":"'$java17_dir'","default":true}]'`"
+json="`echo "$json" | jq '."java.home"="'$java17_dir'"'`"
 json="`echo "$json" | jq '."java.jdt.ls.vmargs"="-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx8g -Xms8g -javaagent:\\\"'$code_extensions_lombok_agent'\\\""'`"
-json="`echo "$json" | jq '."java.jdt.ls.java.home"="'$java11_dir'"'`"
-json="`echo "$json" | jq '."spring-boot.ls.java.home"="'$java11_dir'"'`"
+json="`echo "$json" | jq '."java.jdt.ls.java.home"="'$java17_dir'"'`"
+json="`echo "$json" | jq '."spring-boot.ls.java.home"="'$java17_dir'"'`"
 json="`echo "$json" | jq '."maven.terminal.useJavaHome"=true'`"
 json="`echo "$json" | jq '."liveServer.settings.donotShowInfoMsg"=true'`"
 json="`echo "$json" | jq '."redhat.telemetry.enabled"=false'`"
