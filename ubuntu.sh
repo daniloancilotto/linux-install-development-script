@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "LINUX DEVELOPMENT SCRIPT (UBUNTU)"
-echo "Version: 2022.7.1-1000"
+echo "Version: 2022.7.2-920"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -54,6 +54,7 @@ menuConf() {
 
 python3_dir="/usr/bin/python3"
 java8_dir="/usr/lib/jvm/java-8-openjdk-amd64"
+java11_dir="/usr/lib/jvm/java-11-openjdk-amd64"
 java17_dir="/usr/lib/jvm/java-17-openjdk-amd64"
 
 root_app_dir="/root/Applications"
@@ -122,7 +123,7 @@ sudo apt install python3 python3-pip python3-tk python3-dev -y
 
 printLine "OpenJDK"
 
-sudo apt install openjdk-8-jdk openjdk-17-jdk -y
+sudo apt install openjdk-8-jdk openjdk-11-jdk openjdk-17-jdk -y
 menuConf "$home_menu_dir" "openjdk-8-policytool.desktop" "NoDisplay" "true"
 
 echo "openjdk have been configured"
@@ -238,7 +239,7 @@ json="`echo "$json" | jq '."editor.inlineSuggest.enabled"=false'`"
 json="`echo "$json" | jq '."editor.bracketPairColorization.enabled"=true'`"
 json="`echo "$json" | jq '."diffEditor.ignoreTrimWhitespace"=false'`"
 json="`echo "$json" | jq '."terminal.integrated.env.linux"={}'`"
-json="`echo "$json" | jq '."terminal.integrated.env.linux"."JAVA_HOME"="'$java17_dir'"'`"
+json="`echo "$json" | jq '."terminal.integrated.env.linux"."JAVA_HOME"="'$java11_dir'"'`"
 json="`echo "$json" | jq '."terminal.integrated.cursorStyle"="underline"'`"
 json="`echo "$json" | jq '."terminal.integrated.fontSize"=13'`"
 json="`echo "$json" | jq '."debug.console.fontSize"=13'`"
