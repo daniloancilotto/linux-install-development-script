@@ -30,6 +30,8 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 
 ### Ubuntu
 - Kernel (Configuration Only)
+  - Packages
+    - Automatically Installed
   - Parameters
     - /etc/sysctl.d/60-swappiness.conf
     - /etc/sysctl.d/60-cache-pressure.conf

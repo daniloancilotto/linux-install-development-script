@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "LINUX DEVELOPMENT SCRIPT (UBUNTU)"
-echo "Version: 2022.7.15-1840"
+echo "Version: 2022.7.15-1940"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -67,6 +67,8 @@ printLine "Update"
 sudo apt update
 
 printLine "Kernel"
+
+sudo apt-mark auto $(apt-mark showmanual | grep -E "^linux-([[:alpha:]]+-)+[[:digit:].]+-[^-]+(|-.+)$")
 
 swappiness="10"
 if [ "`cat /proc/sys/vm/swappiness`" != "$swappiness" ]
