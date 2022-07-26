@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "LINUX DEVELOPMENT SCRIPT (UBUNTU)"
-echo "Version: 2022.7.26-1220"
+echo "Version: 2022.7.26-1230"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -165,7 +165,7 @@ printLine "MySQL Workbench"
 root_app_name="mysql-workbench"
 root_app_subdir="$root_app_dir/$root_app_name"
 root_app_cversion="`sudo cat "$root_app_subdir/version.txt"`"
-root_app_version="8.0.30"
+root_app_version="8.0.29"
 
 if [ "$root_app_cversion" != "$root_app_version" ]
 then
@@ -179,7 +179,11 @@ then
   dpkgInstall "mysql-workbench.deb" $'https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community_'$root_app_version$'-1ubuntu'$system_release$'_amd64.deb'
 
   sudo mkdir -pv "$root_app_subdir"
-  echo "$root_app_version" | sudo tee "$root_app_subdir/version.txt"
+
+  if [ ! -z "`mysql-workbench --version`" ]
+  then
+    echo "$root_app_version" | sudo tee "$root_app_subdir/version.txt"
+  fi
 else
   echo "$root_app_name is already installed"
 fi
