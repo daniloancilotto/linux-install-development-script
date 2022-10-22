@@ -1,7 +1,7 @@
 # Linux Development Script
 
 ### Supported Systems
-- [Ubuntu - 20.04 (Base)](https://ubuntu.com/download)
+- [Ubuntu - 22.04 (Base)](https://ubuntu.com/download)
 
 ### Supported Architectures
 - x86_64 (amd64)
@@ -53,7 +53,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
   - User Groups
     - docker
 - MySQL Client - Latest (Repository)
-- [MySQL Workbench - 8.0.29 (Dpkg)](https://dev.mysql.com/downloads/workbench/)
+- [MySQL Workbench - 8.0.31 (Dpkg)](https://dev.mysql.com/downloads/workbench/)
 - [Google Chrome - Latest (Dpkg)](https://www.google.com/chrome/)
 - [Visual Studio Code - Latest (Snap)](https://snapcraft.io/code)
   - Extensions
