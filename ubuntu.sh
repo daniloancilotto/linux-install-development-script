@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "LINUX DEVELOPMENT SCRIPT (UBUNTU)"
-echo "Version: 2022.10.21-2110"
+echo "Version: 2022.10.24-1730"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -42,9 +42,9 @@ dpkgInstall() {
 menuConf() {
   source_file="/usr/share/applications/$2"
   target_file="$1/$2"
-  if [ -f "$source_file" ] && [ ! -f "$target_file" ]
+  if [ -f "$source_file" ]
   then
-    cp "$source_file" "$target_file"
+    cp -fv "$source_file" "$target_file"
   fi
   if [ -f "$target_file" ]
   then
