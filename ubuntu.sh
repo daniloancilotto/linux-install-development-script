@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "LINUX DEVELOPMENT SCRIPT (UBUNTU)"
-echo "Version: 2022.10.24-1730"
+echo "Version: 2022.10.25-2240"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -137,7 +137,7 @@ sudo apt install maven -y
 
 printLine "Node"
 
-app_channel="16/stable"
+app_channel="18/stable"
 
 echo "Running snap, please wait..."
 sudo snap install node --channel=$app_channel --classic
