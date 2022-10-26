@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "LINUX DEVELOPMENT SCRIPT (UBUNTU)"
-echo "Version: 2022.10.25-2240"
+echo "Version: 2022.10.26-1500"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -225,9 +225,6 @@ do
   let "i++"
 done
 
-code_extensions_dir="$HOME/.vscode/extensions"
-code_extensions_lombok_agent="`ls $code_extensions_dir/vscjava.vscode-lombok-*/server/lombok.jar`"
-
 file="$HOME/.config/Code/User/settings.json"
 json="`cat "$file"`"
 if [ -z "$json" ]
@@ -272,12 +269,15 @@ json="`echo "$json" | jq '."java.configuration.runtimes"=[]'`"
 json="`echo "$json" | jq '."java.configuration.runtimes"+=[{"name":"JavaSE-1.8","path":"'$java8_dir'"}]'`"
 json="`echo "$json" | jq '."java.configuration.runtimes"+=[{"name":"JavaSE-17","path":"'$java17_dir'","default":true}]'`"
 json="`echo "$json" | jq '."java.home"="'$java17_dir'"'`"
-json="`echo "$json" | jq '."java.jdt.ls.vmargs"="-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx8g -Xms8g -javaagent:\\\"'$code_extensions_lombok_agent'\\\""'`"
 json="`echo "$json" | jq '."java.jdt.ls.java.home"="'$java17_dir'"'`"
 json="`echo "$json" | jq '."spring-boot.ls.java.home"="'$java17_dir'"'`"
 json="`echo "$json" | jq '."maven.terminal.useJavaHome"=true'`"
 json="`echo "$json" | jq '."liveServer.settings.donotShowInfoMsg"=true'`"
 json="`echo "$json" | jq '."redhat.telemetry.enabled"=false'`"
+if [[ "`echo "$json" | jq '."java.jdt.ls.vmargs"'`" =~ "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx8g -Xms8g -javaagent:" ]]
+then
+  json="`echo "$json" | jq 'del(."java.jdt.ls.vmargs")'`"
+fi
 echo "$json" > "$file"
 
 echo "code have been configured"
