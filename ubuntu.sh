@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "LINUX DEVELOPMENT SCRIPT (UBUNTU)"
-echo "Version: 2022.12.5-1530"
+echo "Version: 2022.12.7-1430"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -284,8 +284,9 @@ echo "$json" > "$file"
 
 echo "code have been configured"
 
-printLine "Language Pack Pt"
+printLine "Language Pack"
 sudo apt install language-pack-pt language-pack-gnome-pt -y
+sudo apt install language-selector-common -y
 sudo apt install `check-language-support` -y
 
 printLine "Finished"

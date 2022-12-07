@@ -73,4 +73,6 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - Live Server
   - Preferences
     - ~/.config/Code/User/settings.json
-- Language Pack Pt - Latest (Repository)
+- Language Pack - Latest (Repository)
+  - Languages
+    - pt
