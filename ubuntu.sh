@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "LINUX DEVELOPMENT SCRIPT (UBUNTU)"
-echo "Version: 2023.1.25-1940"
+echo "Version: 2023.2.3-920"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -207,7 +207,7 @@ code_extensions=( \
   "ms-python.python" \
   "ms-python.vscode-pylance" \
   "vscjava.vscode-java-pack" \
-  "pivotal.vscode-spring-boot" \
+  "vmware.vscode-spring-boot" \
   "vscjava.vscode-lombok" \
   "octref.vetur" \
   "vuetifyjs.vuetify-vscode" \
