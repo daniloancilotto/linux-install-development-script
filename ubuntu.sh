@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "LINUX DEVELOPMENT SCRIPT (UBUNTU)"
-echo "Version: 2023.2.3-920"
+echo "Version: 2023.4.19-1120"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -42,7 +42,7 @@ dpkgInstall() {
 menuConf() {
   source_file="/usr/share/applications/$2"
   target_file="$1/$2"
-  if [ -f "$source_file" ]
+  if [ -f "$source_file" ] && [ "$5" != "--no-replace-file" ]
   then
     cp -fv "$source_file" "$target_file"
   fi
@@ -165,7 +165,7 @@ printLine "MySQL Workbench"
 root_app_name="mysql-workbench"
 root_app_subdir="$root_app_dir/$root_app_name"
 root_app_cversion="`sudo cat "$root_app_subdir/version.txt"`"
-root_app_version="8.0.32"
+root_app_version="8.0.33"
 
 if [ "$root_app_cversion" != "$root_app_version" ]
 then
