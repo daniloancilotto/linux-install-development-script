@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "LINUX DEVELOPMENT SCRIPT (UBUNTU)"
-echo "Version: 2023.4.19-1120"
+echo "Version: 2023.5.25-2100"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -189,12 +189,16 @@ else
 fi
 
 printLine "Google Chrome"
+
 if [ -z "`google-chrome --version`" ]
 then
   dpkgInstall "google-chrome.deb" "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 else
   echo "google-chrome is already installed"
 fi
+menuConf "$home_menu_dir" "google-chrome.desktop" "Exec" "/usr/bin/google-chrome-stable %U --disable-gpu-driver-bug-workarounds"
+
+echo "google-chrome have been configured"
 
 printLine "Visual Studio Code"
 
@@ -232,6 +236,7 @@ then
   json="{}"
 fi
 json="`echo "$json" | jq '."workbench.startupEditor"="none"'`"
+json="`echo "$json" | jq '."workbench.colorTheme"="Default Dark+"'`"
 json="`echo "$json" | jq '."workbench.iconTheme"="material-icon-theme"'`"
 json="`echo "$json" | jq '."extensions.ignoreRecommendations"=true'`"
 json="`echo "$json" | jq '."window.zoomLevel"=0'`"
@@ -276,10 +281,6 @@ json="`echo "$json" | jq '."liveServer.settings.donotShowInfoMsg"=true'`"
 json="`echo "$json" | jq '."liveServer.settings.donotVerifyTags"=true'`"
 json="`echo "$json" | jq '."redhat.telemetry.enabled"=false'`"
 json="`echo "$json" | jq '."thunder-client.codeSnippetLanguage"="cs-httpclient"'`"
-if [[ "`echo "$json" | jq '."java.jdt.ls.vmargs"'`" =~ "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx8g -Xms8g -javaagent:" ]]
-then
-  json="`echo "$json" | jq 'del(."java.jdt.ls.vmargs")'`"
-fi
 echo "$json" > "$file"
 
 echo "code have been configured"

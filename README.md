@@ -55,6 +55,8 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 - MySQL Client - Latest (Repository)
 - [MySQL Workbench - 8.0.33 (Dpkg)](https://dev.mysql.com/downloads/workbench/)
 - [Google Chrome - Latest (Dpkg)](https://www.google.com/chrome/)
+  - Menu
+    - ~/.local/share/applications/google-chrome.desktop
 - [Visual Studio Code - Latest (Snap)](https://snapcraft.io/code)
   - Extensions
     - Material Icon Theme
