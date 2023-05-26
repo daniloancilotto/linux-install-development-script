@@ -41,7 +41,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 - Crudini - Latest (Repository)
 - Jq - Latest (Repository)
 - Python - 3 (Repository)
-- OpenJDK - 8, 11 & 17 (Repository)
+- OpenJDK - 8 & 17 (Repository)
   - Menu
     - ~/.local/share/applications/openjdk-8-policytool.desktop
 - Git - Latest (Repository)
