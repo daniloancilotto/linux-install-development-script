@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "LINUX DEVELOPMENT SCRIPT (UBUNTU)"
-echo "Version: 2023.5.26-130"
+echo "Version: 2023.7.20-950"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -164,7 +164,7 @@ printLine "MySQL Workbench"
 root_app_name="mysql-workbench"
 root_app_subdir="$root_app_dir/$root_app_name"
 root_app_cversion="`sudo cat "$root_app_subdir/version.txt"`"
-root_app_version="8.0.33"
+root_app_version="8.0.34"
 
 if [ "$root_app_cversion" != "$root_app_version" ]
 then
