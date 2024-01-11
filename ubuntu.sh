@@ -3,7 +3,7 @@ system="`lsb_release -sd`"
 system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
-echo "LINUX DEVELOPMENT SCRIPT (UBUNTU)"
+echo "INSTALL DEVELOPMENT APPS (UBUNTU)"
 echo "Version: 2023.10.26-1620"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
@@ -119,7 +119,7 @@ printLine "Jq"
 sudo apt install jq -y
 
 printLine "Python"
-sudo apt install python3 python3-pip python3-tk python3-dev -y
+sudo apt install python3 python3-pip python3-tk python3-dev python-is-python3 -y
 
 printLine "OpenJDK"
 

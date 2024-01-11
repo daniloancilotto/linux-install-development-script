@@ -1,4 +1,4 @@
-# Linux Development Script
+# Linux Install Development Script
 
 ### Supported Systems
 - [Ubuntu - 22.04 (Base)](https://ubuntu.com/download)
