@@ -53,7 +53,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
   - User Groups
     - docker
 - MySQL Client - Latest (Repository)
-- [MySQL Workbench - 8.0.34 (Dpkg)](https://dev.mysql.com/downloads/workbench/)
+- [MySQL Workbench - 8.0.36 (Dpkg)](https://dev.mysql.com/downloads/workbench/)
 - [Google Chrome - Latest (Dpkg)](https://www.google.com/chrome/)
   - Menu
     - ~/.local/share/applications/google-chrome.desktop

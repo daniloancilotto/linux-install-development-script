@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "INSTALL DEVELOPMENT APPS (UBUNTU)"
-echo "Version: 2023.10.26-1620"
+echo "Version: 2024.1.19-2130"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -119,7 +119,7 @@ printLine "Jq"
 sudo apt install jq -y
 
 printLine "Python"
-sudo apt install python3 python3-pip python3-tk python3-dev python-is-python3 -y
+sudo apt install python3 python3-pip python3-tk python3-dev python3-venv python-is-python3 -y
 
 printLine "OpenJDK"
 
@@ -154,6 +154,23 @@ sudo systemctl enable docker.service
 
 sudo usermod -aG docker $USER
 
+snap_cronjobs=( \
+  "@reboot /usr/bin/sudo /usr/bin/docker volume prune -a -f" \
+  "@reboot /usr/bin/sudo /usr/bin/docker image prune -a -f" \
+)
+i=0
+while [ $i != ${#snap_cronjobs[@]} ]
+do
+  snap_cronjob="${snap_cronjobs[$i]}"
+
+  if [ -z "$(sudo crontab -l | grep -F "$snap_cronjob")" ]
+  then
+    (sudo crontab -l 2>/dev/null; echo "$snap_cronjob") | sudo crontab -
+  fi
+
+  let "i++"
+done
+
 echo "docker have been configured"
 
 printLine "MySQL Client"
@@ -164,7 +181,7 @@ printLine "MySQL Workbench"
 root_app_name="mysql-workbench"
 root_app_subdir="$root_app_dir/$root_app_name"
 root_app_cversion="`sudo cat "$root_app_subdir/version.txt"`"
-root_app_version="8.0.34"
+root_app_version="8.0.36"
 
 if [ "$root_app_cversion" != "$root_app_version" ]
 then
