@@ -63,6 +63,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - GitLens — Git supercharged
     - Python
     - Pylance
+    - autopep8
     - Extension Pack for Java
     - Spring Boot Tools
     - Lombok Annotations Support for VS Code

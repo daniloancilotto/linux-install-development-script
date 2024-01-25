@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "INSTALL DEVELOPMENT APPS (UBUNTU)"
-echo "Version: 2024.1.19-2130"
+echo "Version: 2024.1.25-1650"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -226,6 +226,7 @@ code_extensions=( \
   "eamodio.gitlens" \
   "ms-python.python" \
   "ms-python.vscode-pylance" \
+  "ms-python.autopep8" \
   "vscjava.vscode-java-pack" \
   "vmware.vscode-spring-boot" \
   "vscjava.vscode-lombok" \
@@ -281,6 +282,9 @@ json="`echo "$json" | jq '."python.showStartPage"=false'`"
 json="`echo "$json" | jq '."python.languageServer"="Pylance"'`"
 json="`echo "$json" | jq '."python.pythonPath"="'$python3_dir'"'`"
 json="`echo "$json" | jq '."python.defaultInterpreterPath"="'$python3_dir'"'`"
+json="`echo "$json" | jq '."python.analysis.importFormat"="absolute"'`"
+json="`echo "$json" | jq '."python.analysis.autoImportCompletions"=true'`"
+json="`echo "$json" | jq '."python.analysis.indexing"=true'`"
 json="`echo "$json" | jq '."java.semanticHighlighting.enabled"=true'`"
 json="`echo "$json" | jq '."java.configuration.checkProjectSettingsExclusions"=false'`"
 json="`echo "$json" | jq '."java.configuration.updateBuildConfiguration"="automatic"'`"
