@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "INSTALL DEVELOPMENT APPS (UBUNTU)"
-echo "Version: 2024.1.25-1650"
+echo "Version: 2024.2.6-1250"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -227,6 +227,7 @@ code_extensions=( \
   "ms-python.python" \
   "ms-python.vscode-pylance" \
   "ms-python.autopep8" \
+  "ms-python.pylint" \
   "vscjava.vscode-java-pack" \
   "vmware.vscode-spring-boot" \
   "vscjava.vscode-lombok" \
@@ -255,9 +256,11 @@ fi
 json="`echo "$json" | jq '."workbench.startupEditor"="none"'`"
 json="`echo "$json" | jq '."workbench.colorTheme"="Default Dark+"'`"
 json="`echo "$json" | jq '."workbench.iconTheme"="material-icon-theme"'`"
+json="`echo "$json" | jq '."workbench.tree.enableStickyScroll"=false'`"
 json="`echo "$json" | jq '."extensions.ignoreRecommendations"=true'`"
 json="`echo "$json" | jq '."window.zoomLevel"=0'`"
 json="`echo "$json" | jq '."editor.minimap.enabled"=false'`"
+json="`echo "$json" | jq '."editor.stickyScroll.enabled"=false'`"
 json="`echo "$json" | jq '."editor.suggestSelection"="first"'`"
 json="`echo "$json" | jq '."editor.inlineSuggest.enabled"=false'`"
 json="`echo "$json" | jq '."editor.bracketPairColorization.enabled"=true'`"

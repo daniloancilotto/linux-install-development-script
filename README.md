@@ -64,6 +64,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - Python
     - Pylance
     - autopep8
+    - Pylint
     - Extension Pack for Java
     - Spring Boot Tools
     - Lombok Annotations Support for VS Code
