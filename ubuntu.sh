@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "INSTALL DEVELOPMENT APPS (UBUNTU)"
-echo "Version: 2024.2.6-1250"
+echo "Version: 2024.3.12-1620"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -134,18 +134,10 @@ sudo apt install git -y
 printLine "Maven"
 sudo apt install maven -y
 
-printLine "Node"
-
-app_channel="20/stable"
-
-echo "Running snap, please wait..."
-sudo snap install node --channel=$app_channel --classic
-
-if [[ "`snap list node`" != *" $app_channel "* ]]
-then
-  sudo snap switch node --channel=$app_channel
-  sudo snap refresh node
-fi
+printLine "Node.js"
+sudo snap remove node --purge
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt install nodejs -y
 
 printLine "Docker"
 

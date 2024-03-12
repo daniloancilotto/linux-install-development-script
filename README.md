@@ -46,7 +46,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - ~/.local/share/applications/openjdk-8-policytool.desktop
 - Git - Latest (Repository)
 - Maven - Latest (Repository)
-- [Node - 20 (Snap)](https://snapcraft.io/node)
+- [Node.js - Latest (Repository)](https://github.com/nodesource/distributions)
 - Docker - Latest (Repository)
   - Modules
     - Compose
