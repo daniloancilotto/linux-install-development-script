@@ -36,7 +36,6 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - /etc/sysctl.d/60-swappiness.conf
     - /etc/sysctl.d/60-cache-pressure.conf
     - /etc/sysctl.d/60-inotify-watches.conf
-- Snap - Latest (Repository)
 - Wget - Latest (Repository)
 - Crudini - Latest (Repository)
 - Jq - Latest (Repository)
@@ -57,7 +56,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 - [Google Chrome - Latest (Dpkg)](https://www.google.com/chrome/)
   - Menu
     - ~/.local/share/applications/google-chrome.desktop
-- [Visual Studio Code - Latest (Snap)](https://snapcraft.io/code)
+- [Visual Studio Code - Latest (Dpkg)](https://code.visualstudio.com/updates)
   - Extensions
     - Material Icon Theme
     - GitLens — Git supercharged

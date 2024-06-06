@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "INSTALL DEVELOPMENT APPS (UBUNTU)"
-echo "Version: 2024.3.12-1620"
+echo "Version: 2024.6.5-2300"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -94,21 +94,6 @@ fi
 
 echo "kernel have been configured"
 
-printLine "Snap"
-
-sudo apt install snapd -y
-sudo systemctl enable --now snapd.socket
-
-sudo snap set system refresh.timer=mon,04:00
-
-snap_cronjob="@reboot /usr/bin/sudo /usr/bin/snap refresh"
-if [ -z "$(sudo crontab -l | grep -F "$snap_cronjob")" ]
-then
-  (sudo crontab -l 2>/dev/null; echo "$snap_cronjob") | sudo crontab -
-fi
-
-echo "snap have been configured"
-
 printLine "Wget"
 sudo apt install wget -y
 
@@ -146,18 +131,18 @@ sudo systemctl enable docker.service
 
 sudo usermod -aG docker $USER
 
-snap_cronjobs=( \
+docker_cronjobs=( \
   "@reboot /usr/bin/sudo /usr/bin/docker volume prune -a -f" \
   "@reboot /usr/bin/sudo /usr/bin/docker image prune -a -f" \
 )
 i=0
-while [ $i != ${#snap_cronjobs[@]} ]
+while [ $i != ${#docker_cronjobs[@]} ]
 do
-  snap_cronjob="${snap_cronjobs[$i]}"
+  docker_cronjob="${docker_cronjobs[$i]}"
 
-  if [ -z "$(sudo crontab -l | grep -F "$snap_cronjob")" ]
+  if [ -z "$(sudo crontab -l | grep -F "$docker_cronjob")" ]
   then
-    (sudo crontab -l 2>/dev/null; echo "$snap_cronjob") | sudo crontab -
+    (sudo crontab -l 2>/dev/null; echo "$docker_cronjob") | sudo crontab -
   fi
 
   let "i++"
@@ -210,8 +195,13 @@ echo "google-chrome have been configured"
 
 printLine "Visual Studio Code"
 
-echo "Running snap, please wait..."
-sudo snap install code --classic
+sudo snap remove code --purge
+if [ -z "`code --version`" ]
+then
+  dpkgInstall "code.deb" "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
+else
+  echo "code is already installed"
+fi
 
 code_extensions=( \
   "pkief.material-icon-theme" \
@@ -234,7 +224,7 @@ code_extensions=( \
 i=0
 while [ $i != ${#code_extensions[@]} ]
 do
-  snap run code --install-extension "${code_extensions[$i]}"
+  code --install-extension "${code_extensions[$i]}"
   
   let "i++"
 done
