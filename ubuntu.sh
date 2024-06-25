@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "INSTALL DEVELOPMENT APPS (UBUNTU)"
-echo "Version: 2024.6.5-2300"
+echo "Version: 2024.6.24-2110"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -127,22 +127,38 @@ sudo apt install nodejs -y
 printLine "Docker"
 
 sudo apt install docker docker-compose -y
-sudo systemctl enable docker.service
 
 sudo usermod -aG docker $USER
 
-docker_cronjobs=( \
+file="/etc/docker/daemon.json"
+json="{\"data-root\": \"/home/docker/data\"}"
+if [ ! -f "$file" ]
+then
+  sudo mkdir -pv "/etc/docker"
+  sudo mkdir -pv "/home/docker"
+  echo "$json" | sudo tee "$file"
+
+  if [ -d "/var/lib/docker" ] && [ ! -d "/home/docker/data" ]
+  then
+    sudo systemctl stop docker.service
+    sudo mv -fv "/var/lib/docker" "/home/docker/data"
+    sudo systemctl start docker.service
+  fi
+fi
+sudo systemctl enable docker.service
+
+cronjobs=( \
   "@reboot /usr/bin/sudo /usr/bin/docker volume prune -a -f" \
   "@reboot /usr/bin/sudo /usr/bin/docker image prune -a -f" \
 )
 i=0
-while [ $i != ${#docker_cronjobs[@]} ]
+while [ $i != ${#cronjobs[@]} ]
 do
-  docker_cronjob="${docker_cronjobs[$i]}"
+  cronjob="${cronjobs[$i]}"
 
-  if [ -z "$(sudo crontab -l | grep -F "$docker_cronjob")" ]
+  if [ -z "$(sudo crontab -l | grep -F "$cronjob")" ]
   then
-    (sudo crontab -l 2>/dev/null; echo "$docker_cronjob") | sudo crontab -
+    (sudo crontab -l 2>/dev/null; echo "$cronjob") | sudo crontab -
   fi
 
   let "i++"
