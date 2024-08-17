@@ -51,8 +51,11 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - Compose
   - User Groups
     - docker
-  - Daemon
+  - Preferences
     - /etc/docker/daemon.json
+  - Cron Jobs
+    - Volume Prune
+    - Image Prune
 - MySQL Client - Latest (Repository)
 - [MySQL Workbench - 8.0.36 (Dpkg)](https://dev.mysql.com/downloads/workbench/)
 - [Google Chrome - Latest (Dpkg)](https://www.google.com/chrome/)
