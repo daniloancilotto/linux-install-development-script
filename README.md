@@ -37,6 +37,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - /etc/sysctl.d/60-cache-pressure.conf
     - /etc/sysctl.d/60-inotify-watches.conf
 - Wget - Latest (Repository)
+- Tar - Latest (Repository)
 - Crudini - Latest (Repository)
 - Jq - Latest (Repository)
 - Python - 3 (Repository)
@@ -61,6 +62,9 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 - [Google Chrome - Latest (Dpkg)](https://www.google.com/chrome/)
   - Menu
     - ~/.local/share/applications/google-chrome.desktop
+- [Postman - Latest (Portable)](https://www.postman.com/downloads/)
+  - Menu
+    - ~/.local/share/applications/postman.desktop
 - [Visual Studio Code - Latest (Dpkg)](https://code.visualstudio.com/updates)
   - Extensions
     - Material Icon Theme
@@ -77,7 +81,6 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - ESLint
     - Version Lens
     - Docker
-    - Thunder Client
     - Live Server
   - Preferences
     - ~/.config/Code/User/settings.json

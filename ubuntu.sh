@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "INSTALL DEVELOPMENT APPS (UBUNTU)"
-echo "Version: 2024.6.24-2110"
+echo "Version: 2024.8.20-1000"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -59,6 +59,9 @@ java17_dir="/usr/lib/jvm/java-17-openjdk-amd64"
 root_app_dir="/root/Applications"
 sudo mkdir -pv "$root_app_dir"
 
+home_app_dir="$HOME/Applications"
+mkdir -pv "$home_app_dir"
+
 home_menu_dir="$HOME/.local/share/applications"
 mkdir -pv "$home_menu_dir"
 
@@ -96,6 +99,9 @@ echo "kernel have been configured"
 
 printLine "Wget"
 sudo apt install wget -y
+
+printLine "Tar"
+sudo apt install tar -y
 
 printLine "Crudini"
 sudo apt install crudini -y
@@ -209,6 +215,50 @@ menuConf "$home_menu_dir" "google-chrome.desktop" "Exec" "/usr/bin/google-chrome
 
 echo "google-chrome have been configured"
 
+printLine "Postman"
+
+home_app_name="postman"
+home_app_subdir="$home_app_dir/$home_app_name"
+home_app_cversion="`cat "$home_app_subdir/version.txt"`"
+home_app_version="latest"
+
+if [ "$home_app_cversion" != "$home_app_version" ]
+then
+  rm -rf "$home_app_subdir"
+fi
+
+if [ ! -d "$home_app_subdir" ]
+then
+  file="$home_app_dir/postman-$home_app_version.tar.gz"
+  wget -O "$file" "https://dl.pstmn.io/download/$home_app_version/linux_64"
+  tar -xzf "$file" -C "$home_app_dir"
+  rm -fv "$file"
+
+  mv -fv "$home_app_dir/Postman" "$home_app_subdir"
+
+  if [ -f "$home_app_subdir/Postman" ]
+  then
+    echo "$home_app_version" > "$home_app_subdir/version.txt"
+  fi
+else
+  echo "$home_app_name is already installed"
+fi
+
+file="$home_menu_dir/postman.desktop"
+if [ ! -f "$file" ]
+then
+  desk=$'[Desktop Entry]\n'
+  desk+=$'Name=Postman\n'
+  desk+=$'Exec='$home_app_subdir$'/Postman\n'
+  desk+=$'Terminal=false\n'
+  desk+=$'Type=Application\n'
+  desk+=$'Icon='$home_app_subdir$'/app/icons/icon_128x128.png\n'
+  desk+=$'Categories=Utility;\n'
+  echo "$desk" > "$file"
+fi
+
+echo "$home_app_name have been configured"
+
 printLine "Visual Studio Code"
 
 sudo snap remove code --purge
@@ -234,7 +284,6 @@ code_extensions=( \
   "dbaeumer.vscode-eslint" \
   "pflannery.vscode-versionlens" \
   "ms-azuretools.vscode-docker" \
-  "rangav.vscode-thunder-client"
   "ritwickdey.liveserver" \
 )
 i=0
