@@ -132,7 +132,7 @@ sudo apt install nodejs -y
 
 printLine "Docker"
 
-sudo apt install docker docker-compose -y
+sudo apt install docker.io docker-compose -y
 
 sudo usermod -aG docker $USER
 
