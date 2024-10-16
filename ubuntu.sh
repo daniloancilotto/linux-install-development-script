@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "INSTALL DEVELOPMENT APPS (UBUNTU)"
-echo "Version: 2024.10.15-2350"
+echo "Version: 2024.10.16-1550"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -264,6 +264,7 @@ printLine "Visual Studio Code"
 sudo snap remove code --purge
 if [ -z "`code --version`" ]
 then
+  echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selections
   dpkgInstall "code.deb" "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
 else
   echo "code is already installed"
