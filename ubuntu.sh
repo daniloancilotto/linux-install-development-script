@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "INSTALL DEVELOPMENT APPS (UBUNTU)"
-echo "Version: 2024.10.16-1550"
+echo "Version: 2024.10.17-2310"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -245,17 +245,14 @@ else
 fi
 
 file="$home_menu_dir/postman.desktop"
-if [ ! -f "$file" ]
-then
-  desk=$'[Desktop Entry]\n'
-  desk+=$'Name=Postman\n'
-  desk+=$'Exec='$home_app_subdir$'/Postman\n'
-  desk+=$'Terminal=false\n'
-  desk+=$'Type=Application\n'
-  desk+=$'Icon='$home_app_subdir$'/app/icons/icon_128x128.png\n'
-  desk+=$'Categories=Utility;\n'
-  echo "$desk" > "$file"
-fi
+desk=$'[Desktop Entry]\n'
+desk+=$'Name=Postman\n'
+desk+=$'Exec='$home_app_subdir$'/Postman\n'
+desk+=$'Terminal=false\n'
+desk+=$'Type=Application\n'
+desk+=$'Icon='$home_app_subdir$'/app/icons/icon_128x128.png\n'
+desk+=$'Categories=Utility;\n'
+echo "$desk" > "$file"
 
 echo "$home_app_name have been configured"
 
