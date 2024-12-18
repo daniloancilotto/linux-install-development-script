@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "INSTALL DEVELOPMENT APPS (UBUNTU)"
-echo "Version: 2024.10.21-950"
+echo "Version: 2024.12.18-1050"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -132,7 +132,7 @@ sudo apt install nodejs -y
 
 printLine "Docker"
 
-sudo apt install docker.io docker-compose -y
+sudo apt install docker.io docker-compose-v2 -y
 
 sudo usermod -aG docker $USER
 
@@ -180,7 +180,7 @@ printLine "MySQL Workbench"
 root_app_name="mysql-workbench"
 root_app_subdir="$root_app_dir/$root_app_name"
 root_app_cversion="`sudo cat "$root_app_subdir/version.txt"`"
-root_app_version="8.0.38"
+root_app_version="8.0.40"
 
 if [ "$root_app_cversion" != "$root_app_version" ]
 then

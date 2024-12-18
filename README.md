@@ -58,7 +58,7 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
     - Volume Prune
     - Image Prune
 - MySQL Client - Latest (Repository)
-- [MySQL Workbench - 8.0.38 (Dpkg)](https://dev.mysql.com/downloads/workbench/)
+- [MySQL Workbench - 8.0.40 (Dpkg)](https://dev.mysql.com/downloads/workbench/)
 - [Google Chrome - Latest (Dpkg)](https://www.google.com/chrome/)
   - Menu
     - ~/.local/share/applications/google-chrome.desktop
