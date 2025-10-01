@@ -60,8 +60,6 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 - MySQL Client - Latest (Repository)
 - [MySQL Workbench - 8.0.43 (Dpkg)](https://dev.mysql.com/downloads/workbench/)
 - [Google Chrome - Latest (Dpkg)](https://www.google.com/chrome/)
-  - Menu
-    - ~/.local/share/applications/google-chrome.desktop
 - [Postman - Latest (Portable)](https://www.postman.com/downloads/)
   - Menu
     - ~/.local/share/applications/postman.desktop

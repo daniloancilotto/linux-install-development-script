@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "INSTALL DEVELOPMENT APPS (UBUNTU)"
-echo "Version: 2025.07.22-0840"
+echo "Version: 2025.10.01-0810"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -204,16 +204,12 @@ else
 fi
 
 printLine "Google Chrome"
-
 if [ -z "`google-chrome --version`" ]
 then
   dpkgInstall "google-chrome.deb" "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 else
   echo "google-chrome is already installed"
 fi
-menuConf "$home_menu_dir" "google-chrome.desktop" "Exec" "/usr/bin/google-chrome-stable %U --disable-gpu-driver-bug-workarounds --disable-accelerated-2d-canvas"
-
-echo "google-chrome have been configured"
 
 printLine "Postman"
 
