@@ -1,7 +1,7 @@
 # Linux Install Development Script
 
 ### Supported Systems
-- [Ubuntu - 24.04 (Base)](https://ubuntu.com/download)
+- [Ubuntu - 26.04 (Base)](https://ubuntu.com/download)
 
 ### Supported Architectures
 - x86_64 (amd64)
