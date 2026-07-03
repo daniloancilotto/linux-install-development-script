@@ -247,7 +247,7 @@ desk+=$'Name=Postman\n'
 desk+=$'Exec='$home_app_subdir$'/Postman\n'
 desk+=$'Terminal=false\n'
 desk+=$'Type=Application\n'
-desk+=$'Icon='$home_app_subdir$'/app/icons/icon_128x128.png\n'
+desk+=$'Icon='$home_app_subdir$'/app/resources/app/assets/icon.png\n'
 desk+=$'Categories=Utility;\n'
 echo "$desk" > "$file"
 
