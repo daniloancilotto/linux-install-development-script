@@ -47,6 +47,9 @@ curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/daniloa
 - Git - Latest (Repository)
 - Maven - Latest (Repository)
 - [Node.js - Latest (Repository)](https://github.com/nodesource/distributions)
+- [DBeaver - 26.1.2 (Dpkg)](https://dbeaver.io/download/)
+  - Menu
+    - ~/.local/share/applications/dbeaver-ce.desktop
 - Docker - Latest (Repository)
   - Modules
     - Compose

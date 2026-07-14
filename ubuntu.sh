@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "INSTALL DEVELOPMENT APPS (UBUNTU)"
-echo "Version: 2026.07.02-2310"
+echo "Version: 2026.07.14-1130"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -128,6 +128,38 @@ sudo apt install maven -y
 printLine "Node.js"
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt install nodejs -y
+
+printLine "DBeaver"
+
+root_app_name="dbeaver"
+root_app_subdir="$root_app_dir/$root_app_name"
+root_app_cversion="`sudo cat "$root_app_subdir/version.txt"`"
+root_app_version="26.1.2"
+
+if [ "$root_app_cversion" != "$root_app_version" ]
+then
+  sudo rm -rf "$root_app_subdir"
+
+  sudo apt remove dbeaver-ce -y
+fi
+
+if [ -z "`dbeaver --version`" ]
+then
+  dpkgInstall "dbeaver.deb" "https://dbeaver.io/files/$root_app_version/dbeaver-ce-$root_app_version-linux-x86_64.deb"
+
+  sudo mkdir -pv "$root_app_subdir"
+
+  if [ ! -z "`dbeaver --version`" ]
+  then
+    echo "$root_app_version" | sudo tee "$root_app_subdir/version.txt"
+  fi
+else
+  echo "$root_app_name is already installed"
+fi
+
+menuConf "$home_menu_dir" "dbeaver-ce.desktop" "Name" "DBeaver"
+
+echo "$root_app_name have been configured"
 
 printLine "Docker"
 
