@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "INSTALL DEVELOPMENT APPS (UBUNTU)"
-echo "Version: 2026.08.02-2020"
+echo "Version: 2026.08.18-0940"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -134,7 +134,7 @@ printLine "DBeaver"
 root_app_name="dbeaver"
 root_app_subdir="$root_app_dir/$root_app_name"
 root_app_cversion="`sudo cat "$root_app_subdir/version.txt"`"
-root_app_version="26.1.4"
+root_app_version="26.1.5"
 
 if [ "$root_app_cversion" != "$root_app_version" ]
 then
