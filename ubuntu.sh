@@ -4,7 +4,7 @@ system_release="`lsb_release -sr`"
 system_architecture="`uname -m`"
 
 echo "INSTALL DEVELOPMENT APPS (UBUNTU)"
-echo "Version: 2026.09.01-1720"
+echo "Version: 2026.09.15-1540"
 echo "Author: Danilo Ancilotto"
 echo "System: $system"
 echo "Architecture: $system_architecture"
@@ -211,18 +211,18 @@ printLine "MySQL Workbench"
 root_app_name="mysql-workbench"
 root_app_subdir="$root_app_dir/$root_app_name"
 root_app_cversion="`sudo cat "$root_app_subdir/version.txt"`"
-root_app_version="8.0.47"
+root_app_version="26.7.0"
 
 if [ "$root_app_cversion" != "$root_app_version" ]
 then
   sudo rm -rf "$root_app_subdir"
 
-  sudo apt remove mysql-workbench-community -y
+  sudo apt remove mysql-workbench -y
 fi
 
 if [ -z "`mysql-workbench --version`" ]
 then
-  dpkgInstall "mysql-workbench.deb" $'https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community_'$root_app_version$'-1ubuntu'$system_release$'_amd64.deb'
+  dpkgInstall "mysql-workbench.deb" $'https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench_'$root_app_version$'-1_amd64.deb'
 
   sudo mkdir -pv "$root_app_subdir"
 
